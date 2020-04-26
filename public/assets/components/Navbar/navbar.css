@@ -1,10 +1,16 @@
 #navbar-slot {
     color: #ffffff;
     background-color: #FF7171;
+    font-family: Inter-SemiBold;
 }
 
 #navbar-slot .navbar-brand {
     color: #ffffff;
+}
+
+#navbar-slot .navbar-brand p {
+    margin: 0;
+    font-size: 12px;
 }
 
 #navbar-slot .navbar-nav {
