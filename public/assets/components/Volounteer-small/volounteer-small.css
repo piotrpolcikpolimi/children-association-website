@@ -1,0 +1,39 @@
+.person-thumbnail {
+    max-width: 400px;
+    text-align: center;
+    margin: 20px;
+    position: relative;
+    transition: .3s ease-in;
+}
+
+.person-thumbnail:hover {
+    transform: translate(-0.5%, -0.5%);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.person-thumbnail img {
+    width: 360px;
+}
+
+.person-thumbnail h4 {
+    position: absolute;
+    padding: 12px;
+    top: 319px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 360px;
+    background-color: rgba(81, 75, 75, 0.8);
+    color: #fff;
+    font-family: SegoeUI;
+}
+
+@media (max-width: 768px) {
+    .person-thumbnail img {
+        width: 330px;
+    }
+
+    .person-thumbnail h4 {
+        width: 330px;
+        top: 289px;
+    }
+}

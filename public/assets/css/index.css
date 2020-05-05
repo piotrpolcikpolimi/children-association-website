@@ -44,11 +44,115 @@
     border-color: #FF7171;
 }
 
+#intro-section {
+    margin: 80px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+
+}
+
+#intro-section .content {
+    max-width: 500px;
+    width: auto;
+}
+
+#intro-section .content h2 {
+    margin-bottom: 70px;
+    font-family: Inter-Bold;
+}
+
+#intro-section .content p {
+    margin-bottom: 50px;
+    font-family: SegoeUI;
+}
+
+#intro-section .content a {
+    border: 2px solid #FF7171;
+    color: #FF7171;
+    padding: 15px 20px;
+    transition: .3s ease-in;
+    font-family: SegoeUI;
+}
+
+#intro-section .content a:hover {
+    color: #FF9CA6;
+    border-color: #FF9CA6;
+}
+
+#intro-section img {
+    max-width: 800px;
+    max-height: 500px;
+    padding: 10px;
+}
+
+#services-slot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#volounteers-slot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#services-slot .how-this-works {
+    display: none;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section-transition {
+    text-align: center;
+    font-family: Inter-Regular;
+    font-size: 25px;
+    color: #FF7171;
+    text-decoration: underline;
+    transition: .3s ease-in;
+}
+
+.section-transition:hover {
+    color: #FF9CA6;
+}
+
+#events-slot .event-location {
+    display: none;
+}
+
+#events-slot .event-description {
+    display: none;
+}
+
+
 @media (max-width: 768px) {
     #hero {
         background-image: url('/assets/images/hero-mobile.jpg');
     }
+
+    #intro-section img {
+        max-height: 300px;
+    }
+
+    #intro-section .content {
+        max-width: 300px;
+    }
+
+    .section-header {
+        padding-left: 40px;
+    }
+
+    .section-transition {
+        font-size: 18px;
+    }
 }
+
 
 @media (max-width: 400px) {
     #hero .wrapper {
@@ -56,7 +160,7 @@
     }
 
     #hero .wrapper .hero-header p {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     #hero .wrapper .hero-subheader p {
@@ -66,5 +170,22 @@
     #hero .wrapper .hero-cta {
         padding: 12px;
         font-size: 16px;
+    }
+
+    #intro-section img {
+        display: none;
+    }
+
+    #intro-section .content {
+        text-align: center;
+    }
+
+    #intro-section .content h2 {
+        margin-bottom: 40px;
+    }
+
+    .section-header {
+        padding: 0;
+        text-align: center;
     }
 }

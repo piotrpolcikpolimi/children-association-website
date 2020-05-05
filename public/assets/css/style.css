@@ -13,6 +13,13 @@ a:hover {
     text-decoration: none;
 }
 
+.section-header {
+    padding-left: 80px;
+    margin-bottom: 80px;
+    font-family: Inter-Bold;
+}
+
+
 ::-webkit-scrollbar {
   width: 8px;
 }

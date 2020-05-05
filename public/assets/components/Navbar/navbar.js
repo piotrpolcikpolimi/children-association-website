@@ -1,4 +1,4 @@
-( async () => { 
+(async () => {
     const elementName = 'navbar';
 
     let template = await global.getTemplate(elementName);
@@ -6,22 +6,24 @@
 
     templateSlot.replaceWith($.parseHTML(template));
     global.insertCSSToHead('navbar');
-    setActiveNavbarElement();
-}) ();
+    navbar.setActiveNavbarElement();
+})();
 
-setActiveNavbarElement = () => {
-    const currentPath = window.location.pathname;
-    let activeElement;
+const navbar = {
+    setActiveNavbarElement: () => {
+        const currentPath = window.location.pathname;
+        let activeElement;
 
-    if (currentPath === '/') {
-        activeElement = 'home';
-    } else {
-        activeElement = currentPath.match(/\/pages\/([a-z]+).html/)[1];
-    }
+        if (currentPath === '/') {
+            activeElement = 'home';
+        } else {
+            activeElement = currentPath.match(/\/pages\/([a-z]+).html/)[1];
+        }
 
-    const navElement = $(`li.nav-item.${activeElement}`);
+        const navElement = $(`li.nav-item.${activeElement}`);
 
-    if (navElement) {
-        navElement.addClass('active');
+        if (navElement) {
+            navElement.addClass('active');
+        }
     }
 }

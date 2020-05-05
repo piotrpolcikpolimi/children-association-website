@@ -16,7 +16,14 @@ const global = {
 
     insertCSSToHead: (elementName) => {
         elementName = global.formatElementName(elementName);
+        let found = false;
         const href = `/assets/components/${elementName}/${elementName.toLowerCase()}.css`;
         $("head link[rel='stylesheet']").last().after(`<link rel='stylesheet' href='${href}' type='text/css' media='screen'>`);
+    },
+
+    appendChildrenToSlot: (slot, elements) => {
+        elements.forEach(element => {
+            slot.append(`${element.render()}`);
+        })
     }
 }
