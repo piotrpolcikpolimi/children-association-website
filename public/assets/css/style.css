@@ -32,12 +32,13 @@ a:hover {
     margin: 30px auto;
     text-align: center;
     font-family: Inter-Bold;
-    
 }
 
 .section-header-2 p {
     font-family: Inter-Regular;
     color: #3D3D3D;
+    max-width: 85vw;
+    margin: 0 auto;
 }
 
 .section-header-2 .header-underline {
@@ -86,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
@@ -116,7 +117,13 @@ h1, h2, h3, h4, h5, h6 {
     src: url('/assets/fonts/Inter-Regular.ttf');
 }
 @media (max-width: 1400px) {}
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .section-header-2 p {
+        max-width: 600px;
+        padding: 0 20px;
+    }
+
+}
 @media (max-width: 400px) {
     .location-info {
         margin-left: 20px;
