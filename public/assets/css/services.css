@@ -1,0 +1,31 @@
+#services-slot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+#services-slot .service-thumbnail {
+    max-width: 330px;
+    padding: 0 12px 24px;
+}
+
+#services-slot .service-thumbnail img {
+    max-width: 306px;
+    border-radius: 35px;
+}
+
+#services-slot .service-thumbnail .description {
+    min-height: 170px;
+}
+
+@media (max-width: 660px) {
+    #services-slot .service-thumbnail .description {
+        min-height: 1px;
+    }
+
+    #services-slot .service-thumbnail .how-this-works {
+        margin-top: 10px;
+    }
+}
