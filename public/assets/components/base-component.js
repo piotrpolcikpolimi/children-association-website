@@ -5,12 +5,12 @@ class BaseComponent {
         this.elements = elements;
     }
 
-    initialize = async () => {
+    async initialize() {
         this.template = await global.getTemplate(this.elementName);
         return this;
     };
 
-    render = () => {
+    render() {
         let templateCopy = this.template;
         this.elements.forEach(element => {
             const regex = new RegExp(`{{ ${element} }}`, 'g')

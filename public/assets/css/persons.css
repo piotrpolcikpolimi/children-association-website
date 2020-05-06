@@ -1,0 +1,47 @@
+#volounteers-slot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#volounteers-slot .person-thumbnail {
+    text-align: left;
+    color: #3D3D3D;
+    font-family: SegoeUI;
+}
+
+#volounteers-slot .person-thumbnail:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#volounteers-slot .person-thumbnail .image {
+    display: inline-block;
+    transition: .3s ease-in;
+}
+
+#volounteers-slot .person-thumbnail .image:hover {
+    transform: translate(-0.5%, -0.5%);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+#volounteers-slot .person-thumbnail h4 {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color: initial;
+    color: #FF7171;
+    padding: 0;
+    width: initial;
+}
+
+#volounteers-slot .person-thumbnail .read-more {
+    padding: 5px 10px;
+}
+
+
+#volounteers-slot .person-thumbnail .date-joined {
+    margin-bottom: 10px;
+}

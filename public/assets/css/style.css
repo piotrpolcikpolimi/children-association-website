@@ -28,6 +28,48 @@ a:hover {
     font-family: Inter-Bold;
 }
 
+.section-header-2 {
+    margin: 30px auto;
+    text-align: center;
+    font-family: Inter-Bold;
+    
+}
+
+.section-header-2 p {
+    font-family: Inter-Regular;
+    color: #3D3D3D;
+}
+
+.section-header-2 .header-underline {
+    width: 150px;
+    height: 2px;
+    background-color: #FF7171;
+    margin: 0 auto 20px;
+}
+
+.location-info {
+    margin-left: 60px;
+    color: #858585;
+    font-family: Inter-Regular;
+    padding: 5px 20px;
+    transition: .3s ease-in;
+}
+
+.location-info:hover{
+    color: #3D3D3D;
+}
+
+.button {
+    border: 2px solid #FF7171;
+    color: #FF7171;
+    transition: .3s ease-in;
+}
+
+.button:hover {
+    color: #FF9CA6;
+    border-color: #FF9CA6;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -75,4 +117,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (max-width: 1400px) {}
 @media (max-width: 768px) {}
-@media (max-width: 400px) {}
+@media (max-width: 400px) {
+    .location-info {
+        margin-left: 20px;
+    }
+}

@@ -30,6 +30,14 @@
     background-color: #fff;
     color: #127E97;
     padding: 12px 40px;
+    transition: .3s ease-in;
+    border: 3px solid #fff;
+}
+
+.event-thumbnail .content-wrapper .event-button:hover {
+    color: #FF7171;
+    border-color: #FF7171;
+
 }
 
 @media (max-width: 1000px) {
