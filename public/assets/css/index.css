@@ -69,17 +69,10 @@
 }
 
 #intro-section .content a {
-    border: 2px solid #FF7171;
-    color: #FF7171;
     padding: 15px 20px;
-    transition: .3s ease-in;
     font-family: SegoeUI;
 }
 
-#intro-section .content a:hover {
-    color: #FF9CA6;
-    border-color: #FF9CA6;
-}
 
 #intro-section img {
     max-width: 800px;
@@ -130,6 +123,17 @@
     display: none;
 }
 
+.person-thumbnail .role {
+    display: none;
+}
+
+.person-thumbnail .date-joined {
+    display: none;
+}
+
+.person-thumbnail .read-more {
+    display: none;
+}
 
 @media (max-width: 768px) {
     #hero {

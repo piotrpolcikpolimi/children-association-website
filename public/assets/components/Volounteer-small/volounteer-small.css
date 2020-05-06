@@ -22,9 +22,10 @@
     left: 50%;
     transform: translateX(-50%);
     width: 360px;
-    background-color: rgba(81, 75, 75, 0.8);
+    background-color: rgba(255, 156, 166, 0.7);
     color: #fff;
     font-family: SegoeUI;
+    pointer-events: none
 }
 
 @media (max-width: 768px) {

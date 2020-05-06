@@ -1,6 +1,9 @@
-<a href='../../../pages/person.html?id={{ id }}'>
-    <div id='person-thumbnail-{{ id }}' class='person-thumbnail'>
+<div id='person-thumbnail-{{ id }}' class='person-thumbnail'>
+    <a href='../../../pages/person.html?id={{ id }}' class="image">
         <img src='{{ thumbnail }}'>
-        <h4>{{ name }}</h4>
-    </div>
-</a>
+    </a>
+    <h4>{{ name }}</h4>
+    <p class="role">{{ role }}</p>
+    <p class="date-joined">With Children Association since {{ date_joined }}</p>
+    <a href="../../../pages/person.html?id={{ id }}" class="read-more button">Read more</a>
+</div>
