@@ -56,8 +56,16 @@ a:hover {
     transition: .3s ease-in;
 }
 
-.location-info:hover{
-    color: #3D3D3D;
+.location-info .active {
+    color: #3D3D3D
+}
+
+.location-info .inactive:hover{
+    transition: .3s ease-in;
+}
+
+.location-info .inactive:hover{
+    color: #FF9CA6;
 }
 
 .button {
@@ -75,6 +83,11 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
 }
 
 ::-webkit-scrollbar {

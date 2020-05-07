@@ -64,13 +64,13 @@ const getEventsThumbnailsData = async () => {
             id: '1',
             name: 'Adele Concert To Benefit Children\'s Empowerment  From Tickets',
             thumbnail: '/assets/images/events/1/thumb.jpg',
-            thumbnail_desc: 'Knowledge is power, especially when it comes to getting and staying healthy. So our health programs focus on two important things: <br/>1) developing healthy habits <br/>2) connecting kids with services when they need help.'
+            thumbnail_desc: 'Programme includes works by Scriabin / Blumenfeld / Reinecke / Bach / Alice Charbonnet and others.The Towersey Foundation is a unique charity providing music therapy in palliative care to bothadults and children living with non-curable conditions.'
         },
         {
             id: '2',
             name: 'Treks For Charity To Benefit Children\'s Health',
             thumbnail: '/assets/images/events/2/thumb.jpg',
-            thumbnail_desc: 'Education doesn\t have a one-size-fits-all solution. Your support is invested in helping kids complete secondary school using a wide range of tools to make it happen: providing school fees, uniforms, supplies, tutoring and scholarships.',
+            thumbnail_desc: 'If you want to do something a little different, then taking on a trek for charity could be exactly what you are looking for. Whether you choose a route close to home or far away, there are a wealth of organised treks or routes you can take on yourself to raise money for health charity.',
 
         }
     ]
