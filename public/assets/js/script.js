@@ -25,5 +25,20 @@ const global = {
         elements.forEach(element => {
             slot.append(`${element.render()}`);
         })
+    },
+
+    initMap: (lat, lng) => {
+        const coordinates = {lat: lat, lng: lng};
+        const mapSlot = $('#map');
+        const map = new google.maps.Map(
+            mapSlot[0],
+            {zoom: 14, center: coordinates, gestureHandling: 'none'}
+        );
+        new google.maps.Marker({position: coordinates, map: map});
+            console.log(mapSlot);
+
+        mapSlot.click(() => {
+            window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank')
+        })
     }
 }
