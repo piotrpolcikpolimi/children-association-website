@@ -2,6 +2,10 @@
     color: #ffffff;
     background-color: #FF7171;
     font-family: Inter-SemiBold;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
 }
 
 #navbar-slot .navbar-brand {
