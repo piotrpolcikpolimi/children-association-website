@@ -5,7 +5,7 @@
     const templateSlot = global.getTemplateSlot(elementName);
 
     templateSlot.replaceWith($.parseHTML(template));
-    global.insertCSSToHead('navbar');
+    global.insertCSSToHead(elementName);
     navbar.setActiveNavbarElement();
 })();
 

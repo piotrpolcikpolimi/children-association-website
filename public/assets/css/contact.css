@@ -1,0 +1,79 @@
+.contacts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.contacts-wrapper .single-contact {
+    text-align: center;
+    padding: 15px 15px;
+}
+
+.contacts-wrapper .single-contact p {
+    font-family: SegoeUI;
+}
+
+
+.contacts-wrapper .single-contact .address-text {
+    line-height: 20px;
+}
+
+.contacts-wrapper .single-contact .contact-header {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: Inter-Bold;
+}
+
+.contacts-wrapper .single-contact .contact-header i {
+    display: inline;
+    padding-right: 5px;
+    color: #FF7171;
+}
+
+.contacts-wrapper .single-contact .contact-header h4  {
+    display: inline;
+    font-size: 1.7rem;
+}
+
+.contacts-wrapper .single-contact .vertical-align {
+    justify-content: center;
+}
+
+.contacts-wrapper .single-contact .vertical-align i {
+    color: #E14040;
+    padding: 0 10px;
+    transition: .3s ease-in;
+}
+
+.contacts-wrapper .single-contact .vertical-align i:hover {
+    color: #FF7171;
+}
+
+.map-wrapper {
+    margin: 0 auto;
+    width: 90vw;
+    height: 400px;
+}
+
+.map-wrapper {
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.map-wrapper div {
+    pointer-events: none;
+}
+
+#contact-form-slot {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .map-wrapper {
+        width: 100vw;
+    }
+}
