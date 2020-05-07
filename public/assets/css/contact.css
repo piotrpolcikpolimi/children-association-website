@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-bottom: 50px;;
+    margin-bottom: 50px;
 }
 
 .contacts-wrapper .single-contact {
@@ -59,10 +59,17 @@
 
 .map-wrapper {
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
-.map-wrapper > div {
+.map-wrapper div {
     pointer-events: none;
+}
+
+#contact-form-slot {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
 @media (max-width: 768px) {

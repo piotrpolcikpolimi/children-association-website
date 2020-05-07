@@ -5,5 +5,5 @@
     const templateSlot = global.getTemplateSlot(elementName);
 
     templateSlot.append($.parseHTML(template));
-    global.insertCSSToHead('footer');
+    global.insertCSSToHead(elementName);
 }) ();

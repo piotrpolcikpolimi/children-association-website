@@ -35,7 +35,6 @@ const global = {
             {zoom: 14, center: coordinates, gestureHandling: 'none'}
         );
         new google.maps.Marker({position: coordinates, map: map});
-            console.log(mapSlot);
 
         mapSlot.click(() => {
             window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank')
