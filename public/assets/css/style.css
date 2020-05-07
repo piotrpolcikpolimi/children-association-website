@@ -24,8 +24,15 @@ a:hover {
 
 .section-header {
     padding-left: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     font-family: Inter-Bold;
+}
+
+.section-description {
+    padding-left: 80px;
+    width: 80vw;
+    max-width: 1200px;
+    font-family: SegoeUI;
 }
 
 .section-header-2 {
@@ -134,6 +141,15 @@ h1, h2, h3, h4, h5, h6 {
     .section-header-2 p {
         max-width: 600px;
         padding: 0 20px;
+    }
+
+    .section-header {
+        padding-left: 40px;
+    }
+
+    .section-description {
+        padding-left: 40px;
+        max-width: 90vw;
     }
 
 }
