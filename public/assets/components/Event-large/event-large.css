@@ -21,8 +21,34 @@
 
 .event-thumbnail .content-wrapper h4 {
     display: block;
-    font-size: 35px;
+    font-size: 30px;
     color: #fff;
+}
+
+.event-thumbnail .content-wrapper .event-location {
+    font-size: 12px;
+    margin: 10px 0 5px;
+    color: #FFF0AE;
+}
+
+.event-thumbnail .content-wrapper .event-location div {
+    display: inline-flex;
+    align-items: center;
+}
+
+.event-thumbnail .content-wrapper .event-location p {
+    line-height: 15px;
+    padding: 0 5px;
+}
+
+.event-thumbnail .content-wrapper .event-location img {
+    width: 15px;
+    height: 15px;
+}
+
+.event-thumbnail .content-wrapper .event-description {
+    color: #fff;
+    font-size: 14px
 }
 
 .event-thumbnail .content-wrapper .event-button {
@@ -40,19 +66,33 @@
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .event-thumbnail .content-wrapper h4 {
-        font-size: 28px;
+        font-size: 2.5vw;
+    }
+
+    .event-thumbnail .content-wrapper .event-description {
+        font-size: 1.2vw;
+    }
+
+    .event-thumbnail .content-wrapper .event-location {
+        font-size: 1vw;
     }
 }
 
 @media (max-width: 850px) {
-    .event-thumbnail .content-wrapper h4 {
-        font-size: 24px;
+    .event-thumbnail .content-wrapper .event-description {
+        font-size: 1.3vw
+    }
+    .event-thumbnail .content-wrapper .event-location {
+        font-size: 1.2vw
     }
 }
 
 @media (max-width: 700px) {
+    .event-thumbnail .content-wrapper h4 {
+        font-size: 4vw;
+    }
     .event-thumbnail {
         position: relative;
     }
@@ -61,13 +101,22 @@
     }
     .event-thumbnail .content-wrapper {
         position: absolute;
-        width: 80%;
-        height: 80%;
-        top: 10%;
-        left: 10%;
+        width: 88%;
+        height: 88%;
+        top: 6%;
+        left: 6%;
         text-align: center;
         padding: 20px;
-        background-color: rgba(225, 64, 64, 0.5);
+        background-color: rgba(225, 64, 64, 0.7);
+    }
+
+    .event-thumbnail .content-wrapper .event-description {
+        padding: 0 7px;
+        font-size: 2.4vw;
+    }
+
+    .event-thumbnail .content-wrapper .event-location {
+        font-size: 2.1vw
     }
 
     .event-thumbnail .content-wrapper .event-button {
@@ -77,7 +126,15 @@
 
 @media (max-width: 500px) {
     .event-thumbnail .content-wrapper h4 {
-        font-size: 20px;
+        font-size: 4.5vw;
+    }
+
+    .event-thumbnail .content-wrapper .event-description {
+        font-size: 2.8vw;
+    }
+
+    .event-thumbnail .content-wrapper .event-location {
+        font-size: 2.5vw
     }
 
     .event-thumbnail .content-wrapper .event-button {

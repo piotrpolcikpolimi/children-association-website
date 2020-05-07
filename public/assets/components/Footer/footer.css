@@ -63,22 +63,23 @@
 
 #footer-template .first-row .newsletter-signup form .email-wrapper {
     margin-bottom: 10px;
+    position: relative;
 }
 
-#footer-template .first-row .newsletter-signup form .email-wrapper .email-icon {
-    background-color: #EEE8E8;
-    border-width: 2px 0 2px 2px;
-    border-style: solid;
-    border-color: #000000;
+#footer-template .first-row .newsletter-signup form .email-wrapper i {
     color: #FF7171; 
-    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
 }
 
 
 #footer-template .first-row .newsletter-signup form .email-wrapper input {
     padding: 10px;
+    padding-left: 40px;
     background-color: #EEE8E8;
-    border-width: 2px 2px 2px 0;
+    border-width: 2px 2px 2px 2px;
     border-style: solid;
     border-color: #000000;
     box-shadow: none;
