@@ -1,0 +1,1 @@
+class ServiceSmall extends BaseComponent {}

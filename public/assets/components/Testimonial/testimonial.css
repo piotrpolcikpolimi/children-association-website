@@ -1,0 +1,30 @@
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+    margin: 20px 0;
+}
+
+.testimonial img {
+    width: 255px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    border: 3px solid #FF7171;
+}
+
+.testimonial .description .description-text {
+    max-width: 450px;
+    margin-bottom: 10px;
+}
+.testimonial .description .description-who {
+    padding-right: 15px;
+    float: right;
+}
+
+@media (max-width: 550px) {
+    .testimonial .description .description-text {
+        padding: 0 15px;
+    }
+}

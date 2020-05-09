@@ -1,22 +1,128 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Break the cycle of poverty</title>
-        <meta name="Children Association">
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="../assets/css/style.css">
-    </head>
-    <body>
-        <div id="navbar-slot"></div>
-        Event
-        <div id="footer-slot"></div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/components/Navbar/navbar.js"></script>
-        <script src="../assets/components/Footer/footer.js"></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Break the cycle of poverty</title>
+    <meta name="Children Association">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
+    <script src="https://kit.fontawesome.com/ec96508329.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/event.css">
+</head>
+
+<body>
+    <div id="navbar-slot"></div>
+    <div id="header">
+        <div class="location-info">
+            <a href="../pages/events.html"><span class="inactive">Events</span></a> /
+            <span class="active">Event thumb name</span>
+        </div>
+        <div class="title">
+            <h2>Children's Health Charity Kilimanjaro Challenge </h2>
+        </div>
+        <h2></h2>
+    </div>
+    <div id="content-slot">
+        <div id="info-section">
+            <div class="column-left">
+                <h4>Description</h4>
+                <p id="description">Take on this iconic challenge and trek from the South-West side of the National Park
+                    through the dense rainforest before reaching the summit to contribute to children's health.</p>
+                <div class="divider"></div>
+                <h4>Practical information</h4>
+                <div id="location" class="info-sub-section">
+                    <h5>Location</h5>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Mount Kilimanjaro, Kilimanjaro, Tanzania</span>
+                </div>
+                <div id="date" class="info-sub-section">
+                    <h5>Date</h5>
+                    <i class="far fa-calendar"></i>
+                    <span>16 May 2020</span>
+                </div>
+                <div id="price" class="info-sub-section">
+                    <h5>Sign up for</h5>
+                    <i class="fas fa-pound-sign"></i>
+                    <span>50.00</span>
+                </div>
+                <div id="how-to-take-part" class="info-sub-section">
+                    <h5>How to take part</h5>
+                    <p>See what payment options we support</p>
+                    <a href="payments.html">
+                        <div class="payment-link">Payment options</div>
+                    </a>
+                </div>
+                <div id="questions" class="info-sub-section">
+                    <h5>Questions</h5>
+                    <p>If you have a question, please <a class="contact-link" href="contact.html">Contact Us</a></p>
+                </div>
+            </div>
+            <img src="../assets/images/events/4/thumb.jpg">
+        </div>
+        <div class="divider"></div>
+        <div id="map-section">
+            <div class="info-sub-section">
+                <h5>Route</h5>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div id="previous-statistics" class="rounded-arrow-bottom">
+            <div id="kids" class="statistic">
+                <i class="fas fa-child fa-4x"></i>
+                <p>20k+ kids helped</p>
+            </div>
+            <div id="contributors" class="statistic">
+                <i class="fas fa-hand-holding-heart fa-4x"></i>
+                <p>80+ contributors</p>
+            </div>
+            <div id="raised" class="statistic">
+                <i class="fas fa-money-bill-wave fa-4x"></i>
+                <p>100k+ dollars raised</p>
+            </div>
+        </div>
+    </div>
+    <div id="testimonials">
+        <div class="section-header-3">
+            <h4>Testimonials</h4>
+            <p>What people are saying about us. </br> Meet other's who love Children Association</p>
+        </div>
+        <div id="testimonial-slot"></div>
+    </div>
+    <div id="volounteer">
+        <div class="section-header">
+            <h4>Event Manager</h4>
+            <p>Contact for more information</p>
+        </div>
+        <div id="volounteers-slot"></div>
+    </div>
+    <div id="service">
+        <div class="section-header">
+            <h4>Learn more about</h4>
+        </div>
+        <div id="services-slot"></div>
+    </div>
+    <div id="footer-slot"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/components/base-component.js"></script>
+    <script src="../assets/components/Navbar/navbar.js"></script>
+    <script src="../assets/components/Testimonial/testimonial.js"></script>
+    <script src="../assets/components/Volounteer-large/volounteer-large.js"></script>
+    <script src="../assets/components/Service-large/service-large.js"></script>
+    <script src="../assets/components/Footer/footer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcWn-3cQFw_mhJzIRKo7ewIOxqt-3Tkjg"></script>
+    <script async src="../assets/js/pages/event.js"></script>
+</body>
+
 </html>
