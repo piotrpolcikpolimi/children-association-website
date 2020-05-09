@@ -82,11 +82,11 @@ const getEventsThumbnailsData = async () => {
     const serviceData = await getServicesThumbnailsData();
     const serviceFields = this.elements = ['id', 'thumbnail', 'title', 'thumbnail_desc']
     const services = await Promise.all(serviceData.map(async (data) => {
-        const service = new ServiceLarge(data, 'service-large', serviceFields);
+        const service = new ServiceSmall(data, 'service-small', serviceFields);
         return await service.initialize();
     }));
 
-    global.insertCSSToHead('service-large');
+    global.insertCSSToHead('service-small');
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
 
 

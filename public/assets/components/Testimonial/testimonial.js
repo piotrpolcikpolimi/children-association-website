@@ -1,0 +1,1 @@
+class Testimonial extends BaseComponent {}

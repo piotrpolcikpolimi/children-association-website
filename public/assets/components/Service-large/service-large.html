@@ -1,13 +1,14 @@
 <div id='service-thumbnail-{{ id }}' class='service-thumbnail'>
-    <a href='../../../pages/person.html?id={{ id }}'>
+    <h4>{{ title }} Service</h4>
+    <div class="inner-wrapper">
+        <div class="description">
+            <p class="description">{{ thumbnail_desc }}</p>
+            <div>
+                <a class="read-more button" href='../../../pages/service.html?id={{ id }}'>
+                    Read more
+                </a>
+            </div>
+        </div>
         <img src='{{ thumbnail }}'>
-    </a>
-    <a href='../../../pages/person.html?id={{ id }}'>
-        <h4>{{ title }}</h4>
-    </a>
-    <p class="description">{{ thumbnail_desc }}</p>
-    <a href='../../../pages/person.html?id={{ id }}' class="how-this-works">
-        <p>HOW THIS WORKS AND WHY</p>
-        <i class="fas fa-caret-right fa-2x"></i>
-    </a>
+    </div>
 </div>

@@ -48,6 +48,16 @@ a:hover {
     margin: 0 auto;
 }
 
+.section-header-3 {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.section-header-3 p {
+    margin: 0 auto;
+    max-width: 315px;
+}
+
 .section-header-2 .header-underline {
     width: 150px;
     height: 2px;
@@ -98,8 +108,13 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.rounded-arrow-bottom {
+    /*clip-path: polygon(0 0, 0 83%, 33% 82%, 40% 83%, 42% 84%, 44% 86%, 46% 90%, 50% 100%, 54% 90%, 56% 86%, 58% 84%, 60% 83%, 63% 83%, 100% 83%, 100% 0);*/
+}
+
 ::-webkit-scrollbar {
   width: 8px;
+  display: none;
 }
 
 /* Track */
@@ -157,5 +172,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 400px) {
     .location-info {
         margin-left: 20px;
+    }
+
+    .rounded-arrow-bottom {
+        clip-path: none;;
     }
 }

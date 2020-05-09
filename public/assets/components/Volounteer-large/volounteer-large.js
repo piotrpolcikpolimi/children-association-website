@@ -1,0 +1,1 @@
+class VolounteerLarge extends BaseComponent {}
