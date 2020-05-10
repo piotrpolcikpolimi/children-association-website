@@ -3,11 +3,11 @@
     padding-bottom: 20px;
 }
 
-#header .person-info {
+#header .location-info {
     color: #fff;
 }
 
-#header .person-info .active {
+#header .location-info .active {
     color: #fff;
 }
 
@@ -16,10 +16,6 @@
     padding: 15px 5px;
     color: #fff;
     border-left: 2px solid #fff;
-}
-
-#experience-section {
-    text-align: center;
 }
 
 #info-section {
@@ -44,7 +40,7 @@
 }
 
 #content-slot .divider {
-    width: 1200px;
+    width: 400px;
     margin: 20px auto;
     height: 2px;
     background-color: #5E9EDB;
@@ -91,7 +87,7 @@
     background-color: #E8E6E6;
 }
 
-#contact {
+#previous-statistics {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -128,7 +124,6 @@
 
 #service {
     padding: 40px 0;
-    background-color: #E8E6E6;
 }
 
 #service .section-header {
@@ -147,13 +142,6 @@
 
 #testimonials {
     margin-bottom: 30px;
-}
-
-#events-slot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0 40px;
 }
 
 @media (max-width: 768px) {
