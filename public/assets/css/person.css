@@ -77,12 +77,11 @@
 }
 
 #map-section .info-sub-section {
-    padding: 0 80px;
+    padding: 0;
 }
 
 #map {
-    height: 600px;
-    margin: 20px auto 40px;
+    height: 0px;
 }
 
 .rounded-arrow-bottom {
@@ -147,6 +146,11 @@
 
 #testimonials {
     margin-bottom: 30px;
+}
+
+#event .event-header {
+    padding-left: 20px;
+    margin-bottom: 5px;
 }
 
 #events-slot {
