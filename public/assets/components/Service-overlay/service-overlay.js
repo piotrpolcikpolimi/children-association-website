@@ -1,0 +1,1 @@
+class ServiceOverlay extends BaseComponent {}

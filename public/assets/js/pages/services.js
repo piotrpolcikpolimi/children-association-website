@@ -33,7 +33,7 @@ const getServicesThumbnailsData = async () => {
     const serviceData = await getServicesThumbnailsData();
     const serviceFields = this.elements = ['id', 'thumbnail', 'title', 'thumbnail_desc']
     const services = await Promise.all(serviceData.map(async (data) => {
-        const service = new ServiceLarge(data, 'service-small', serviceFields);
+        const service = new ServiceSmall(data, 'service-small', serviceFields);
         return await service.initialize();
     }));
 

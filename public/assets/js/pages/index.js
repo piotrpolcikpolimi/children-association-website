@@ -80,7 +80,7 @@ const getEventsThumbnailsData = async () => {
 (async () => {
 
     const serviceData = await getServicesThumbnailsData();
-    const serviceFields = this.elements = ['id', 'thumbnail', 'title', 'thumbnail_desc']
+    const serviceFields = ['id', 'thumbnail', 'title', 'thumbnail_desc']
     const services = await Promise.all(serviceData.map(async (data) => {
         const service = new ServiceSmall(data, 'service-small', serviceFields);
         return await service.initialize();
@@ -95,7 +95,7 @@ const getEventsThumbnailsData = async () => {
     const volounteers = await Promise.all(volounteersData.map(async (data) => {
         const volounteer = new VolounteerSmall(data, 'volounteer-small', volounteerFields);
         return await volounteer.initialize();
-    }))
+    }));
 
     global.insertCSSToHead('volounteer-small');
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
@@ -105,7 +105,8 @@ const getEventsThumbnailsData = async () => {
     const events = await Promise.all(eventsData.map(async (data) => {
         const event = new EventLarge(data, 'event-large', eventFields);
         return await event.initialize();
-    }))
+    }));
+
     global.insertCSSToHead('event-large');
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
 
