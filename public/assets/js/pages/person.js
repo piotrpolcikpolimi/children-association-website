@@ -56,9 +56,6 @@ const getEventsThumbnailsData = async () => {
 }
 
 (async () => {
-    if (typeof(google) !== 'undefined') {
-        global.initMap(45.4784315, 9.2283424);
-    }
 
     const volounteersData = await getVolounteersThumbnailsData();
     const volounteerFields = ['id', 'thumbnail', 'name', 'volounteer_desc']
