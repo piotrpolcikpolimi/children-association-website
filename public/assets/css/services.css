@@ -20,6 +20,10 @@
     min-height: 170px;
 }
 
+#footer-slot {
+    margin-top: 300px;
+}
+
 @media (max-width: 660px) {
     #services-slot .service-thumbnail .description {
         min-height: 1px;

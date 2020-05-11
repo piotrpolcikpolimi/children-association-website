@@ -6,4 +6,5 @@
 
     templateSlot.append($.parseHTML(template));
     global.insertCSSToHead(elementName);
+
 }) ();

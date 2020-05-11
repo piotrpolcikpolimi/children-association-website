@@ -1,0 +1,1 @@
+class EventSmall extends BaseComponent {}
