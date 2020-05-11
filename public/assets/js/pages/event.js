@@ -64,7 +64,7 @@ const getTestimonialsData = async () => {
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
 
     const testimonialData = await getTestimonialsData();
-    const testimonialFields = this.elements = ['id', 'person', 'testimonial', 'thumbnail']
+    const testimonialFields = ['id', 'person', 'testimonial', 'thumbnail']
     const testimonials = await Promise.all(testimonialData.map(async (data) => {
         const testimonial = new Testimonial(data, 'testimonial', testimonialFields);
         return await testimonial.initialize();

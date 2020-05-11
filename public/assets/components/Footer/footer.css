@@ -145,6 +145,7 @@
     pointer-events: none;
 }
 
+
 @media (max-width: 768px) {
     #footer-template {
         padding: 20px 40px 15px;
