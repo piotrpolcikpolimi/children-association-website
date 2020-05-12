@@ -39,5 +39,9 @@ const global = {
         mapSlot.click(() => {
             window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank')
         })
+    },
+
+    fetchData: (endpoint, queryString = '') => {
+        return fetch('/v1' + endpoint + '?' + queryString);
     }
 }

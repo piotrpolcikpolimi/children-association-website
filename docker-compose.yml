@@ -9,4 +9,36 @@ services:
         volumes:
             - ./nginx/conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf
             - ./public:/var/www/public
+        depends_on:
+            - backend
         restart: always
+
+    backend:
+        build: ./
+        command: ./node_modules/nodemon/bin/nodemon.js ./index.js
+        volumes:
+            - ./utils/:/usr/src/utils/
+            - ./service/:/usr/src/service/
+            - ./controllers/:/usr/src/controllers/
+            - ./api/:/usr/src/api/
+            - ./index.js:/usr/src/index.js
+        restart: always
+        depends_on:
+            - db
+        environment: 
+            - DATABASE_URL=postgres://admin:example@db:5432/children
+
+    db:
+        image: postgres
+        restart: always
+        volumes:
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        environment:
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: example
+            
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
