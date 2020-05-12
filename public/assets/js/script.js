@@ -42,6 +42,6 @@ const global = {
     },
 
     fetchData: (endpoint, queryString = '') => {
-        return fetch('/v1' + endpoint + '?' + queryString);
+        return fetch(`/v1${endpoint}?${queryString}`);
     }
 }

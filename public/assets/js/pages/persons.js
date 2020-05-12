@@ -10,15 +10,17 @@ const parsePerson = (data) => {
 }
 
 (async () => {
-
-    let volounteersData = await global.fetchData('/persons','offset=0&limit=9');
-    volounteersData = await volounteersData.json();
     const volounteerFields = ['id', 'thumbnail', 'name', 'role', 'date_joined', 'thumbnail_desc']
-    const volounteers = await Promise.all(volounteersData.persons.map(async (data) => {
-        const object = parsePerson(data);
-        const volounteer = new VolounteerSmall(object, 'volounteer-small', volounteerFields);
-        return await volounteer.initialize();
-    }))
+
+    let volounteersData = await global.fetchData('/persons','offset=0&limit=9'),
+        volounteersTemplate;
+
+    [ volounteersData, volounteersTemplate ] = await Promise.all([
+        volounteersData.json(), global.getTemplate('volounteer-small')]);
+
+    const volounteers = volounteersData.persons.map(data => {
+        return new VolounteerSmall(parsePerson(data), 'volounteer-small', volounteerFields, volounteersTemplate);
+    });
 
     global.insertCSSToHead('volounteer-small');
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);

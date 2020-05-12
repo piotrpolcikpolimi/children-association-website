@@ -1,14 +1,10 @@
 class BaseComponent {
-    constructor (data, name, elements) {
+    constructor (data, name, elements, template) {
         this.elementName = name
         this.data = data;
         this.elements = elements;
+        this.template = template;
     }
-
-    async initialize() {
-        this.template = await global.getTemplate(this.elementName);
-        return this;
-    };
 
     render() {
         let templateCopy = this.template;

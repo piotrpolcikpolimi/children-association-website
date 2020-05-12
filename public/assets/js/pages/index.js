@@ -28,42 +28,49 @@ const parsePerson = (data) => {
     }
 }
 
-
-
 (async () => {
-
-    let serviceData = await global.fetchData('/services');
-    serviceData = await serviceData.json();
+    let serviceTemplate, volounteerTemplate, eventTemplate;
     const serviceFields = ['id', 'thumbnail', 'title', 'thumbnail_desc']
-    const services = await Promise.all(serviceData.map(async (data) => {
-        const service = new ServiceSmall(parseService(data), 'service-small', serviceFields);
-        return await service.initialize();
-    }));
-
-    global.insertCSSToHead('service-small');
-    global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
-
-
-    let volounteersData = await global.fetchData('/persons','offset=0&limit=3');
-    volounteersData = await volounteersData.json();
     const volounteerFields = ['id', 'thumbnail', 'name', 'thumbnail_desc']
+    const eventFields = ['id', 'thumbnail', 'name', 'thumbnail_desc']
+
+    // Fetch data
+    let [ serviceData, volounteersData, eventsData ] = await Promise.all([
+        global.fetchData('/services'), 
+        global.fetchData('/persons','offset=0&limit=3'),
+        global.fetchData('/events', 'offset=0&limit=2')]);
+
+    // Get data JSON, fetch templates
+    serviceData = await serviceData.json();
+    [volounteersData, eventsData, serviceTemplate, volounteerTemplate, eventTemplate]  = await Promise.all([
+        volounteersData.json(), eventsData.json(),
+        global.getTemplate('service-small'), global.getTemplate('volounteer-small'), global.getTemplate('event-large')]);
+
+    // initialize services
+    const services = serviceData.map(data => {
+        return new ServiceSmall(parseService(data), 'service-small', serviceFields, serviceTemplate);
+    });
+
+    // initialize volounteers
     const volounteers = await Promise.all(volounteersData.persons.map(async (data) => {
-        const volounteer = new VolounteerSmall(parsePerson(data), 'volounteer-small', volounteerFields);
-        return await volounteer.initialize();
+        return new VolounteerSmall(parsePerson(data), 'volounteer-small', volounteerFields, volounteerTemplate);
     }));
 
+    // initialize events
+    const events = await Promise.all(eventsData.events.map(async (data) => {
+        return new EventLarge(parseEvents(data), 'event-large', eventFields, eventTemplate);
+    }));
+
+
+    // add template's css
+    global.insertCSSToHead('service-small');
     global.insertCSSToHead('volounteer-small');
+    global.insertCSSToHead('event-large');
+
+    // insert elements into DOM
+    global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
+    global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
-    let eventsData = await global.fetchData('/events', 'offset=0&limit=8');
-    eventsData = await eventsData.json();
-    const eventFields = ['id', 'thumbnail', 'name', 'thumbnail_desc']
-    const events = await Promise.all(eventsData.events.map(async (data) => {
-        const event = new EventLarge(parseEvents(data), 'event-large', eventFields);
-        return await event.initialize();
-    }));
-
-    global.insertCSSToHead('event-large');
-    global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
 
 })();

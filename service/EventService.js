@@ -27,13 +27,11 @@ exports.eventDbSetup = function(s) {
 
 exports.eventsGET = async function(offset,limit) {
     const events = await sqlDb('event').select('id', 'id_thumbnail', 'id_location').offset(offset).limit(limit);
-    console.log(await getLocationById(1));
     const eventsArray = await Promise.all(events.map(async event => {
         const [ thumbnail, location ] = await Promise.all([
             getThumbnailById(event.id_thumbnail),
             getLocationById(event.id_location)
         ]);
-        console.log(thumbnail, location)
         return {
             id: event.id,
             thumbnail: thumbnail[0],

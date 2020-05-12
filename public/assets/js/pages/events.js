@@ -10,15 +10,18 @@ const parseEvents = (data) => {
 }
 
 (async () => {
-
-    let eventsData = await global.fetchData('/events', 'offset=0&limit=8');
-    eventsData = await eventsData.json();
     const eventFields = ['id', 'thumbnail', 'name', 'thumbnail_desc', 'location', 'flag']
-    const events = await Promise.all(eventsData.events.map(async (data) => {
-        const object = parseEvents(data);
-        const event = new EventLarge(object, 'event-large', eventFields);
-        return await event.initialize();
-    }))
+
+    let eventsData = await global.fetchData('/events', 'offset=0&limit=8'),
+        eventsTemplate;
+    
+    [ eventsData, eventsTemplate ] = await Promise.all([
+        eventsData.json(), global.getTemplate('event-large')]);
+
+    const events = eventsData.events.map(data => {
+        return new EventLarge(parseEvents(data), 'event-large', eventFields, eventsTemplate);
+    });
+
     global.insertCSSToHead('event-large');
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
 
