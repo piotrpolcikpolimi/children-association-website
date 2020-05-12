@@ -1,14 +1,14 @@
 #header {
-    background-color: #436C93;
-    padding-bottom: 20px;
+    background-color: #F1EEEE;
+    display: flex;
 }
 
 #header .person-info {
-    color: #fff;
+    color: #878f99;
 }
 
 #header .person-info .active {
-    color: #fff;
+    color: #878f99;
 }
 
 #header .title {
@@ -18,8 +18,69 @@
     border-left: 2px solid #fff;
 }
 
+#header .structural-links{
+    margin-top: 60px;
+    font-family: Inter-Regular;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.person-info {
+    margin-top: 60px;
+    margin-left: 60px;
+    color: #5f0c0c;
+    font-family: Inter-Regular;
+    padding: 5px 20px;
+    transition: .3s ease-in;
+}
+
+.person-info-2 {
+    text-align: center;
+}
+
+.person-info .active {
+    color: #3D3D3D
+}
+
+.person-info .inactive:hover{
+    transition: .3s ease-in;
+}
+
+.person-info .inactive:hover{
+    color: #FF9CA6;
+}
+
+
+#bio-block {
+    display: flex;
+    background-color: #fff;
+    margin: 20px auto 40px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#bio-block .bio-info {
+    max-width: 600px;
+}
+
+#bio-block .bio-info .slot {
+    padding: 40px;
+}
+
+#bio-block .bio-photo img {
+    max-width: 800px;
+    max-height: 500px;
+    padding: 10px;
+}
+
 #experience-section {
     text-align: center;
+}
+
+#experience-section p {
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 #info-section {
@@ -44,7 +105,7 @@
 }
 
 #content-slot .divider {
-    width: 1200px;
+    width: 50%;
     margin: 20px auto;
     height: 2px;
     background-color: #5E9EDB;
@@ -90,11 +151,17 @@
     background-color: #E8E6E6;
 }
 
+#contact1 .test{
+    background-color: #E8E6E6;
+    padding: 25px;
+}
+
 #contact {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #E8E6E6;
 }
 
 .statistic {
@@ -146,6 +213,11 @@
 
 #testimonials {
     margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+#event {
+    padding: 30px;
 }
 
 #event .event-header {
