@@ -59,7 +59,7 @@ const global = {
             $(el).html(
                 _.get(data, $(el).attr('data-value'))
             );
-        })
+        });
 
         $('[data-type="concat-string"]').each((i, el) => {
             values = Array.from($(el).attr('data-value').split("|"));
@@ -72,7 +72,7 @@ const global = {
             $(el).attr('src', 
                 _.get(data, $(el).attr('data-value'))
             );
-        })
+        });
 
         $('[data-type="date"]').each((i, el) => {
             $(el).html(
@@ -80,7 +80,21 @@ const global = {
                     _.get(data, $(el).attr('data-value'))
                 )
             );
+        });
+
+        $('[data-type="currency"]').each((i, el) => {
+            $(el).html(
+                _.get(data, $(el).attr('data-value')).toFixed(2)
+            );
         })
 
+        $('[data-type="number"]').each((i, el) => {
+            let value = _.get(data, $(el).attr('data-value'));
+            console.log(value);
+            if (value > 10000) {
+                value = value.toString().slice(0, -3) + 'k';
+            }
+            $(el).html(value + '+');
+        });
     }
 }

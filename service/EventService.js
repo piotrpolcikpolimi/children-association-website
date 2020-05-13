@@ -27,7 +27,6 @@ exports.eventDbSetup = function(s) {
  * limit Long the number of services to return (optional)
  * returns List
  **/
-
 exports.eventsGET = async function(offset, limit, country, month) {
     const events = await sqlDb('event').select('id', 'id_thumbnail', 'id_location').offset(offset).limit(limit);
     const eventsArray = await Promise.all(events.map(async event => {
