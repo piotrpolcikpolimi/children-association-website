@@ -1,0 +1,304 @@
+#header {
+    background-color: #F1EEEE;
+    display: flex;
+}
+
+#header .person-info {
+    color: #878f99;
+}
+
+#header .person-info .active {
+    color: #878f99;
+}
+
+#header .title {
+    margin-left: 80px;
+    padding: 15px 5px;
+    color: #fff;
+    border-left: 2px solid #fff;
+}
+
+#header .structural-links{
+    margin-top: 60px;
+    font-family: Inter-Regular;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.person-info {
+    margin-top: 60px;
+    margin-left: 60px;
+    color: #5f0c0c;
+    font-family: Inter-Regular;
+    padding: 5px 20px;
+    transition: .3s ease-in;
+}
+
+.person-info-2 {
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.person-info .active {
+    color: #3D3D3D
+}
+
+.person-info .inactive:hover{
+    transition: .3s ease-in;
+}
+
+.person-info .inactive:hover{
+    color: #FF9CA6;
+}
+
+
+#bio-block {
+    display: flex;
+    background-color: #fff;
+    margin: 20px auto 40px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#bio-block .bio-info {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#bio-block .bio-info .slot {
+    padding: 40px;
+}
+
+#bio-block .bio-info .slot1 .divider{
+    height: 50px;
+    margin: 20px auto;
+    width: 2px;
+    background-color: #707070;
+}
+
+#bio-block .bio-photo img {
+    padding: 30px;
+    max-width: 1000px;
+    max-height: 800px;
+}
+
+#experience-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+}
+
+#experience-section p {
+    justify-content: center;
+    padding-top: 20px;
+    margin-bottom: 70px;
+}
+
+#info-section {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 20px 80px 0;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#info-section img {
+    height: 450px;
+    width: auto;
+}
+
+#description {
+    max-width: 510px;
+}
+
+#info-section h4 {
+    margin-bottom: 20px;
+}
+
+#contact1 .test{
+    background-color: #E8E6E6;
+    padding: 25px;
+}
+
+#contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #E8E6E6;
+}
+
+#content-slot .divider {
+    width: 50%;
+    margin: 20px auto;
+    height: 2px;
+    background-color: #5E9EDB;
+}
+
+#contact .divider {
+    height: 50px;
+    margin: 20px auto;
+    width: 2px;
+    background-color: #707070;
+}
+
+#contact .minicontainer {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#contact .minicontainer .info {
+    padding-left: 20px;
+}
+
+.info-sub-section i {
+    color: #5E9EDB;
+}
+
+.info-sub-section {
+    margin: 20px 0;
+}
+
+.info-sub-section #payment-link {
+    padding: 5px 10px;
+    border: 2px solid #436C93;
+    color: #436C93;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.info-sub-section .contact-link {
+    color: #436C93;
+    text-decoration: underline;
+    transition: .3s ease-in;
+}
+
+.info-sub-section .contact-link:hover {
+    color: #5E9EDB;
+}
+
+#map-section .info-sub-section {
+    padding: 0;
+}
+
+#map {
+    height: 0px;
+}
+
+.rounded-arrow-bottom {
+    width: 100%;
+    height: 100px;
+    background-color: #E8E6E6;
+}
+
+.statistic {
+    text-align: center;
+    /*position: relative;
+    top: -10%;*/
+    font-size: 1em;
+    min-width: 180px;
+}
+
+.statistic i {
+    margin-bottom: 5px;
+}
+
+#volounteer {
+    width: 100vw;
+    background-color: #E8E6E6;
+    padding: 40px 0;
+}
+
+#volounteers-slot {
+    padding: 0 80px;
+}
+
+#volounteer {
+    width: 100vw;
+    background-color: #E8E6E6;
+    padding: 40px 0;
+}
+
+#service {
+    padding: 40px 0;
+    background-color: #E8E6E6;
+}
+
+#service .section-header {
+    margin-bottom: 5px;
+}
+
+#services-slot {
+    padding: 0 80px;
+}
+
+#testimonial-slot {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#testimonials {
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+#event {
+    padding: 30px;
+}
+
+#event .event-header {
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+#events-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 40px;
+}
+
+@media (max-width: 768px) {
+    #header .title {
+        margin-left: 20px;
+    }
+    #info-section {
+        padding: 20px 20px 0;
+        justify-content: center;
+    }
+    #info-section h4 {
+        margin: 20px 0;
+    }
+
+    #info-section img {
+        width: calc(100vw - 40px);
+        max-width: 600px;
+        height: auto;
+    }
+
+    #volounteers-slot {
+        padding: 0 20px;
+    }
+
+    #services-slot {
+        padding: 0 20px;
+    }
+
+    #content-slot .divider {
+        max-width: 400px;
+        width: 80vw;
+    }
+
+    #map-section .info-sub-section {
+        padding: 0;
+    }
+    
+    #map {
+        height: 450px;
+        margin: 20px auto 40px;
+    }
+}
