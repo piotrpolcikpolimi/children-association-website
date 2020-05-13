@@ -1,8 +1,10 @@
 'use strict';
 
 let sqlDb;
-let { getThumbnailById } = require('./ThumbnailService'),
-    { getLocationById } = require('./LocationService');
+let { getThumbnailById, 
+        getLocationById, 
+        getTestimonialById, 
+        getEventThumbnailById  } = require('./Utils');
 
 exports.serviceDbSetup = function(s) {
     sqlDb = s;
@@ -23,34 +25,17 @@ exports.serviceDbSetup = function(s) {
  * returns Service
  **/
 exports.getServiceById = async function(id) {
-    let service = (await sqlDb('service').where('id', id).select('id', 'name', 'center_activities', 'description', 'practical_info', 'header_photo', 'cta'))[0],
-        [testimonials, events] = await Promise.all([sqlDb('service_testimonial').where('id_service', id).select('id_testimonial'),
+    let service = (await sqlDb('service').where('id', id).select('id', 'name', 'center_activities', 'description', 'practical_info', 'header_photo', 'cta'))[0];
+    let [testimonials, events] = await Promise.all([sqlDb('service_testimonial').where('id_service', id).select('id_testimonial'),
                 sqlDb('event_service').where('id_service', id).select('id_event')]);
 
-    testimonials = Promise.all(testimonials.map(async t => {
-        return sqlDb('testimonial').where('id', t.id_testimonial).first();
+    service.testimonials = await Promise.all(testimonials.map(t => {
+        return getTestimonialById(t.id_testimonial);
     }));
 
-    events = await Promise.all(events.map(async e => {
-        return sqlDb('event').where('id', e.id_event).select('id', 'id_thumbnail', 'id_location');
+    service.events = await Promise.all(events.map(e => {
+        return getEventThumbnailById(e.id_event);
     }));
-
-    events = Promise.all(events.map(async e => {
-        const [ thumbnail, location ] = await Promise.all([
-            getThumbnailById(e[0].id_thumbnail),
-            getLocationById(e[0].id_location)
-        ]);
-        return {
-            id: e[0].id,
-            thumbnail: thumbnail[0],
-            location: location[0]
-        }
-    }));
-
-    [ testimonials, events ] = await Promise.all([testimonials, events]);
-
-    service.testimonials = testimonials.map(testimonial => testimonial);
-    service.events = events;
 
     return service;
 }
@@ -68,7 +53,7 @@ exports.servicesGET = async function() {
       const thumbnail = await getThumbnailById(service.id_thumbnail);
       return {
           id: service.id,
-          thumbnail: thumbnail[0]
+          thumbnail: thumbnail
       }
   }));
 }

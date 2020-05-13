@@ -8,19 +8,21 @@ const parseService = (data) => {
 }
 
 (async () => {
-    const serviceFields = ['id', 'title', 'thumbnail', 'thumbnail_desc']
-
-    let serviceData = await global.fetchData('/services'),
-        serviceTemplate;
+    // Fetch data
+    let serviceData = await global.fetchData('/services');
+    let serviceTemplate;
     
+    // Get data JSON, fetch template
     [ serviceData, serviceTemplate ] = await Promise.all([
         serviceData.json(), global.getTemplate('service-small')]);
 
-    const services = serviceData.map(data => {
-        return new ServiceSmall(parseService(data), 'service-small', serviceFields, serviceTemplate);
-    });
-
+    // initialize services
+    const services = serviceData.map(data => new ServiceSmall(parseService(data), 'service-small', ['id', 'title', 'thumbnail', 'thumbnail_desc'], serviceTemplate));
+    
+    // add template's css
     global.insertCSSToHead('service-small');
+
+    // insert elements into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
 
 })();

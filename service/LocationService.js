@@ -25,7 +25,12 @@ exports.locationDbSetup = function(s) {
  * returns Location
  **/
 exports.getLocationById = function(id) {
-    return sqlDb('location').where('id', id);
+    return new Promise((resolve, reject) => {
+        sqlDb('location').where('id', id)
+        .then(location => {
+            resolve(location[0]);
+        });
+    });
 }
 
 

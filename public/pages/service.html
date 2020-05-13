@@ -18,24 +18,25 @@
     <div id="navbar-slot"></div>
     <div class="location-info">
         <a href="../pages/events.html"><span class="inactive">Services</span></a> /
-        <span class="active" data-value="name"></span>
+        <span class="active" data-type="string" data-value="name"></span>
     </div>
     <div class="section-header-2">
-        <h2 data-value="name"></h2>
+        <h2 data-type="string" data-value="name"></h2>
         <div class="header-underline"></div>
-        <p>fighting poverty by <span class="stand-out">improving <span data-value="name">health</span></span></p>
-        <img id="header-photo" src="">
+        <p>fighting poverty by <span class="stand-out">improving <span data-value="name"
+                    data-type="string">health</span></span></p>
+        <img data-type="image" data-value="header_photo" src="">
     </div>
     <div id="description">
         <h5>How does your support help</h4>
-            <p id="center-activities"></p>
+            <p data-type="string" data-value="center_activities"></p>
     </div>
     <div id="section-divider">
-        <p id="description-divider"></p>
+        <p data-type="string" data-value="description"></p>
     </div>
     <div id="practical-info">
         <h5>And Here Are Ways Your Support Makes Health Services Available And Affordable:</h2>
-            <p id="practical-info"></p>
+            <p data-type="string" data-value="practical_info"></p>
     </div>
     <div id="testimonials">
         <div class="section-header-3">
@@ -45,7 +46,7 @@
         <div id="testimonial-slot"></div>
     </div>
     <div id="cta">
-        <p id="cta-description"></p>
+        <p data-type="string" data-value="cta"></p>
         <a id="donate" href="donate.html">Donate!</a>
         <div class="sub-text">
             <i class="fas fa-hand-point-right"></i><span>Interested in a closer cooperation?</span>
@@ -74,6 +75,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
+        integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/components/base-component.js"></script>
     <script src="../assets/components/Navbar/navbar.js"></script>

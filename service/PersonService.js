@@ -1,7 +1,7 @@
 'use strict';
 
 let sqlDb;
-let { getThumbnailById } = require('./ThumbnailService');
+let { getThumbnailById } = require('./Utils');
 
 exports.personDbSetup = function(s) {
     sqlDb = s;
@@ -39,7 +39,7 @@ exports.personsGET = async function(offset, limit) {
         const thumbnail = await getThumbnailById(person.id_thumbnail);
         return {
             id: person.id,
-            thumbnail: thumbnail[0],
+            thumbnail: thumbnail,
             joining_date: person.joining_date,
             role: person.role
         }
@@ -48,7 +48,7 @@ exports.personsGET = async function(offset, limit) {
     return {
         persons: personsArray,
         meta: {
-            total_number: await sqlDb('person').count('id as CNT')
+            total_number: (await sqlDb('person').count('id as CNT'))[0]['CNT']
         }
     };
 

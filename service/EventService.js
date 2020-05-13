@@ -1,8 +1,11 @@
 'use strict';
 
 let sqlDb;
-let { getThumbnailById } = require('./ThumbnailService'),
-    { getLocationById } = require('./LocationService');
+let { getThumbnailById, 
+        getLocationById, 
+        getTestimonialById,
+        getServiceThumbnailById,
+        getPersonThumbnailById } = require('./Utils');
 
 
 exports.eventDbSetup = function(s) {
@@ -25,7 +28,7 @@ exports.eventDbSetup = function(s) {
  * returns List
  **/
 
-exports.eventsGET = async function(offset,limit) {
+exports.eventsGET = async function(offset, limit, country, month) {
     const events = await sqlDb('event').select('id', 'id_thumbnail', 'id_location').offset(offset).limit(limit);
     const eventsArray = await Promise.all(events.map(async event => {
         const [ thumbnail, location ] = await Promise.all([
@@ -34,19 +37,18 @@ exports.eventsGET = async function(offset,limit) {
         ]);
         return {
             id: event.id,
-            thumbnail: thumbnail[0],
-            location: location[0]
+            thumbnail: thumbnail,
+            location: location
         }
     }));
 
     return {
         events: eventsArray,
         meta: {
-            total_number: await sqlDb('event').count('id as CNT')
+            total_number: (await sqlDb('event').count('id as CNT'))[0]['CNT']
         }
     };
 }
-
 
 /**
  * Find an event by id
@@ -57,97 +59,30 @@ exports.eventsGET = async function(offset,limit) {
  * month Long a month to filter the events on (optional)
  * returns Event
  **/
-exports.getEventById = function(id,country,month) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "thumbnail" : {
-    "thumbnail_desc" : "thumbnail_desc",
-    "thumbnail" : "thumbnail",
-    "id" : 6,
-    "title" : "title"
-  },
-  "manager" : {
-    "joining_date" : "2000-01-23",
-    "thumbnail" : {
-      "thumbnail_desc" : "thumbnail_desc",
-      "thumbnail" : "thumbnail",
-      "id" : 6,
-      "title" : "title"
-    },
-    "role" : "role",
-    "meta" : {
-      "total_number" : 1
-    }
-  },
-  "description" : "http://example.com/aeiou",
-  "services" : [ {
-    "thumbnail" : {
-      "thumbnail_desc" : "thumbnail_desc",
-      "thumbnail" : "thumbnail",
-      "id" : 6,
-      "title" : "title"
-    },
-    "id" : 0
-  }, {
-    "thumbnail" : {
-      "thumbnail_desc" : "thumbnail_desc",
-      "thumbnail" : "thumbnail",
-      "id" : 6,
-      "title" : "title"
-    },
-    "id" : 0
-  } ],
-  "testimonials" : [ {
-    "testimonial" : "testimonial",
-    "person_desc" : "person_desc",
-    "photo" : "http://example.com/aeiou",
-    "id" : 6
-  }, {
-    "testimonial" : "testimonial",
-    "person_desc" : "person_desc",
-    "photo" : "http://example.com/aeiou",
-    "id" : 6
-  } ],
-  "date_time" : "2000-01-23T04:56:07.000+00:00",
-  "price" : 6.027456183070403,
-  "person" : {
-    "joining_date" : "2000-01-23",
-    "thumbnail" : {
-      "thumbnail_desc" : "thumbnail_desc",
-      "thumbnail" : "thumbnail",
-      "id" : 6,
-      "title" : "title"
-    },
-    "role" : "role",
-    "meta" : {
-      "total_number" : 1
-    }
-  },
-  "meta" : {
-    "total_number" : 1
-  },
-  "name" : "name",
-  "location" : {
-    "country_flag_ico n" : "country_flag_ico n",
-    "country" : "country",
-    "latitude" : 5.637376656633329,
-    "name" : "name",
-    "id" : 5,
-    "longitude" : 2.3021358869347655
-  },
-  "id" : 0,
-  "previous_years_statistics" : {
-    "amount" : 2,
-    "n_contributors" : 5,
-    "n_children" : 5
-  }
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+exports.getEventById = async function(id) {
+    let event = (await sqlDb('event').where('id', id).select('id','name','description','price','date_time', 'id_thumbnail', 'id_location', 'id_person'))[0];
+    let [thumbnail, location, manager, services, testimonials, statistics] = await Promise.all([
+        getThumbnailById(event.id_thumbnail),
+        getLocationById(event.id_location),
+        getPersonThumbnailById(event.id_person),
+        sqlDb('event_service').where('id_event', event.id).select('id_service'),
+        sqlDb('event_testimonial').where('id_event', event.id).select('id_testimonial'),
+        sqlDb('previous_years_statistics').where('id', event.id).select('n_children', 'n_contributors', 'amount')
+    ]);
+
+    event.thumbnail = thumbnail;
+    event.location = location;
+    event.statistics = statistics[0];
+    event.manager = manager;
+
+    [ event.services, event.testimonials ] = await Promise.all([
+        Promise.all(services.map(service => getServiceThumbnailById(service.id_service))),
+        Promise.all(testimonials.map(testimonial => getTestimonialById(testimonial.id_testimonial)))
+        ]);
+
+    delete event['id_location'];
+    delete event['id_thumbnail'];
+
+    return event;
 }
 

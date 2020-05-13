@@ -43,5 +43,44 @@ const global = {
 
     fetchData: (endpoint, queryString = '') => {
         return fetch(`/v1${endpoint}?${queryString}`);
+    },
+
+    format_date_dd_Month_yyyy: (date) => {
+        const dateObj = new Date(date);
+        return `${dateObj.getDate()} ${dateObj.toLocaleString('en-US', { month: 'long' })} ${dateObj.getFullYear()}`;
+    },
+
+    format_date_yyyy: (date) => {
+        return new Date(date).getFullYear();
+    },
+
+    insertDataIntoDOM: (data) => {
+        $('[data-type="string"]').each((i, el) => {
+            $(el).html(
+                _.get(data, $(el).attr('data-value'))
+            );
+        })
+
+        $('[data-type="concat-string"]').each((i, el) => {
+            values = Array.from($(el).attr('data-value').split("|"));
+            $(el).html(values.map(val => _.get(data, val))
+                            .join($(el).attr('data-separator')));
+        });
+
+
+        $('[data-type="image"]').each((i, el) => {
+            $(el).attr('src', 
+                _.get(data, $(el).attr('data-value'))
+            );
+        })
+
+        $('[data-type="date"]').each((i, el) => {
+            $(el).html(
+                global[`format_date_${$(el).attr('data-format')}`](
+                    _.get(data, $(el).attr('data-value'))
+                )
+            );
+        })
+
     }
 }

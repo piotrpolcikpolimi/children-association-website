@@ -54,7 +54,7 @@
     margin: 20px 0;
 }
 
-.info-sub-section #payment-link {
+.info-sub-section .payment-link {
     padding: 5px 10px;
     border: 2px solid #436C93;
     color: #436C93;

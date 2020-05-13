@@ -18,7 +18,7 @@ tags:
   description: "All supported services"
 - name: "event"
   description: "All organized events"
-- name: "person" 
+- name: "person"
   description: "All volounteers in the organization"
 - name: "testimonials"
   description: "All available testimonials"
@@ -26,6 +26,8 @@ tags:
   description: "Contact operation"
 - name: "newsletter"
   description: "Newsletter signup operation"
+- name: "donate"
+  description: "Donation operation"
 schemes:
 - "https"
 - "http"
@@ -42,13 +44,13 @@ paths:
       parameters: []
       responses:
         "200":
-          description: "A collection of books"
+          description: "A collection of services"
           schema:
             type: "array"
             items:
               $ref: "#/definitions/Service-list"
         "404":
-          description: "Books not found"
+          description: "Services not found"
         "500":
           description: "Internal server error"
       x-swagger-router-controller: "Service"
@@ -105,13 +107,22 @@ paths:
         maximum: 500
         minimum: 1
         format: "int64"
+      - name: "country"
+        in: "query"
+        description: "country that the events should be filtered on"
+        required: false
+        type: "string"
+      - name: "month"
+        in: "query"
+        description: "a month to filter the events on"
+        required: false
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "The list of all events"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Event-list"
+            $ref: "#/definitions/inline_response_200"
         "404":
           description: "Events not found"
         "500":
@@ -131,17 +142,6 @@ paths:
         in: "path"
         description: "id of event to return"
         required: true
-        type: "integer"
-        format: "int64"
-      - name: "country"
-        in: "query"
-        description: "country that the events should be filtered on"
-        required: false
-        type: "string"
-      - name: "month"
-        in: "query"
-        description: "a month to filter the events on"
-        required: false
         type: "integer"
         format: "int64"
       responses:
@@ -185,9 +185,7 @@ paths:
         "200":
           description: "The list of all persons"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Person-list"
+            $ref: "#/definitions/inline_response_200_1"
         "404":
           description: "Persons not found"
         "500":
@@ -408,7 +406,6 @@ definitions:
           thumbnail: "thumbnail"
           id: 6
           title: "title"
-        name: "name"
         location:
           country_flag_ico n: "country_flag_ico n"
           country: "country"
@@ -422,7 +419,6 @@ definitions:
           thumbnail: "thumbnail"
           id: 6
           title: "title"
-        name: "name"
         location:
           country_flag_ico n: "country_flag_ico n"
           country: "country"
@@ -474,8 +470,6 @@ definitions:
       date_time:
         type: "string"
         format: "date-time"
-      person:
-        $ref: "#/definitions/Person-list"
       location:
         $ref: "#/definitions/Location"
       thumbnail:
@@ -497,11 +491,21 @@ definitions:
     xml:
       name: "Event"
     example:
+      testimonials:
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
       thumbnail:
         thumbnail_desc: "thumbnail_desc"
         thumbnail: "thumbnail"
         id: 6
         title: "title"
+      date_time: "2000-01-23T04:56:07.000+00:00"
       manager:
         joining_date: "2000-01-23"
         thumbnail:
@@ -510,9 +514,20 @@ definitions:
           id: 6
           title: "title"
         role: "role"
-        meta:
-          total_number: 1
+        id: 1
+      price: 6.02745618307040320615897144307382404804229736328125
+      meta:
+        total_number: 0
+      name: "name"
       description: "http://example.com/aeiou"
+      location:
+        country_flag_ico n: "country_flag_ico n"
+        country: "country"
+        latitude: 5.63737665663332876420099637471139430999755859375
+        name: "name"
+        id: 5
+        longitude: 2.3021358869347654518833223846741020679473876953125
+      id: 0
       services:
       - thumbnail:
           thumbnail_desc: "thumbnail_desc"
@@ -526,38 +541,6 @@ definitions:
           id: 6
           title: "title"
         id: 0
-      testimonials:
-      - testimonial: "testimonial"
-        person_desc: "person_desc"
-        photo: "http://example.com/aeiou"
-        id: 6
-      - testimonial: "testimonial"
-        person_desc: "person_desc"
-        photo: "http://example.com/aeiou"
-        id: 6
-      date_time: "2000-01-23T04:56:07.000+00:00"
-      price: 6.02745618307040320615897144307382404804229736328125
-      person:
-        joining_date: "2000-01-23"
-        thumbnail:
-          thumbnail_desc: "thumbnail_desc"
-          thumbnail: "thumbnail"
-          id: 6
-          title: "title"
-        role: "role"
-        meta:
-          total_number: 1
-      meta:
-        total_number: 1
-      name: "name"
-      location:
-        country_flag_ico n: "country_flag_ico n"
-        country: "country"
-        latitude: 5.63737665663332876420099637471139430999755859375
-        name: "name"
-        id: 5
-        longitude: 2.3021358869347654518833223846741020679473876953125
-      id: 0
       previous_years_statistics:
         amount: 2
         n_contributors: 5
@@ -565,6 +548,9 @@ definitions:
   Person-list:
     type: "object"
     properties:
+      id:
+        type: "integer"
+        format: "int64"
       thumbnail:
         $ref: "#/definitions/Thumbnail"
       role:
@@ -572,8 +558,6 @@ definitions:
       joining_date:
         type: "string"
         format: "date"
-      meta:
-        $ref: "#/definitions/Meta"
     xml:
       name: "Person-list"
     example:
@@ -584,8 +568,7 @@ definitions:
         id: 6
         title: "title"
       role: "role"
-      meta:
-        total_number: 1
+      id: 1
   Person:
     type: "object"
     properties:
@@ -652,7 +635,6 @@ definitions:
           thumbnail: "thumbnail"
           id: 6
           title: "title"
-        name: "name"
         location:
           country_flag_ico n: "country_flag_ico n"
           country: "country"
@@ -737,7 +719,75 @@ definitions:
     xml:
       name: "Meta"
     example:
-      total_number: 1
+      total_number: 0
+  inline_response_200:
+    type: "object"
+    properties:
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event-list"
+      meta:
+        $ref: "#/definitions/Meta"
+    example:
+      meta:
+        total_number: 0
+      events:
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+  inline_response_200_1:
+    type: "object"
+    properties:
+      persons:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person-list"
+      meta:
+        $ref: "#/definitions/Meta"
+    example:
+      persons:
+      - joining_date: "2000-01-23"
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        role: "role"
+        id: 1
+      - joining_date: "2000-01-23"
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        role: "role"
+        id: 1
+      meta:
+        total_number: 0
   Event_previous_years_statistics:
     type: "object"
     properties:

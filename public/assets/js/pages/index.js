@@ -29,16 +29,12 @@ const parsePerson = (data) => {
 }
 
 (async () => {
-    let serviceTemplate, volounteerTemplate, eventTemplate;
-    const serviceFields = ['id', 'thumbnail', 'title', 'thumbnail_desc']
-    const volounteerFields = ['id', 'thumbnail', 'name', 'thumbnail_desc']
-    const eventFields = ['id', 'thumbnail', 'name', 'thumbnail_desc']
-
     // Fetch data
     let [ serviceData, volounteersData, eventsData ] = await Promise.all([
         global.fetchData('/services'), 
         global.fetchData('/persons','offset=0&limit=3'),
         global.fetchData('/events', 'offset=0&limit=2')]);
+    let serviceTemplate, volounteerTemplate, eventTemplate;
 
     // Get data JSON, fetch templates
     serviceData = await serviceData.json();
@@ -47,20 +43,13 @@ const parsePerson = (data) => {
         global.getTemplate('service-small'), global.getTemplate('volounteer-small'), global.getTemplate('event-large')]);
 
     // initialize services
-    const services = serviceData.map(data => {
-        return new ServiceSmall(parseService(data), 'service-small', serviceFields, serviceTemplate);
-    });
+    const services = serviceData.map(data => new ServiceSmall(parseService(data), 'service-small', ['id', 'thumbnail', 'title', 'thumbnail_desc'], serviceTemplate));
 
     // initialize volounteers
-    const volounteers = await Promise.all(volounteersData.persons.map(async (data) => {
-        return new VolounteerSmall(parsePerson(data), 'volounteer-small', volounteerFields, volounteerTemplate);
-    }));
+    const volounteers = volounteersData.persons.map(data => new VolounteerSmall(parsePerson(data), 'volounteer-small', ['id', 'thumbnail', 'name', 'thumbnail_desc'], volounteerTemplate));
 
     // initialize events
-    const events = await Promise.all(eventsData.events.map(async (data) => {
-        return new EventLarge(parseEvents(data), 'event-large', eventFields, eventTemplate);
-    }));
-
+    const events = eventsData.events.map(data => new EventLarge(parseEvents(data), 'event-large', ['id', 'thumbnail', 'name', 'thumbnail_desc'], eventTemplate));
 
     // add template's css
     global.insertCSSToHead('service-small');
@@ -71,6 +60,5 @@ const parsePerson = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
-
 
 })();
