@@ -1,22 +1,135 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Break the cycle of poverty</title>
-        <meta name="Children Association">
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="../assets/css/style.css">
-    </head>
-    <body>
-        <div id="navbar-slot"></div>
-        Person
-        <div id="footer-slot"></div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/components/Navbar/navbar.js"></script>
-        <script src="../assets/components/Footer/footer.js"></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Break the cycle of poverty</title>
+    <meta name="Children Association">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
+    <script src="https://kit.fontawesome.com/ec96508329.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/person.css">
+</head>
+
+<body>
+    <div id="navbar-slot"></div>
+    <div id="header">
+        <div class="person-info">
+            <a href="../pages/persons.html"><span class="inactive">Person</span></a> /
+            <span class="active">Person Name</span>
+        </div>
+        <div class="person-info">
+            <div class="person-info-2">
+                <a href="/"><span class="active">About</span></a> /
+                <a href="/"><span class="active">Experience</span></a> /
+                <a href="/"><span class="active">Testimonials</span></a> /
+                <a href="/"><span class="active">Services</span></a> /
+                <a href="/"><span class="active">Managed Events</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="bio-block">
+        <div class="bio-info">
+            <div class="slot">
+                <div class="divider"></div>
+                <h5>Event Manager</h5>
+                <h2>Jack McCanna</h2>
+                <h5>With Children Association since 2018</h5>
+            </div>
+            <div class="slot">
+                <h2>About</h2>
+                <p> Leading global staff at Children Association (CS) who change children’s lives. Jack’s focus is
+                    ensuring
+                    children are healthy, educated, empowered and eventually employed. These four key outcomes are all
+                    interconnected and essential to achieving our vision:
+                    Bringing people together to end poverty for good.</p>
+            </div>
+        </div>
+        <div class="bio-photo">
+            <img src="/assets/images/persons/3/thumb.jpg">
+        </div>
+    </div>
+    <div id="content-slot">
+        <div class="divider"></div>
+        <div id="experience-section">
+            <h4>Experience</h4>
+            <p>Ironically, Jack’s first job after graduating was as a field representative for CI.
+                He went on to work for the Diocese of Rumbek in Sudan, USAID in Nairobi, then Pact in Zambia and
+                Namibia.
+                All these organizations also fight global poverty. He moved back to the United States to be the
+                executive director
+                at the YMCA in Geneva, New York, before returning to CI.
+                Jack holds a bachelor’s degree in history from Marquette University
+                and an MBA from the Thunderbird School of Global Management.</p>
+        </div>
+        <div id="contact1">
+            <div class="test">
+                <h2>Contact</h2>
+            </div>
+            <div id="contact" class="rounded-arrow-bottom">
+                <div class="minicontainer">
+                    <div class="divider"></div>
+                    <div class="info" >
+                        <h3>EMAIL:</h3>
+                        <p>jack.mccanna@children.org</p>
+                    </div>
+                </div>
+                <div class="minicontainer">
+                    <div class="divider"></div>
+                    <div class="info" >
+                        <h3>PHONE:</h3>
+                        <p>+1-202-555-0105</p>
+                    </div>
+                </div>
+                <div class="minicontainer">
+                    <div class="divider"></div>
+                    <div class="info" >
+                        <h3>WORKING HOURS:</h3>
+                        <p>8am - 5pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="testimonials">
+        <div class="section-header-3">
+            <h4>Testimonials</h4>
+            <p>What people are saying about us. </br> Meet other's who love Children Association</p>
+        </div>
+        <div id="testimonial-slot"></div>
+    </div>
+    <div id="service">
+        <div class="section-header">
+            <h4>Involved in Services Below:</h4>
+        </div>
+        <div id="services-slot"></div>
+    </div>
+    <div id="event">
+        <div class="event-header">
+            <h2>Event Managed by Jack McCanna</h2>
+        </div>
+        <div id="events-slot"></div>
+    </div>
+    <div id="footer-slot"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/components/base-component.js"></script>
+    <script src="../assets/components/Navbar/navbar.js"></script>
+    <script src="../assets/components/Testimonial/testimonial.js"></script>
+    <script src="../assets/components/Volounteer-large/volounteer-large.js"></script>
+    <script src="../assets/components/Service-large/service-large.js"></script>
+    <script src="../assets/components/Event-large/event-large.js"></script>
+    <script src="../assets/components/Footer/footer.js"></script>
+    <script async src="../assets/js/pages/person.js"></script>
+</body>
+
 </html>
