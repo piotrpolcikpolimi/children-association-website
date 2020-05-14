@@ -16,6 +16,9 @@ exports.locationDbSetup = function(s) {
     })
 }
 
+exports.locationsGET = function() {
+    return sqlDb('location');
+}
 
 /**
  * Find location by id

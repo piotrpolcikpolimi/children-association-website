@@ -62,6 +62,8 @@ const parseService = (data) => {
     } else {
         $('#event').css('display', 'none');
     }
+
+    $(document).ready(setTimeout(() => {global.loaded()},300));
 })();
 
 

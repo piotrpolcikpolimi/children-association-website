@@ -26,7 +26,7 @@ const parseService = (data) => {
 
     // initialize map widget
     if (typeof(google) !== 'undefined') {
-        global.initMap(eventData.location.latitude, eventData.location.longitude);
+        global.initMap([{lat: eventData.location.latitude, lng: eventData.location.longitude}]);
     }
 
     // initialize volounteers
@@ -47,5 +47,7 @@ const parseService = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services);
     global.appendTestimonials(testimonials);
+
+    $(document).ready(setTimeout(() => {global.loaded()},300));
 })();
 

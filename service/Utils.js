@@ -1,6 +1,7 @@
 'use strict';
 
 let sqlDb;
+const { getLocationById } = require('./LocationService');
 
 exports.utilsDbSetup = function (s) {
     sqlDb = s;
@@ -26,15 +27,6 @@ exports.getThumbnailById = function (id) {
         sqlDb('thumbnail').where('id', id)
         .then(thumbnail => {
             resolve(thumbnail[0]);
-        });
-    });
-}
-
-exports.getLocationById = function(id) {
-    return new Promise((resolve, reject) => {
-        sqlDb('location').where('id', id)
-        .then(location => {
-            resolve(location[0]);
         });
     });
 }
@@ -71,7 +63,7 @@ exports.getEventThumbnailById = function(id) {
         .then(event => {
             module.exports.getThumbnailById(event[0].id_thumbnail)
             .then(thumbnail => {
-                module.exports.getLocationById(event[0].id_location)
+                getLocationById(event[0].id_location)
                 .then(location => {
                     resolve({
                         id: event[0].id,

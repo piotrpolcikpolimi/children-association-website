@@ -4,6 +4,7 @@ const { contactDbSetup } = require('./ContactService');
 const { eventDbSetup } = require('./EventService');
 const { newsletterDbSetup } = require('./NewsletterService'); 
 const { personDbSetup } = require('./PersonService'); 
+const { locationDbSetup } = require('./LocationService');
 const { utilsDbSetup } = require('./Utils'); 
 
 const sqlDbFactory = require('knex');
@@ -19,6 +20,7 @@ let sqlDb = sqlDbFactory({
 function setupDataLayer() {
     return [
         utilsDbSetup(sqlDb),
+        locationDbSetup(sqlDb),
         personDbSetup(sqlDb),
         newsletterDbSetup(sqlDb),
         eventDbSetup(sqlDb),

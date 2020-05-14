@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    z-index: 999;
+    z-index: 899;
 }
 
 #navbar-slot .navbar-brand {
@@ -32,4 +32,8 @@
 
 #navbar-slot .nav-item.active a {
     color: #ffffff;
+}
+
+#navbar-slot .nav-item.active a.dropdown-item {
+    color: #000000;
 }

@@ -9,10 +9,48 @@ const parseEvent = (data) => {
     }
 }
 
+const getMonthName = (monthNumber) => {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    return months[monthNumber-1];
+}
+
+const setLocationInfo = (locations) => {
+    const locationInfo = $('.location-info');
+    let html = '';
+
+
+    const locationString = locations.map(location => {
+        if (location.class !== 'inactive') {
+            html += `<span class="active">
+                         ${location.text}
+                     </span>`;
+        } else {
+            html += `<span class="inactive">
+                    <a href="${location.href}">
+                        ${location.text}
+                    </a>
+                </span> / `;
+        }
+    })
+
+    locationInfo.html(html);
+}
+
 (async () => {
+
+    const queryParams = new URLSearchParams(window.location.search);
+    let eventsData, eventsTemplate;
+
     // Fetch data
-    let eventsData = await global.fetchData('/events', 'offset=0&limit=8');
-    let eventsTemplate;
+    if (queryParams.get('country')) {
+        eventsData = await global.fetchData('/events', `offset=0&limit=8&country=${queryParams.get('country')}`);
+        setLocationInfo([{ class: 'inactive',text: 'Event',href: './events.html'},{class: 'inactive',text: 'Events By Country',href: './bycountry.html'},{class: 'active',text: queryParams.get('country'),}])
+    } else if (queryParams.get('month')) {
+        eventsData = await global.fetchData('/events', `offset=0&limit=8&month=${queryParams.get('month')}`);
+        setLocationInfo([{ class: 'inactive',text: 'Event', href: './events.html'},{class: 'inactive',text: 'Events By Month',href: './bymonth.html'},{class: 'active',text: getMonthName(queryParams.get('month'))}])
+    } else {
+        eventsData = await global.fetchData('/events', 'offset=0&limit=8');
+    }
 
     // Get data JSON, fetch template
     [ eventsData, eventsTemplate ] = await Promise.all([
@@ -26,4 +64,6 @@ const parseEvent = (data) => {
 
     // insert elments into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
+
+    $(document).ready(setTimeout(() => {global.loaded()},300));
 })();
