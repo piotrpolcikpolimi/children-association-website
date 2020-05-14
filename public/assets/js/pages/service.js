@@ -58,8 +58,8 @@ const parseServices = (services) => {
     global.insertCSSToHead('service-overlay');
 
     // insert elements into DOM
-    global.appendChildrenToSlot(global.getTemplateSlot('testimonial'), testimonials)
+    global.appendTestimonials(testimonials);
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
-    global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
+    global.appendChildrenToSlot(global.getTemplateSlot('services'), services);
 
 })();

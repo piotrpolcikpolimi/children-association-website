@@ -3,6 +3,8 @@
     flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: space-between;
+    max-width: 1240px;
+    margin: 0 auto;
 }
 
 .person-thumbnail .thumb-image img {

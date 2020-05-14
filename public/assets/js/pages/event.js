@@ -1,3 +1,13 @@
+const parseService = (data) => {
+    return {
+        id: data.id,
+        title: data.thumbnail.title,
+        thumbnail: data.thumbnail.thumbnail,
+        thumbnail_desc: data.thumbnail.thumbnail_desc,
+    }
+}
+
+
 (async () => {
     let volounteerTemplate, serviceTemplate, testimonialTemplate;
     const queryParams = new URLSearchParams(window.location.search);
@@ -23,7 +33,7 @@
     const volounteers = [new VolounteerLarge(eventData.manager.thumbnail, 'volounteer-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], volounteerTemplate)];
 
     // initialize services
-    const services = eventData.services.map(data => new ServiceLarge(data.thumbnail, 'service-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], serviceTemplate));
+    const services = eventData.services.map(data => new ServiceLarge(parseService(data), 'service-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], serviceTemplate));
 
     // initialize testimonials
     const testimonials = eventData.testimonials.map(data => new Testimonial(data, 'testimonial', ['id', 'person_desc', 'testimonial', 'photo'], testimonialTemplate));
@@ -35,7 +45,7 @@
 
     // insert elements into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
-    global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
-    global.appendChildrenToSlot(global.getTemplateSlot('testimonial'), testimonials)
+    global.appendChildrenToSlot(global.getTemplateSlot('services'), services);
+    global.appendTestimonials(testimonials);
 })();
 

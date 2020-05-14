@@ -22,12 +22,12 @@
     display: flex;
     flex-wrap: wrap-reverse;
     padding: 20px 80px 0;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
 }
 
 #info-section img {
-    height: 450px;
+    height: 600px;
     width: auto;
 }
 

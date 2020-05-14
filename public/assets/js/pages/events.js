@@ -1,4 +1,4 @@
-const parseEvents = (data) => {
+const parseEvent = (data) => {
     return {
         id: data.id,
         name: data.thumbnail.title,
@@ -19,7 +19,7 @@ const parseEvents = (data) => {
         eventsData.json(), global.getTemplate('event-large')]);
 
     // initialize events
-    const events = eventsData.events.map(data => new EventLarge(parseEvents(data), 'event-large', ['id', 'thumbnail', 'name', 'thumbnail_desc', 'location', 'flag'], eventsTemplate));
+    const events = eventsData.events.map(data => new EventLarge(parseEvent(data), 'event-large', ['id', 'thumbnail', 'name', 'thumbnail_desc', 'location', 'flag'], eventsTemplate));
 
     // add template's css
     global.insertCSSToHead('event-large');

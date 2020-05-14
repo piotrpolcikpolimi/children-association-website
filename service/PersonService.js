@@ -1,7 +1,11 @@
 'use strict';
 
 let sqlDb;
-let { getThumbnailById } = require('./Utils');
+let { getThumbnailById,
+        getLocationById,
+        getTestimonialById,
+        getEventThumbnailById,
+        getServiceThumbnailById } = require('./Utils');
 
 exports.personDbSetup = function(s) {
     sqlDb = s;
@@ -21,7 +25,36 @@ exports.personDbSetup = function(s) {
  * id Long id of person to return
  * returns Person
  **/
-exports.getPersonById = function(id) {
+exports.getPersonById =  async function(id) {
+    let [ person, event, testimonials, services, contact ] = await Promise.all([
+        sqlDb('person').where('id', id),
+        sqlDb('event').where('id_person', id).select('id'),
+        sqlDb('person_testimonial').where('id_person', id).select('id_testimonial'),
+        sqlDb('person_service').where('id_person', id).select('id_service'),
+        sqlDb('contact').where('id', id)
+    ]);
+    person = person[0];
+
+    person.location = await getLocationById(person.id_location);
+    person.contact = contact[0];
+    
+
+    [ person.testimonials, person.services, person.thumbnail, person.event, ] = await Promise.all([
+        Promise.all(testimonials.map(testimonial => getTestimonialById(testimonial.id_testimonial))),
+        Promise.all(services.map(service => getServiceThumbnailById(service.id_service))),
+        getThumbnailById(person.id_thumbnail),
+        (() => {
+            if (event.length > 0) {
+                return getEventThumbnailById(event[0].id);
+            }
+            return new Promise(resolve => resolve({}))
+        })()
+    ])
+
+    delete person['id_location'];
+    delete person['id_thumbnail'];
+
+    return person;
 }
 
 
