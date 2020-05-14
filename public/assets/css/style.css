@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
     font-family: Inter-SemiBold;
-    src: url('/assets/fonts/Inter-SemiBold.otf');
+    src: url('/assets/fonts/Inter-SemiBold.ttf');
 }
 
 @font-face {
@@ -159,6 +159,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Inter-Regular;
     src: url('/assets/fonts/Inter-Regular.ttf');
 }
+
+@font-face {
+    font-family: Moodern;
+    src: url('/assets/fonts/moodern.ttf');
+}
+
 @media (max-width: 1400px) {}
 @media (max-width: 768px) {
     .section-header-2 p {

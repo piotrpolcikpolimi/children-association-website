@@ -16,83 +16,70 @@
 
 <body>
     <div id="navbar-slot"></div>
-    <div id="header">
-        <div class="person-info">
-            <a href="../pages/persons.html"><span class="inactive">Person</span></a> /
-            <span class="active">Person Name</span>
-        </div>
-        <div class="person-info">
-            <div class="person-info-2">
-                <a href="/"><span class="active">About</span></a> /
-                <a href="/"><span class="active">Experience</span></a> /
-                <a href="/"><span class="active">Testimonials</span></a> /
-                <a href="/"><span class="active">Services</span></a> /
-                <a href="/"><span class="active">Managed Events</span></a>
-            </div>
-        </div>
+    <div class="location-info">
+        <a href="../pages/persons.html"><span class="inactive">Person</span></a> /
+        <span class="active" data-type="string" data-value="name">Person Name</span>
     </div>
     <div id="bio-block">
         <div class="bio-info">
-            <div class="slot">
-                <div class="divider"></div>
-                <h5>Event Manager</h5>
-                <h2>Jack McCanna</h2>
-                <h5>With Children Association since 2018</h5>
+            <div class="bio-header">
+                <div class="bio-header-inner-wrapper">
+                    <h5 data-type="string" data-value="role"></h5>
+                    <h2 data-type="string" data-value="name"></h2>
+                    <h5>With Children Association since <span data-type="date" data-value="joining_date" data-format="yyyy"></span></h5>
+                </div>
+                <div class="bio-photo-small">
+                    <img data-type="image" data-value="picture" src="">
+                </div>
             </div>
-            <div class="slot">
-                <h2>About</h2>
-                <p> Leading global staff at Children Association (CS) who change children’s lives. Jack’s focus is
-                    ensuring
-                    children are healthy, educated, empowered and eventually employed. These four key outcomes are all
-                    interconnected and essential to achieving our vision:
-                    Bringing people together to end poverty for good.</p>
+            <div class="bio-about">
+                <h2 class="subheader">About</h2>
+                <p data-type="string" data-value="thumbnail.thumbnail_desc"></p>
             </div>
         </div>
-        <div class="bio-photo">
-            <img src="/assets/images/persons/3/thumb.jpg">
+        <div class="bio-photo-large">
+            <img data-type="image" data-value="picture"  src="">
         </div>
     </div>
     <div id="content-slot">
         <div class="divider"></div>
         <div id="experience-section">
-            <h4>Experience</h4>
-            <p>Ironically, Jack’s first job after graduating was as a field representative for CI.
-                He went on to work for the Diocese of Rumbek in Sudan, USAID in Nairobi, then Pact in Zambia and
-                Namibia.
-                All these organizations also fight global poverty. He moved back to the United States to be the
-                executive director
-                at the YMCA in Geneva, New York, before returning to CI.
-                Jack holds a bachelor’s degree in history from Marquette University
-                and an MBA from the Thunderbird School of Global Management.</p>
+            <h4 class="subheader">Experience</h4>
+            <p data-type="string" data-value="experience"></p>
         </div>
-        <div id="contact1">
-            <div class="test">
-                <h2>Contact</h2>
-            </div>
-            <div id="contact" class="rounded-arrow-bottom">
-                <div class="minicontainer">
-                    <div class="divider"></div>
-                    <div class="info" >
-                        <h3>EMAIL:</h3>
-                        <p>jack.mccanna@children.org</p>
+        <div class="section-wrapper">
+        <div id="contact">
+            <h2 class="subheader">Contact</h2>
+            <div class="contact-section">
+                <div class="minicontainer-wrapper">
+                    <div class="minicontainer">
+                        <div class="info">
+                            <h4>Email:</h3>
+                            <p data-type="string" data-value="contact.email"></p>
+                        </div>
                     </div>
                 </div>
-                <div class="minicontainer">
-                    <div class="divider"></div>
-                    <div class="info" >
-                        <h3>PHONE:</h3>
-                        <p>+1-202-555-0105</p>
+                <div class="minicontainer-wrapper">
+
+                    <div class="minicontainer">
+                        <div class="info">
+                            <h4>Phone:</h3>
+                            <p data-type="string" data-value="contact.phone"></p>
+                        </div>
                     </div>
                 </div>
-                <div class="minicontainer">
-                    <div class="divider"></div>
-                    <div class="info" >
-                        <h3>WORKING HOURS:</h3>
-                        <p>8am - 5pm</p>
+                <div class="minicontainer-wrapper">
+
+                    <div class="minicontainer">
+                        <div class="info">
+                            <h4>Working hours:</h3>
+                            <span data-type="date" data-value="contact.starting_hours" data-format="hh"></span> - <span data-type="date" data-value="contact.ending_hours" data-format="hh"></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div id="testimonials">
         <div class="section-header-3">
@@ -101,15 +88,15 @@
         </div>
         <div id="testimonial-slot"></div>
     </div>
-    <div id="service">
+    <div id="service" class="section-wrapper">
         <div class="section-header">
-            <h4>Involved in Services Below:</h4>
+            <h2>Involved in Services</h2>
         </div>
         <div id="services-slot"></div>
     </div>
     <div id="event">
-        <div class="event-header">
-            <h2>Event Managed by Jack McCanna</h2>
+        <div class="section-header">
+            <h2>Event Managed by <span>Jack McCanna</span></h2>
         </div>
         <div id="events-slot"></div>
     </div>
@@ -121,6 +108,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
+        integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/components/base-component.js"></script>
     <script src="../assets/components/Navbar/navbar.js"></script>

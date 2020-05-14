@@ -19,10 +19,10 @@
     <div id="header">
         <div class="location-info">
             <a href="../pages/events.html"><span class="inactive">Events</span></a> /
-            <span class="active">Event thumb name</span>
+            <span class="active" data-type="string", data-value="thumbnail.title"></span>
         </div>
         <div class="title">
-            <h2>Children's Health Charity Kilimanjaro Challenge </h2>
+            <h2 data-type="string" data-value="name"></h2>
         </div>
         <h2></h2>
     </div>
@@ -30,24 +30,23 @@
         <div id="info-section">
             <div class="column-left">
                 <h4>Description</h4>
-                <p id="description">Take on this iconic challenge and trek from the South-West side of the National Park
-                    through the dense rainforest before reaching the summit to contribute to children's health.</p>
+                <p id="description" data-type="string" data-value="description"></p>
                 <div class="divider"></div>
                 <h4>Practical information</h4>
                 <div id="location" class="info-sub-section">
                     <h5>Location</h5>
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Mount Kilimanjaro, Kilimanjaro, Tanzania</span>
+                    <span data-type="concat-string" data-value="location.name|location.country" data-separator=", "></span>
                 </div>
                 <div id="date" class="info-sub-section">
                     <h5>Date</h5>
                     <i class="far fa-calendar"></i>
-                    <span>16 May 2020</span>
+                    <span data-type="date" data-value="date_time" data-format="dd_Month_yyyy">16 May 2020</span>
                 </div>
                 <div id="price" class="info-sub-section">
                     <h5>Sign up for</h5>
                     <i class="fas fa-pound-sign"></i>
-                    <span>50.00</span>
+                    <span data-type="currency" data-value="price">50.00</span>
                 </div>
                 <div id="how-to-take-part" class="info-sub-section">
                     <h5>How to take part</h5>
@@ -61,7 +60,7 @@
                     <p>If you have a question, please <a class="contact-link" href="contact.html">Contact Us</a></p>
                 </div>
             </div>
-            <img src="../assets/images/events/4/thumb.jpg">
+            <img data-type="image" data-value="thumbnail.thumbnail" src="">
         </div>
         <div class="divider"></div>
         <div id="map-section">
@@ -74,15 +73,24 @@
         <div id="previous-statistics" class="rounded-arrow-bottom">
             <div id="kids" class="statistic">
                 <i class="fas fa-child fa-4x"></i>
-                <p>20k+ kids helped</p>
+                <div>
+                <span data-type="number" data-value="statistics.n_children"></span>
+                <span>children helped</span>
+                </div>
             </div>
             <div id="contributors" class="statistic">
                 <i class="fas fa-hand-holding-heart fa-4x"></i>
-                <p>80+ contributors</p>
+                <div>
+                    <span data-type="number", data-value="statistics.n_contributors"></span>
+                    <span>contributors</span>
+                </div>
             </div>
             <div id="raised" class="statistic">
                 <i class="fas fa-money-bill-wave fa-4x"></i>
-                <p>100k+ dollars raised</p>
+                <div>
+                    <span data-type="number" data-value="statistics.amount"></span>
+                    <span>dollars raised</span>
+                </div>
             </div>
         </div>
     </div>
@@ -114,6 +122,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
+        integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/components/base-component.js"></script>
     <script src="../assets/components/Navbar/navbar.js"></script>

@@ -1,0 +1,23 @@
+{
+  "name": "children-association",
+  "version": "1.0.0",
+  "description": "This is a simple CMS server for a non-profit underprivileged children support organization, providing dynamic data for the simple website frontend, with a contact form and newsletter signup funcionality.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "swagger-tools": "^0.10.1",
+    "knex": "^0.21.1",
+    "nodemon": "^2.0.3",
+    "pg": "^8.1.0"
+  }
+}

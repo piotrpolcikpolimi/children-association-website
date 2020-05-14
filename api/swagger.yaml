@@ -1,0 +1,825 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a simple CMS server for a non-profit underprivileged children\
+    \ support organization, providing dynamic data for the simple website frontend,\
+    \ with a contact form and newsletter signup funcionality."
+  version: "1.0.0"
+  title: "Children Association"
+  contact:
+    email: "piotrwojciech.polcik@mail.polimi.it"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "children.docker"
+basePath: "/v1"
+tags:
+- name: "service"
+  description: "All supported services"
+- name: "event"
+  description: "All organized events"
+- name: "person"
+  description: "All volounteers in the organization"
+- name: "testimonials"
+  description: "All available testimonials"
+- name: "contact"
+  description: "Contact operation"
+- name: "newsletter"
+  description: "Newsletter signup operation"
+- name: "donate"
+  description: "Donation operation"
+schemes:
+- "https"
+- "http"
+paths:
+  /services:
+    get:
+      tags:
+      - "service"
+      summary: "All available services"
+      description: "Returns list of all services"
+      operationId: "servicesGET"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "A collection of services"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service-list"
+        "404":
+          description: "Services not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Service"
+  /services/{id}:
+    get:
+      tags:
+      - "service"
+      summary: "Find a service by id"
+      description: "Returns a service with a given id"
+      operationId: "getServiceById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A services with the specified id"
+          schema:
+            $ref: "#/definitions/Service"
+        "404":
+          description: "Service with this id not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Service"
+  /events:
+    get:
+      tags:
+      - "event"
+      summary: "All available events"
+      description: "Returns list of all the events"
+      operationId: "eventsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "offset of the number of events to return"
+        required: false
+        type: "integer"
+        default: 0
+        minimum: 0
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "the number of services to return"
+        required: false
+        type: "integer"
+        default: 8
+        maximum: 500
+        minimum: 1
+        format: "int64"
+      - name: "country"
+        in: "query"
+        description: "country that the events should be filtered on"
+        required: false
+        type: "string"
+      - name: "month"
+        in: "query"
+        description: "a month to filter the events on"
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "The list of all events"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        "404":
+          description: "Events not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Event"
+  /events/{id}:
+    get:
+      tags:
+      - "event"
+      summary: "Find an event by id"
+      description: "Returns an event with a given id"
+      operationId: "getEventById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "An event with the specified id"
+          schema:
+            $ref: "#/definitions/Event"
+        "404":
+          description: "Event with this id not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Event"
+  /persons:
+    get:
+      tags:
+      - "person"
+      summary: "All available persons"
+      description: "Returns list of all the persons"
+      operationId: "personsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "offset of the number of persons to return"
+        required: false
+        type: "integer"
+        default: 0
+        minimum: 0
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "the number of persons to return"
+        required: false
+        type: "integer"
+        default: 9
+        maximum: 500
+        minimum: 1
+        format: "int64"
+      responses:
+        "200":
+          description: "The list of all persons"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+        "404":
+          description: "Persons not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Person"
+  /persons/{id}:
+    get:
+      tags:
+      - "person"
+      summary: "Find a person by id"
+      description: "Returns a person with a given id"
+      operationId: "getPersonById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of person to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "A person with the specified id"
+          schema:
+            $ref: "#/definitions/Person"
+        "404":
+          description: "Person with this id not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Person"
+  /testimonials:
+    get:
+      tags:
+      - "testimonials"
+      summary: "All available testimonials"
+      description: "Returns list of all the testimonials"
+      operationId: "testimonialsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "offset of the number of testimonials to return"
+        required: false
+        type: "integer"
+        default: 0
+        minimum: 0
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "the number of testimonials to return"
+        required: false
+        type: "integer"
+        default: 9
+        maximum: 500
+        minimum: 1
+        format: "int64"
+      responses:
+        "200":
+          description: "The list of all testimonials"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Testimonial"
+        "404":
+          description: "Testimonials not found"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Testimonials"
+  /contact:
+    post:
+      tags:
+      - "contact"
+      summary: "Send a contact form"
+      description: "Receive data that are conversed into an e-mail sent to the website\
+        \ contact e-mail address"
+      operationId: "sendContactFormPOST"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "email"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "name"
+        in: "formData"
+        required: true
+        type: "string"
+      - name: "message"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Message sent successfully"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Contact"
+  /newsletter:
+    post:
+      tags:
+      - "newsletter"
+      summary: "Newsletter signup"
+      description: "An endpoint that allows a visitor to signup to the newsletter."
+      operationId: "newsletterSignup"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "email"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Signup to newseletter successfully"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Newsletter"
+  /donate:
+    post:
+      tags:
+      - "donate"
+      summary: "Donation form"
+      description: "A really simplified endpoint imitating donation service."
+      operationId: "donatePOST"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - name: "amount"
+        in: "formData"
+        required: true
+        type: "number"
+        format: "double"
+      - name: "message"
+        in: "formData"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Donated successfully"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+      x-swagger-router-controller: "Donate"
+definitions:
+  Service-list:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
+    xml:
+      name: "Service-list"
+    example:
+      thumbnail:
+        thumbnail_desc: "thumbnail_desc"
+        thumbnail: "thumbnail"
+        id: 6
+        title: "title"
+      id: 0
+  Service:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      center_activities:
+        type: "string"
+      description:
+        type: "string"
+      practical_info:
+        type: "string"
+      header_photo:
+        type: "string"
+        format: "uri"
+      cta:
+        type: "string"
+      testimonials:
+        type: "array"
+        items:
+          $ref: "#/definitions/Testimonial"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event-list"
+    xml:
+      name: "Service"
+    example:
+      cta: "cta"
+      testimonials:
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      name: "name"
+      description: "description"
+      header_photo: "http://example.com/aeiou"
+      practical_info: "practical_info"
+      id: 0
+      center_activities: "center_activities"
+      events:
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+  Event-list:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
+      location:
+        $ref: "#/definitions/Location"
+    xml:
+      name: "Event-list"
+    example:
+      thumbnail:
+        thumbnail_desc: "thumbnail_desc"
+        thumbnail: "thumbnail"
+        id: 6
+        title: "title"
+      location:
+        country_flag_ico n: "country_flag_ico n"
+        country: "country"
+        latitude: 5.63737665663332876420099637471139430999755859375
+        name: "name"
+        id: 5
+        longitude: 2.3021358869347654518833223846741020679473876953125
+      id: 1
+  Event:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      description:
+        type: "string"
+        format: "uri"
+      price:
+        type: "number"
+        format: "double"
+      date_time:
+        type: "string"
+        format: "date-time"
+      location:
+        $ref: "#/definitions/Location"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
+      testimonials:
+        type: "array"
+        items:
+          $ref: "#/definitions/Testimonial"
+      manager:
+        $ref: "#/definitions/Person-list"
+      services:
+        type: "array"
+        items:
+          $ref: "#/definitions/Service-list"
+      previous_years_statistics:
+        $ref: "#/definitions/Event_previous_years_statistics"
+      meta:
+        $ref: "#/definitions/Meta"
+    xml:
+      name: "Event"
+    example:
+      testimonials:
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      thumbnail:
+        thumbnail_desc: "thumbnail_desc"
+        thumbnail: "thumbnail"
+        id: 6
+        title: "title"
+      date_time: "2000-01-23T04:56:07.000+00:00"
+      manager:
+        joining_date: "2000-01-23"
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        role: "role"
+        id: 1
+      price: 6.02745618307040320615897144307382404804229736328125
+      meta:
+        total_number: 0
+      name: "name"
+      description: "http://example.com/aeiou"
+      location:
+        country_flag_ico n: "country_flag_ico n"
+        country: "country"
+        latitude: 5.63737665663332876420099637471139430999755859375
+        name: "name"
+        id: 5
+        longitude: 2.3021358869347654518833223846741020679473876953125
+      id: 0
+      services:
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        id: 0
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        id: 0
+      previous_years_statistics:
+        amount: 2
+        n_contributors: 5
+        n_children: 5
+  Person-list:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
+      role:
+        type: "string"
+      joining_date:
+        type: "string"
+        format: "date"
+    xml:
+      name: "Person-list"
+    example:
+      joining_date: "2000-01-23"
+      thumbnail:
+        thumbnail_desc: "thumbnail_desc"
+        thumbnail: "thumbnail"
+        id: 6
+        title: "title"
+      role: "role"
+      id: 1
+  Person:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      picture:
+        type: "string"
+        format: "uri"
+      role:
+        type: "string"
+      description:
+        type: "string"
+      joining_date:
+        type: "string"
+        format: "date"
+      experience:
+        type: "string"
+      location:
+        $ref: "#/definitions/Location"
+      testimonials:
+        type: "array"
+        items:
+          $ref: "#/definitions/Testimonial"
+      event:
+        $ref: "#/definitions/Event-list"
+      contact:
+        $ref: "#/definitions/Person_contact"
+    xml:
+      name: "Person"
+    example:
+      joining_date: "2000-01-23"
+      testimonials:
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      role: "role"
+      contact:
+        phone: "phone"
+        starting_hours: "starting_hours"
+        ending_hours: "ending_hours"
+        email: "email"
+      name: "name"
+      description: "description"
+      location:
+        country_flag_ico n: "country_flag_ico n"
+        country: "country"
+        latitude: 5.63737665663332876420099637471139430999755859375
+        name: "name"
+        id: 5
+        longitude: 2.3021358869347654518833223846741020679473876953125
+      id: 0
+      experience: "experience"
+      event:
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+      picture: "http://example.com/aeiou"
+  Location:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      country:
+        type: "string"
+      country_flag_ico n:
+        type: "string"
+        format: "BLOB"
+      latitude:
+        type: "number"
+        format: "double"
+      longitude:
+        type: "number"
+        format: "double"
+    xml:
+      name: "Location"
+    example:
+      country_flag_ico n: "country_flag_ico n"
+      country: "country"
+      latitude: 5.63737665663332876420099637471139430999755859375
+      name: "name"
+      id: 5
+      longitude: 2.3021358869347654518833223846741020679473876953125
+  Thumbnail:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+      thumbnail:
+        type: "string"
+      thumbnail_desc:
+        type: "string"
+    xml:
+      name: "Thumbnail"
+    example:
+      thumbnail_desc: "thumbnail_desc"
+      thumbnail: "thumbnail"
+      id: 6
+      title: "title"
+  Testimonial:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      person_desc:
+        type: "string"
+      testimonial:
+        type: "string"
+      photo:
+        type: "string"
+        format: "uri"
+    xml:
+      name: "Testimonial"
+    example:
+      testimonial: "testimonial"
+      person_desc: "person_desc"
+      photo: "http://example.com/aeiou"
+      id: 6
+  Meta:
+    type: "object"
+    properties:
+      total_number:
+        type: "integer"
+    xml:
+      name: "Meta"
+    example:
+      total_number: 0
+  inline_response_200:
+    type: "object"
+    properties:
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event-list"
+      meta:
+        $ref: "#/definitions/Meta"
+    example:
+      meta:
+        total_number: 0
+      events:
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+      - thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        location:
+          country_flag_ico n: "country_flag_ico n"
+          country: "country"
+          latitude: 5.63737665663332876420099637471139430999755859375
+          name: "name"
+          id: 5
+          longitude: 2.3021358869347654518833223846741020679473876953125
+        id: 1
+  inline_response_200_1:
+    type: "object"
+    properties:
+      persons:
+        type: "array"
+        items:
+          $ref: "#/definitions/Person-list"
+      meta:
+        $ref: "#/definitions/Meta"
+    example:
+      persons:
+      - joining_date: "2000-01-23"
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        role: "role"
+        id: 1
+      - joining_date: "2000-01-23"
+        thumbnail:
+          thumbnail_desc: "thumbnail_desc"
+          thumbnail: "thumbnail"
+          id: 6
+          title: "title"
+        role: "role"
+        id: 1
+      meta:
+        total_number: 0
+  Event_previous_years_statistics:
+    type: "object"
+    properties:
+      n_children:
+        type: "integer"
+      n_contributors:
+        type: "integer"
+      amount:
+        type: "integer"
+    example:
+      amount: 2
+      n_contributors: 5
+      n_children: 5
+  Person_contact:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        format: "email"
+      phone:
+        type: "string"
+      starting_hours:
+        type: "string"
+        description: "the time the person starts work daily"
+      ending_hours:
+        type: "string"
+        description: "the time the person ends work daily"
+    example:
+      phone: "phone"
+      starting_hours: "starting_hours"
+      ending_hours: "ending_hours"
+      email: "email"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
