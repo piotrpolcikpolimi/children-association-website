@@ -2,7 +2,6 @@
 
 let sqlDb;
 let { getThumbnailById, 
-        getLocationById, 
         getTestimonialById, 
         getEventThumbnailById  } = require('./Utils');
 

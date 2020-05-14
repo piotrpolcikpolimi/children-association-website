@@ -27,4 +27,6 @@ const parsePerson = (data) => {
     // insert elements into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
+    $(document).ready(setTimeout(() => {global.loaded()},300));
+
 })();

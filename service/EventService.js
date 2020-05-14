@@ -2,10 +2,10 @@
 
 let sqlDb;
 let { getThumbnailById, 
-        getLocationById, 
         getTestimonialById,
         getServiceThumbnailById,
-        getPersonThumbnailById } = require('./Utils');
+        getPersonThumbnailById } = require('./Utils'),
+        { getLocationById } = require('./LocationService');
 
 
 exports.eventDbSetup = function(s) {
@@ -28,7 +28,35 @@ exports.eventDbSetup = function(s) {
  * returns List
  **/
 exports.eventsGET = async function(offset, limit, country, month) {
-    const events = await sqlDb('event').select('id', 'id_thumbnail', 'id_location').offset(offset).limit(limit);
+    let events, total_number
+    if (!offset) offset = 0;
+    if (!limit) limit = 8;
+
+    if (country) {
+        events = (await sqlDb.raw(`SELECT e.id, e.id_thumbnail, e.id_location 
+                                    FROM event AS e, location AS l
+                                    WHERE e.id_location = l.id AND
+                                    l.country = '${country}'
+                                    LIMIT ${limit}
+                                    OFFSET ${offset};`))['rows'];
+        total_number = (await sqlDb.raw(`SELECT COUNT (*) 
+                                            FROM event AS e, location AS l
+                                            WHERE e.id_location = l.id AND
+                                            l.country = '${country}'`))['rows'][0]['count'];
+    } else if (month) {
+        console.log("here");
+        events = (await sqlDb.raw(`SELECT e.id, e.id_thumbnail, e.id_location 
+                                       FROM event as e 
+                                       WHERE extract('month' from  e.date_time) = ${month}
+                                       LIMIT ${limit}
+                                       OFFSET ${offset};`))['rows'];
+        total_number = (await sqlDb.raw(`SELECT COUNT (*) FROM event
+                                            WHERE extract('month' from  date_time) = ${month}`))['rows'][0]['count'];
+    } else {
+        events = await sqlDb('event').select('id', 'id_thumbnail', 'id_location').offset(offset).limit(limit);
+        total_number = (await sqlDb('event').count('id as CNT'))[0]['CNT'];
+    }
+
     const eventsArray = await Promise.all(events.map(async event => {
         const [ thumbnail, location ] = await Promise.all([
             getThumbnailById(event.id_thumbnail),
@@ -41,10 +69,11 @@ exports.eventsGET = async function(offset, limit, country, month) {
         }
     }));
 
+
     return {
         events: eventsArray,
         meta: {
-            total_number: (await sqlDb('event').count('id as CNT'))[0]['CNT']
+            total_number: total_number
         }
     };
 }

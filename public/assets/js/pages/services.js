@@ -25,4 +25,6 @@ const parseService = (data) => {
     // insert elements into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
 
+    $(document).ready(setTimeout(() => {global.loaded()},300));
+
 })();

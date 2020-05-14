@@ -2,10 +2,11 @@
 
 let sqlDb;
 let { getThumbnailById,
-        getLocationById,
         getTestimonialById,
         getEventThumbnailById,
-        getServiceThumbnailById } = require('./Utils');
+        getServiceThumbnailById } = require('./Utils'),
+        { getLocationById } = require('./LocationService');
+
 
 exports.personDbSetup = function(s) {
     sqlDb = s;

@@ -117,6 +117,41 @@ h1, h2, h3, h4, h5, h6 {
     /*clip-path: polygon(0 0, 0 83%, 33% 82%, 40% 83%, 42% 84%, 44% 86%, 46% 90%, 50% 100%, 54% 90%, 56% 86%, 58% 84%, 60% 83%, 63% 83%, 100% 83%, 100% 0);*/
 }
 
+#loader {
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+}
+
+@keyframes loader {
+    from {
+        transform: translate(-50%, 50%) rotate(40deg);
+    }
+    to {
+        transform: translate(-50%, 50%) rotate(400deg);
+    }
+}
+
+#loader div {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: #FF7171;
+    border-right-color: #FF7171;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%) rotate(40deg);
+    animation: loader 0.5s ease-in-out alternate infinite;
+}
+
+
 
 
 ::-webkit-scrollbar {

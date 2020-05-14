@@ -22,8 +22,6 @@ tags:
   description: "All volounteers in the organization"
 - name: "testimonials"
   description: "All available testimonials"
-- name: "location"
-  description: "All locations we operate in"
 - name: "contact"
   description: "Contact operation"
 - name: "newsletter"
@@ -219,28 +217,45 @@ paths:
         "500":
           description: "Internal server error"
       x-swagger-router-controller: "Person"
-  /locations:
+  /testimonials:
     get:
       tags:
-      - "location"
-      summary: "All available locations"
-      description: "Returns list of all the locations"
-      operationId: "locationsGET"
+      - "testimonials"
+      summary: "All available testimonials"
+      description: "Returns list of all the testimonials"
+      operationId: "testimonialsGET"
       produces:
       - "application/json"
-      parameters: []
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "offset of the number of testimonials to return"
+        required: false
+        type: "integer"
+        default: 0
+        minimum: 0
+        format: "int64"
+      - name: "limit"
+        in: "query"
+        description: "the number of testimonials to return"
+        required: false
+        type: "integer"
+        default: 9
+        maximum: 500
+        minimum: 1
+        format: "int64"
       responses:
         "200":
-          description: "The list of all locations"
+          description: "The list of all testimonials"
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Location"
+              $ref: "#/definitions/Testimonial"
         "404":
           description: "Testimonials not found"
         "500":
           description: "Internal server error"
-      x-swagger-router-controller: "Location"
+      x-swagger-router-controller: "Testimonials"
   /contact:
     post:
       tags:
@@ -392,8 +407,8 @@ definitions:
           id: 6
           title: "title"
         location:
+          country_flag_ico n: "country_flag_ico n"
           country: "country"
-          country_flag_icon: "country_flag_icon"
           latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
@@ -405,8 +420,8 @@ definitions:
           id: 6
           title: "title"
         location:
+          country_flag_ico n: "country_flag_ico n"
           country: "country"
-          country_flag_icon: "country_flag_icon"
           latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
@@ -431,8 +446,8 @@ definitions:
         id: 6
         title: "title"
       location:
+        country_flag_ico n: "country_flag_ico n"
         country: "country"
-        country_flag_icon: "country_flag_icon"
         latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
@@ -506,8 +521,8 @@ definitions:
       name: "name"
       description: "http://example.com/aeiou"
       location:
+        country_flag_ico n: "country_flag_ico n"
         country: "country"
-        country_flag_icon: "country_flag_icon"
         latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
@@ -576,8 +591,6 @@ definitions:
         type: "string"
       location:
         $ref: "#/definitions/Location"
-      thumbnail:
-        $ref: "#/definitions/Thumbnail"
       testimonials:
         type: "array"
         items:
@@ -599,11 +612,6 @@ definitions:
         person_desc: "person_desc"
         photo: "http://example.com/aeiou"
         id: 6
-      thumbnail:
-        thumbnail_desc: "thumbnail_desc"
-        thumbnail: "thumbnail"
-        id: 6
-        title: "title"
       role: "role"
       contact:
         phone: "phone"
@@ -613,8 +621,8 @@ definitions:
       name: "name"
       description: "description"
       location:
+        country_flag_ico n: "country_flag_ico n"
         country: "country"
-        country_flag_icon: "country_flag_icon"
         latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
@@ -628,8 +636,8 @@ definitions:
           id: 6
           title: "title"
         location:
+          country_flag_ico n: "country_flag_ico n"
           country: "country"
-          country_flag_icon: "country_flag_icon"
           latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
@@ -646,7 +654,7 @@ definitions:
         type: "string"
       country:
         type: "string"
-      country_flag_icon:
+      country_flag_ico n:
         type: "string"
         format: "BLOB"
       latitude:
@@ -658,8 +666,8 @@ definitions:
     xml:
       name: "Location"
     example:
+      country_flag_ico n: "country_flag_ico n"
       country: "country"
-      country_flag_icon: "country_flag_icon"
       latitude: 5.63737665663332876420099637471139430999755859375
       name: "name"
       id: 5
@@ -731,8 +739,8 @@ definitions:
           id: 6
           title: "title"
         location:
+          country_flag_ico n: "country_flag_ico n"
           country: "country"
-          country_flag_icon: "country_flag_icon"
           latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
@@ -744,8 +752,8 @@ definitions:
           id: 6
           title: "title"
         location:
+          country_flag_ico n: "country_flag_ico n"
           country: "country"
-          country_flag_icon: "country_flag_icon"
           latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5

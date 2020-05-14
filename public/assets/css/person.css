@@ -152,6 +152,10 @@
     padding: 30px 0;
 }
 
+#event #events-slot .event-thumbnail .content-wrapper {
+    background-color: #436C93;
+}
+
 #events-slot {
     display: flex;
     flex-direction: column;

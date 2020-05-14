@@ -27,18 +27,24 @@ const global = {
         })
     },
 
-    initMap: (lat, lng) => {
-        const coordinates = {lat: lat, lng: lng};
+    initMap: (coordinates, center, zoom = 14) => {
         const mapSlot = $('#map');
+        if (!center) center = coordinates[0];
+        console.log(zoom);
         const map = new google.maps.Map(
             mapSlot[0],
-            {zoom: 14, center: coordinates, gestureHandling: 'none'}
+            {zoom: zoom, center: center, gestureHandling: 'none'}
         );
-        new google.maps.Marker({position: coordinates, map: map});
 
-        mapSlot.click(() => {
-            window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank')
+        coordinates.map(location => {
+            new google.maps.Marker({position: location, map: map})
         })
+        if (coordinates.length === 1){
+            mapSlot.click(() => {
+                window.open(`https://maps.google.com/?q=${coordinates[0].lat},${coordinates[0].lng}`, '_blank')
+            })
+        }
+        
     },
 
     fetchData: (endpoint, queryString = '') => {
@@ -112,5 +118,14 @@ const global = {
             }
             $(el).html(value + '+');
         });
+    },
+
+    loaded: () => {
+        $('#loader div').css('display', 'none');
+        $('#loader').animate({
+            opacity: 0
+        }, 1000, function() {
+            $('#loader').css('display', 'none');
+        })
     }
 }

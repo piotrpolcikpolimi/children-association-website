@@ -1,0 +1,12 @@
+#country-selectors-slot {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#map {
+    width: 100vw;
+    height: 70vh;
+}

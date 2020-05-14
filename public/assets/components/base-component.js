@@ -12,6 +12,7 @@ class BaseComponent {
             const regex = new RegExp(`{{ ${element} }}`, 'g')
             templateCopy = templateCopy.replace(regex, this.data[element]);
         })
+        templateCopy.replace(/{{ [a-zA-Z0-9-_]* }}/g, '')
         return templateCopy;
     }
 }
