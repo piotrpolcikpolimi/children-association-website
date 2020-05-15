@@ -27,6 +27,8 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 
 .service-thumbnail .inner-wrapper .description .read-more {
