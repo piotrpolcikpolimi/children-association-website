@@ -1,4 +1,4 @@
-const parseService = (data) => {
+const parseThumbnail = (data) => {
     return {
         id: data.id,
         title: data.thumbnail.title,
@@ -30,10 +30,10 @@ const parseService = (data) => {
     }
 
     // initialize volounteers
-    const volounteers = [new VolounteerLarge(eventData.manager.thumbnail, 'volounteer-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], volounteerTemplate)];
+    const volounteers = [new VolounteerLarge(parseThumbnail(eventData.manager), 'volounteer-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], volounteerTemplate)];
 
     // initialize services
-    const services = eventData.services.map(data => new ServiceLarge(parseService(data), 'service-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], serviceTemplate));
+    const services = eventData.services.map(data => new ServiceLarge(parseThumbnail(data), 'service-large', ['id', 'thumbnail', 'title', 'thumbnail_desc'], serviceTemplate));
 
     // initialize testimonials
     const testimonials = eventData.testimonials.map(data => new Testimonial(data, 'testimonial', ['id', 'person_desc', 'testimonial', 'photo'], testimonialTemplate));
