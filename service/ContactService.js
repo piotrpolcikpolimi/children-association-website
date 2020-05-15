@@ -24,9 +24,7 @@ exports.contactDbSetup = function(s) {
 }
 
 
-exports.sendContactFormPOST = function(email,name,message) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
+exports.sendContactFormPOST = async function(email,name,message) {
+    console.log(email, name, message)
 }
 

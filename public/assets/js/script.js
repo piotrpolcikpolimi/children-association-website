@@ -30,7 +30,6 @@ const global = {
     initMap: (coordinates, center, zoom = 14) => {
         const mapSlot = $('#map');
         if (!center) center = coordinates[0];
-        console.log(zoom);
         const map = new google.maps.Map(
             mapSlot[0],
             {zoom: zoom, center: center, gestureHandling: 'none'}
@@ -49,6 +48,17 @@ const global = {
 
     fetchData: (endpoint, queryString = '') => {
         return fetch(`/v1${endpoint}?${queryString}`);
+    },
+
+    postData: (endpoint, data, type) => {
+        return fetch(`/v1/${endpoint}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': type
+            },
+            body: data
+        })
     },
 
     appendTestimonials: (testimonials) => {
