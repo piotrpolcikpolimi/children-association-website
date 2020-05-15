@@ -17,6 +17,7 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-right: 30px;
 }
 
 .person-thumbnail .description .how-to-reach {
