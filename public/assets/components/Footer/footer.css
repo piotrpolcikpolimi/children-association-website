@@ -127,6 +127,12 @@
     flex-wrap: wrap;
 }
 
+#footer-template .last-row img {
+    width: 20px;
+    height: 20px;
+}
+
+
 #footer-template .last-row .social-media {
     width: 130px;
     display: flex;

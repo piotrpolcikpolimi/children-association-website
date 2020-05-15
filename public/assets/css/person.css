@@ -213,6 +213,12 @@
 
 }
 
+@media (max-width: 700px)  {
+    #event #events-slot .event-thumbnail .content-wrapper {
+        background-color: rgba(67, 108, 147, 0.712);
+    }
+}
+
 @media (max-width: 500px) {
     #bio-block .bio-info .bio-about {
         padding: 30px 10px;
