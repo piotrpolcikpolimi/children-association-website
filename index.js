@@ -2,7 +2,8 @@
 
 var fs = require('fs'),
     path = require('path'),
-    http = require('http');
+    http = require('http'),
+    url = require('url');
 
 
 var app = require('connect')();
@@ -36,9 +37,11 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
     app.use(middleware.swaggerRouter(options));
 
     // Serve the Swagger documents and Swagger UI
-    app.use(middleware.swaggerUi());
+    app.use(middleware.swaggerUi({swaggerUi: '/backend/swaggerui'}));
 
-   
+    app.use((req, res) => {
+
+    })
 
     // Setup Data Layer
     Promise.all(setupDataLayer()).then(() => {
