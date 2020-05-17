@@ -67,12 +67,13 @@ const parsePerson = (data) => {
     new Waypoint({
         element: $('#subnavbar-slot')[0],
         handler: (direction) => {
-            const subnavbar = $('#subnavbar-slot')
+            const subnavbar = $('#subnavbar-slot');
+            const introSection = $('#intro-section');
             if (direction === 'down') {
                 subnavbar.css({'position': 'fixed'});
                 return;
             }
-            subnavbar.css('position', '');
+            subnavbar.css({'position': ''});
 
         },
         offset: 60
