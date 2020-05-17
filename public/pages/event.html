@@ -17,7 +17,8 @@
 <body>
     <div id="loader"><div id="animated-div"></div></div>
     <div id="navbar-slot"></div>
-    <div id="header">
+    <div id="subnavbar-slot"></div>
+    <div id="header" id="top" data-scroll="Top">
         <div class="location-info">
             <a href="../pages/events.html"><span class="inactive">Events</span></a> /
             <span class="active" data-type="string", data-value="thumbnail.title"></span>
@@ -29,10 +30,10 @@
     <div id="content-slot">
         <div id="info-section">
             <div class="column-left">
-                <h4>Description</h4>
+                <h4 id="description-header" data-scroll="Description">Description</h4>
                 <p id="description" data-type="string" data-value="description"></p>
                 <div class="divider"></div>
-                <h4>Practical information</h4>
+                <h4 id="practical-header" data-scroll="Practical Info">Practical information</h4>
                 <div id="location" class="info-sub-section">
                     <h5>Location</h5>
                     <i class="fas fa-map-marker-alt"></i>
@@ -70,7 +71,14 @@
             </div>
         </div>
         <div class="divider"></div>
-        <div id="previous-statistics" class="rounded-arrow-bottom">
+        <div class="rounded-arrow-bottom">
+            <div class="section-header">
+                <h4 id="statistics-header" data-scroll="Previous years">
+                    <i class="fas fa-chart-pie fa-lg"></i>
+                    Previous years statistics
+                </h4>
+            </div>
+            <div id="previous-statistics">
             <div id="kids" class="statistic">
                 <i class="fas fa-child fa-4x"></i>
                 <div>
@@ -93,24 +101,25 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
     <div id="testimonials">
         <div class="section-header-3">
-            <h4>Testimonials</h4>
+            <h4 id="testimonials-header" data-scroll="Testimonials">Testimonials</h4>
             <p>What people are saying about us. </br> Meet other's who love Children Association</p>
         </div>
         <div id="testimonial-slot"></div>
     </div>
     <div id="volounteer">
         <div class="section-header">
-            <h4>Event Manager</h4>
+            <h4 id="manager-header" data-scroll="Event Manager">Event Manager</h4>
             <p>Contact for more information</p>
         </div>
         <div id="volounteers-slot"></div>
     </div>
     <div id="service">
         <div class="section-header">
-            <h4>Learn more about</h4>
+            <h4 id="services-header" data-scroll="Related services">Learn more about</h4>
         </div>
         <div id="services-slot"></div>
     </div>
@@ -131,6 +140,7 @@
     <script src="../assets/components/Volounteer-large/volounteer-large.js"></script>
     <script src="../assets/components/Service-large/service-large.js"></script>
     <script src="../assets/components/Footer/footer.js"></script>
+    <script src="../assets/components/Subnavbar/subnavbar.js"></script> 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcWn-3cQFw_mhJzIRKo7ewIOxqt-3Tkjg"></script>
     <script async src="../assets/js/pages/event.js"></script>
 </body>

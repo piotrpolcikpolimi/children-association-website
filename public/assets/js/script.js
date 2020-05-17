@@ -69,6 +69,14 @@ const global = {
         }
     },
 
+    scrollTo: (elementId) => {
+        const yOffset = -104; 
+        const element = document.getElementById(elementId);
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({top: y, behavior: 'smooth'});
+    },
+
     format_date_dd_Month_yyyy: (date) => {
         const dateObj = new Date(date);
         return `${dateObj.getDate()} ${dateObj.toLocaleString('en-US', { month: 'long' })} ${dateObj.getFullYear()}`;

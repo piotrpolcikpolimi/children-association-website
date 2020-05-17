@@ -129,6 +129,37 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
 }
 
+#subnavbar-slot {
+    position: fixed;
+    top: 61.53px;
+    left: 0;
+    display: none;
+    padding: 5px;
+    background-color: #F1EEEE;
+    color: #E14040;
+    justify-content: center;
+    width: 100vw;
+    z-index: 800;
+}
+
+.subnavbar-item {
+    font-family: Inter-Regular;
+    margin: 0 10px;
+    transition: .3s ease-in;
+}
+
+.subnavbar-item.active {
+    color: rgb(187, 10, 10);
+    text-decoration: underline;
+}
+
+
+.subnavbar-item:hover {
+    cursor: pointer;
+    color: rgb(0, 139, 231);
+}
+
+
 @keyframes loader {
     from {
         transform: translate(-50%, 50%) rotate(40deg);
@@ -169,25 +200,19 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+/* Track 
 ::-webkit-scrollbar {
-  width: 8px;
-  display: none;
+    background-color: rgba(248, 148, 148, 0.144);
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
+
+::-webkit-scrollbar-thumb {
+    background-color: #436c93;
 }
 
-/* Handle */
-    ::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+    background-color: #89a1b8;
+}*/
 
 
 @font-face {
@@ -239,5 +264,11 @@ h1, h2, h3, h4, h5, h6 {
 
     .rounded-arrow-bottom {
         clip-path: none;;
+    }
+}
+
+@media (min-width: 768px) {
+    #subnavbar-slot {
+        display: flex;
     }
 }

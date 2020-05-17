@@ -61,6 +61,9 @@ const parsePerson = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
+    // initialize subnavbar
+    subnavbar.init();
+
     $(document).ready(setTimeout(() => {global.loaded()},300));
 
 })();

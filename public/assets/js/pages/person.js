@@ -63,6 +63,9 @@ const parseService = (data) => {
         $('#event').css('display', 'none');
     }
 
+    // initialize subnavbar
+    subnavbar.init();
+
     $(document).ready(setTimeout(() => {global.loaded()},300));
 })();
 

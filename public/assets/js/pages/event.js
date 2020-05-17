@@ -48,6 +48,9 @@ const parseThumbnail = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services);
     global.appendTestimonials(testimonials);
 
+    // initialize subnavbar
+    subnavbar.init();
+
     $(document).ready(setTimeout(() => {global.loaded()},300));
 })();
 

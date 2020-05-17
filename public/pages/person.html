@@ -17,7 +17,8 @@
 <body>
     <div id="loader"><div id="animated-div"></div></div>
     <div id="navbar-slot"></div>
-    <div class="location-info">
+    <div id="subnavbar-slot"></div>
+    <div class="location-info" id="top" data-scroll="Top">
         <a href="../pages/persons.html"><span class="inactive">Person</span></a> /
         <span class="active" data-type="string" data-value="name">Person Name</span>
     </div>
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="bio-about">
-                <h2 class="subheader">About</h2>
+                <h2 class="subheader" id="about-header" data-scroll="About">About</h2>
                 <p data-type="string" data-value="thumbnail.thumbnail_desc"></p>
             </div>
         </div>
@@ -45,12 +46,12 @@
     <div id="content-slot">
         <div class="divider"></div>
         <div id="experience-section">
-            <h4 class="subheader">Experience</h4>
+            <h4 class="subheader" id="experience-header" data-scroll="Experience">Experience</h4>
             <p data-type="string" data-value="experience"></p>
         </div>
         <div class="section-wrapper">
         <div id="contact">
-            <h2 class="subheader">Contact</h2>
+            <h2 class="subheader" id="contact-header" data-scroll="Contact">Contact</h2>
             <div class="contact-section">
                 <div class="minicontainer-wrapper">
                     <div class="minicontainer">
@@ -84,20 +85,20 @@
     </div>
     <div id="testimonials">
         <div class="section-header-3">
-            <h4>Testimonials</h4>
+            <h4 id="testimonials-header" data-scroll="Testimonials">Testimonials</h4>
             <p>What people are saying about us. </br> Meet other's who love Children Association</p>
         </div>
         <div id="testimonial-slot"></div>
     </div>
     <div id="service" class="section-wrapper">
         <div class="section-header">
-            <h2>Involved in Services</h2>
+            <h2 id="services-header" data-scroll="Services">Involved in Services</h2>
         </div>
         <div id="services-slot"></div>
     </div>
     <div id="event">
         <div class="section-header">
-            <h2>Event Managed by <span>Jack McCanna</span></h2>
+            <h2 id="events-header" data-scroll="Managed Events">Event Managed by <span>Jack McCanna</span></h2>
         </div>
         <div id="events-slot"></div>
     </div>
@@ -114,6 +115,7 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/components/base-component.js"></script>
     <script src="../assets/components/Navbar/navbar.js"></script>
+    <script src="../assets/components/Subnavbar/subnavbar.js"></script> 
     <script src="../assets/components/Testimonial/testimonial.js"></script>
     <script src="../assets/components/Volounteer-large/volounteer-large.js"></script>
     <script src="../assets/components/Service-large/service-large.js"></script>
