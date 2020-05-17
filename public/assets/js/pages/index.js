@@ -62,7 +62,7 @@ const parsePerson = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
     // initialize subnavbar
-    subnavbar.init();
+
 
     new Waypoint({
         element: $('#hero')[0],
@@ -77,6 +77,9 @@ const parsePerson = (data) => {
         },
         offset: 60
     })
-    $(document).ready(setTimeout(() => {global.loaded()},300));
+
+    
+
+    $(document).ready(setTimeout(() => {subnavbar.init(); global.loaded()},300));
 
 })();
