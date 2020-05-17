@@ -65,7 +65,7 @@ const parsePerson = (data) => {
     subnavbar.init();
 
     new Waypoint({
-        element: $('#subnavbar-slot')[0],
+        element: $('#hero')[0],
         handler: (direction) => {
             const subnavbar = $('#subnavbar-slot');
             if (direction === 'down') {

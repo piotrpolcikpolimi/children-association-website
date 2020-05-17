@@ -44,7 +44,6 @@ exports.eventsGET = async function(offset, limit, country, month) {
                                             WHERE e.id_location = l.id AND
                                             l.country = '${country}'`))['rows'][0]['count'];
     } else if (month) {
-        console.log("here");
         events = (await sqlDb.raw(`SELECT e.id, e.id_thumbnail, e.id_location 
                                        FROM event as e 
                                        WHERE extract('month' from  e.date_time) = ${month}

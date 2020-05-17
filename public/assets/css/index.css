@@ -7,6 +7,7 @@
     background-image: url('/assets/images/hero.jpg');
     background-size: cover;
     background-position: top right;
+    margin-top: 62px;
 }
 
 #hero .wrapper {
