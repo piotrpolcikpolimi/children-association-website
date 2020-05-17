@@ -1,7 +1,7 @@
 class SubNavbarItem extends BaseComponent { }
 
 const subnavbar = {
-    init: async () => {
+    init: async (offset = 106) => {
         const elementName = 'subnavbar';
         let template = await global.getTemplate(`${elementName}`);
 
@@ -31,7 +31,7 @@ const subnavbar = {
                     subNavEl.removeClass('active');
                     subNavEl.prev().addClass('active');
                 },
-                offset: 106
+                offset: offset
             })
         })
     }

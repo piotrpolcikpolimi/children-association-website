@@ -62,8 +62,7 @@ const parsePerson = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
     // initialize subnavbar
-    subnavbar.init();
-
+    subnavbar.init(140);
 
     new Waypoint({
         element: $('#subnavbar-slot')[0],
