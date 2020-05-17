@@ -45,7 +45,7 @@
 }
 
 #subnavbar-slot {
-    position: initial;
+    left: 100%;
 }
 
 #intro-section {
