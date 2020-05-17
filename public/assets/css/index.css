@@ -44,6 +44,10 @@
     border-color: #FF7171;
 }
 
+#subnavbar-slot {
+    position: initial;
+}
+
 #intro-section {
     margin: 80px 0;
     display: flex;

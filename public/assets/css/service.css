@@ -110,6 +110,7 @@
 #services {
     padding: 50px 15px;
     background-color: #F1EEEE;
+    min-height: 610px;
 }
 
 #services-slot {

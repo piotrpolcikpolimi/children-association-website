@@ -64,6 +64,20 @@ const parsePerson = (data) => {
     // initialize subnavbar
     subnavbar.init();
 
+
+    new Waypoint({
+        element: $('#subnavbar-slot')[0],
+        handler: (direction) => {
+            const subnavbar = $('#subnavbar-slot')
+            if (direction === 'down') {
+                subnavbar.css({'position': 'fixed'});
+                return;
+            }
+            subnavbar.css('position', '');
+
+        },
+        offset: 60
+    })
     $(document).ready(setTimeout(() => {global.loaded()},300));
 
 })();
