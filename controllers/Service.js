@@ -14,8 +14,8 @@ module.exports.getServiceById = function getServiceById (req, res, next) {
     });
 };
 
-module.exports.servicesGET = function servicesGET (req, res, next) {
-  Service.servicesGET()
+module.exports.getServices = function getServices (req, res, next) {
+  Service.getServices()
     .then(function (response) {
       utils.writeJson(res, response);
     })

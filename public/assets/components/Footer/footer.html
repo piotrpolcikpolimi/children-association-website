@@ -30,13 +30,15 @@
         <div class="newsletter-signup">
             <h4>Get Notified!</h4>
             <p>Questions? Comments? Our Team is ready to help.</p>
-            <form>
+            <div id="newsletter-form-slot">
+            <form name="newsletterForm" id="newsletter-form" onsubmit="global.submitForm(event, 'newsletter-form-slot', [{'email':'newsletterForm.email'}], 'newsletter', 'Thank you for subscribing!')">
                 <div class="email-wrapper">
                     <i class="far fa-envelope fa-lg"></i>
-                    <input type="email" placeholder="Email" />
+                    <input name="email" type="email" placeholder="Email" />
                 </div>
-                <submit>Subscribe</submit>
+                <input class="submit" type="submit" id="submit" value="Subscribe"></input>
             </form>
+            </div>
         </div>
     </div>
     <div class="divider"></div>

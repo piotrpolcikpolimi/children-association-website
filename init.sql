@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS donation (
     id SERIAL PRIMARY KEY,
     amount FLOAT (2),
     practical_info TEXT,
-    timestamp TIMESTAMP
+    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS testimonial (
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS testimonial (
 CREATE TABLE IF NOT EXISTS newsletter_signups (
     id SERIAL PRIMARY KEY,
     email TEXT,
-    timestamp TIMESTAMP
+    timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS person_service (

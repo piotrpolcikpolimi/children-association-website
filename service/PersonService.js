@@ -67,15 +67,15 @@ exports.getPersonById =  async function(id) {
  * limit Long the number of persons to return (optional)
  * returns List
  **/
-exports.personsGET = async function(offset, limit) {
+exports.getPersons = async function(offset, limit) {
     const persons = await sqlDb('person').select('id', 'joining_date', 'role', 'id_thumbnail').offset(offset).limit(limit);
     const personsArray = await Promise.all(persons.map(async person => {
         const thumbnail = await getThumbnailById(person.id_thumbnail);
         return {
             id: person.id,
-            thumbnail: thumbnail,
+            role: person.role,
             joining_date: person.joining_date,
-            role: person.role
+            thumbnail: thumbnail
         }
     }));
 

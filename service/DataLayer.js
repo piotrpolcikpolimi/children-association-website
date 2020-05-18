@@ -20,6 +20,7 @@ let sqlDb = sqlDbFactory({
 function setupDataLayer() {
     return [
         utilsDbSetup(sqlDb),
+        donateDbSetup(sqlDb),
         locationDbSetup(sqlDb),
         personDbSetup(sqlDb),
         newsletterDbSetup(sqlDb),

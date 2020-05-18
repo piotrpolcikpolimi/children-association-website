@@ -138,6 +138,38 @@ const global = {
         });
     },
 
+    submitForm: async (e , form_id, fields,  endpoint, msg="Thank you for your message!") => {
+        e.preventDefault();
+        const data = new URLSearchParams();
+
+        fields.forEach(el => {
+            const key = Object.keys(el)[0];
+            data.append(key, _.get(document, `${el[key]}.value`));
+        });
+        //data.append('email', document.newsletterForm.email.value);
+
+        global.postData(endpoint, data, 'application/x-www-form-urlencoded')
+        .then(resp => {
+            global.updateForm(resp, msg, form_id);
+        });
+        const width = $(`#${form_id}`).width();
+        const height = $(`#${form_id}`).height();
+        $(`#${form_id}`).css({'height':height, 'width':width});
+
+    },
+
+    updateForm: (resp, msg, form_id) => {
+        if (resp.status === 200) {
+            $(`#${form_id}`).html(
+                `<span style="position:relative;top:30%; margin: 0 auto;">${msg}</span>`
+            );
+        } else {
+            $(`#${form_id}`).html(
+                '<span>Something went wrong. Please, try again later.</span>'
+            )
+        }
+    },
+
     loaded: () => {
         $('#loader div').css('display', 'none');
         $('#loader').animate({

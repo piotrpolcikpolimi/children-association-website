@@ -16,7 +16,7 @@ exports.locationDbSetup = function(s) {
     })
 }
 
-exports.locationsGET = function() {
+exports.getLocations = function() {
     return sqlDb('location');
 }
 

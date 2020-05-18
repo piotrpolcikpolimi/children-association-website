@@ -27,7 +27,7 @@ exports.eventDbSetup = function(s) {
  * limit Long the number of services to return (optional)
  * returns List
  **/
-exports.eventsGET = async function(offset, limit, country, month) {
+exports.getEvents = async function(offset, limit, country, month) {
     let events, total_number
     if (!offset) offset = 0;
     if (!limit) limit = 8;
@@ -68,7 +68,6 @@ exports.eventsGET = async function(offset, limit, country, month) {
         }
     }));
 
-
     return {
         events: eventsArray,
         meta: {
@@ -97,10 +96,10 @@ exports.getEventById = async function(id) {
         sqlDb('previous_years_statistics').where('id', event.id).select('n_children', 'n_contributors', 'amount')
     ]);
 
-    event.thumbnail = thumbnail;
     event.location = location;
-    event.statistics = statistics[0];
+    event.thumbnail = thumbnail;
     event.manager = manager;
+    event.statistics = statistics[0];
 
     [ event.services, event.testimonials ] = await Promise.all([
         Promise.all(services.map(service => getServiceThumbnailById(service.id_service))),
@@ -109,6 +108,7 @@ exports.getEventById = async function(id) {
 
     delete event['id_location'];
     delete event['id_thumbnail'];
+    delete event['id_person']
 
     return event;
 }

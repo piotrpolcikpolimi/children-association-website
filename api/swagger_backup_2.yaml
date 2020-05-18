@@ -29,6 +29,7 @@ tags:
 - name: "newsletter"
   description: "Newsletter signup operation"
 - name: "donate"
+  description: "Donation operation"
 schemes:
 - "https"
 - "http"
@@ -62,8 +63,6 @@ paths:
       summary: "Find a service by id"
       description: "Returns a service with a given id"
       operationId: "getServiceById"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       parameters:
@@ -89,7 +88,7 @@ paths:
       - "event"
       summary: "All available events"
       description: "Returns list of all the events"
-      operationId: "getEvents"
+      operationId: "eventsGET"
       produces:
       - "application/json"
       parameters:
@@ -163,7 +162,7 @@ paths:
       - "person"
       summary: "All available persons"
       description: "Returns list of all the persons"
-      operationId: "getPersons"
+      operationId: "personsGET"
       produces:
       - "application/json"
       parameters:
@@ -226,7 +225,7 @@ paths:
       - "location"
       summary: "All available locations"
       description: "Returns list of all the locations"
-      operationId: "getLocations"
+      operationId: "locationsGET"
       produces:
       - "application/json"
       parameters: []
@@ -252,13 +251,11 @@ paths:
       operationId: "sendContactFormPOST"
       consumes:
       - "application/x-www-form-urlencoded"
-      - "application/json"
       parameters:
       - name: "email"
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
       - name: "name"
         in: "formData"
         required: true
@@ -276,25 +273,6 @@ paths:
           description: "Internal server error"
       x-swagger-router-controller: "Contact"
   /newsletter:
-    get:
-      tags:
-      - "newsletter"
-      summary: "Get all newsletter signups"
-      description: "An endpoint that allows to see all newsletter signups."
-      operationId: "getNewsletterSignups"
-      parameters: []
-      responses:
-        "200":
-          description: "Newsletter signups retrieved succesfully"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Newsletter"
-        "404":
-          description: "Newsletter signups not found"
-        "500":
-          description: "Internal Server Error"
-      x-swagger-router-controller: "Newsletter"
     post:
       tags:
       - "newsletter"
@@ -303,13 +281,11 @@ paths:
       operationId: "newsletterSignup"
       consumes:
       - "application/x-www-form-urlencoded"
-      - "application/json"
       parameters:
       - name: "email"
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
       responses:
         "200":
           description: "Signup to newseletter successfully"
@@ -319,25 +295,6 @@ paths:
           description: "Internal server error"
       x-swagger-router-controller: "Newsletter"
   /donate:
-    get:
-      tags:
-      - "donate"
-      summary: "Get all donations"
-      description: "An endpoint that allows to see all donations."
-      operationId: "getDonations"
-      parameters: []
-      responses:
-        "200":
-          description: "Donations signups retrieved succesfully"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Donation"
-        "404":
-          description: "Donations not found"
-        "500":
-          description: "Internal Server Error"
-      x-swagger-router-controller: "Donate"
     post:
       tags:
       - "donate"
@@ -346,7 +303,6 @@ paths:
       operationId: "donatePOST"
       consumes:
       - "application/x-www-form-urlencoded"
-      - "application/json"
       parameters:
       - name: "amount"
         in: "formData"
@@ -365,11 +321,6 @@ paths:
         "500":
           description: "Internal server error"
       x-swagger-router-controller: "Donate"
-securityDefinitions:
-  ApiKeyAuth:
-    type: "apiKey"
-    name: "ApiKey"
-    in: "header"
 definitions:
   Service-list:
     type: "object"
@@ -443,10 +394,10 @@ definitions:
         location:
           country: "country"
           country_flag_icon: "country_flag_icon"
-          latitude: 5.637376656633329
+          latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
-          longitude: 2.3021358869347655
+          longitude: 2.3021358869347654518833223846741020679473876953125
         id: 1
       - thumbnail:
           thumbnail_desc: "thumbnail_desc"
@@ -456,10 +407,10 @@ definitions:
         location:
           country: "country"
           country_flag_icon: "country_flag_icon"
-          latitude: 5.637376656633329
+          latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
-          longitude: 2.3021358869347655
+          longitude: 2.3021358869347654518833223846741020679473876953125
         id: 1
   Event-list:
     type: "object"
@@ -482,10 +433,10 @@ definitions:
       location:
         country: "country"
         country_flag_icon: "country_flag_icon"
-        latitude: 5.637376656633329
+        latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
-        longitude: 2.3021358869347655
+        longitude: 2.3021358869347654518833223846741020679473876953125
       id: 1
   Event:
     type: "object"
@@ -508,18 +459,18 @@ definitions:
         $ref: "#/definitions/Location"
       thumbnail:
         $ref: "#/definitions/Thumbnail"
-      manager:
-        $ref: "#/definitions/Person-list"
-      statistics:
-        $ref: "#/definitions/Event_statistics"
-      services:
-        type: "array"
-        items:
-          $ref: "#/definitions/Service-list"
       testimonials:
         type: "array"
         items:
           $ref: "#/definitions/Testimonial"
+      manager:
+        $ref: "#/definitions/Person-list"
+      services:
+        type: "array"
+        items:
+          $ref: "#/definitions/Service-list"
+      previous_years_statistics:
+        $ref: "#/definitions/Event_previous_years_statistics"
       meta:
         $ref: "#/definitions/Meta"
     xml:
@@ -549,7 +500,7 @@ definitions:
           title: "title"
         role: "role"
         id: 1
-      price: 6.027456183070403
+      price: 6.02745618307040320615897144307382404804229736328125
       meta:
         total_number: 0
       name: "name"
@@ -557,10 +508,10 @@ definitions:
       location:
         country: "country"
         country_flag_icon: "country_flag_icon"
-        latitude: 5.637376656633329
+        latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
-        longitude: 2.3021358869347655
+        longitude: 2.3021358869347654518833223846741020679473876953125
       id: 0
       services:
       - thumbnail:
@@ -575,7 +526,7 @@ definitions:
           id: 6
           title: "title"
         id: 0
-      statistics:
+      previous_years_statistics:
         amount: 2
         n_contributors: 5
         n_children: 5
@@ -585,13 +536,13 @@ definitions:
       id:
         type: "integer"
         format: "int64"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
       role:
         type: "string"
       joining_date:
         type: "string"
         format: "date"
-      thumbnail:
-        $ref: "#/definitions/Thumbnail"
     xml:
       name: "Person-list"
     example:
@@ -625,69 +576,51 @@ definitions:
         type: "string"
       location:
         $ref: "#/definitions/Location"
-      contact:
-        $ref: "#/definitions/Person_contact"
+      thumbnail:
+        $ref: "#/definitions/Thumbnail"
       testimonials:
         type: "array"
         items:
           $ref: "#/definitions/Testimonial"
-      services:
-        type: "array"
-        items:
-          $ref: "#/definitions/Service-list"
-      thumbnail:
-        $ref: "#/definitions/Thumbnail"
       event:
         $ref: "#/definitions/Event-list"
+      contact:
+        $ref: "#/definitions/Person_contact"
     xml:
       name: "Person"
     example:
       joining_date: "2000-01-23"
+      testimonials:
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
+      - testimonial: "testimonial"
+        person_desc: "person_desc"
+        photo: "http://example.com/aeiou"
+        id: 6
       thumbnail:
         thumbnail_desc: "thumbnail_desc"
         thumbnail: "thumbnail"
         id: 6
         title: "title"
       role: "role"
-      description: "description"
-      services:
-      - thumbnail:
-          thumbnail_desc: "thumbnail_desc"
-          thumbnail: "thumbnail"
-          id: 6
-          title: "title"
-        id: 0
-      - thumbnail:
-          thumbnail_desc: "thumbnail_desc"
-          thumbnail: "thumbnail"
-          id: 6
-          title: "title"
-        id: 0
-      experience: "experience"
-      picture: "http://example.com/aeiou"
-      testimonials:
-      - testimonial: "testimonial"
-        person_desc: "person_desc"
-        photo: "http://example.com/aeiou"
-        id: 6
-      - testimonial: "testimonial"
-        person_desc: "person_desc"
-        photo: "http://example.com/aeiou"
-        id: 6
       contact:
         phone: "phone"
         starting_hours: "starting_hours"
         ending_hours: "ending_hours"
         email: "email"
       name: "name"
+      description: "description"
       location:
         country: "country"
         country_flag_icon: "country_flag_icon"
-        latitude: 5.637376656633329
+        latitude: 5.63737665663332876420099637471139430999755859375
         name: "name"
         id: 5
-        longitude: 2.3021358869347655
+        longitude: 2.3021358869347654518833223846741020679473876953125
       id: 0
+      experience: "experience"
       event:
         thumbnail:
           thumbnail_desc: "thumbnail_desc"
@@ -697,11 +630,12 @@ definitions:
         location:
           country: "country"
           country_flag_icon: "country_flag_icon"
-          latitude: 5.637376656633329
+          latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
-          longitude: 2.3021358869347655
+          longitude: 2.3021358869347654518833223846741020679473876953125
         id: 1
+      picture: "http://example.com/aeiou"
   Location:
     type: "object"
     properties:
@@ -726,10 +660,10 @@ definitions:
     example:
       country: "country"
       country_flag_icon: "country_flag_icon"
-      latitude: 5.637376656633329
+      latitude: 5.63737665663332876420099637471139430999755859375
       name: "name"
       id: 5
-      longitude: 2.3021358869347655
+      longitude: 2.3021358869347654518833223846741020679473876953125
   Thumbnail:
     type: "object"
     properties:
@@ -769,40 +703,6 @@ definitions:
       person_desc: "person_desc"
       photo: "http://example.com/aeiou"
       id: 6
-  Newsletter:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      email:
-        type: "string"
-      timestamp:
-        type: "string"
-        format: "date-time"
-    example:
-      id: 0
-      email: "email"
-      timestamp: "2000-01-23T04:56:07.000+00:00"
-  Donation:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      amount:
-        type: "number"
-        format: "double"
-      practical_info:
-        type: "string"
-      timestamp:
-        type: "string"
-        format: "date-time"
-    example:
-      amount: 6.027456183070403
-      practical_info: "practical_info"
-      id: 0
-      timestamp: "2000-01-23T04:56:07.000+00:00"
   Meta:
     type: "object"
     properties:
@@ -833,10 +733,10 @@ definitions:
         location:
           country: "country"
           country_flag_icon: "country_flag_icon"
-          latitude: 5.637376656633329
+          latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
-          longitude: 2.3021358869347655
+          longitude: 2.3021358869347654518833223846741020679473876953125
         id: 1
       - thumbnail:
           thumbnail_desc: "thumbnail_desc"
@@ -846,10 +746,10 @@ definitions:
         location:
           country: "country"
           country_flag_icon: "country_flag_icon"
-          latitude: 5.637376656633329
+          latitude: 5.63737665663332876420099637471139430999755859375
           name: "name"
           id: 5
-          longitude: 2.3021358869347655
+          longitude: 2.3021358869347654518833223846741020679473876953125
         id: 1
   inline_response_200_1:
     type: "object"
@@ -880,7 +780,7 @@ definitions:
         id: 1
       meta:
         total_number: 0
-  Event_statistics:
+  Event_previous_years_statistics:
     type: "object"
     properties:
       n_children:

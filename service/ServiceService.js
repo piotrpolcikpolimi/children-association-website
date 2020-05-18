@@ -46,7 +46,7 @@ exports.getServiceById = async function(id) {
  *
  * returns List
  **/
-exports.servicesGET = async function() {
+exports.getServices = async function() {
   const services = await sqlDb('service').select('id', 'id_thumbnail');
   return Promise.all(services.map(async service => {
       const thumbnail = await getThumbnailById(service.id_thumbnail);

@@ -8,3 +8,7 @@
     global.insertCSSToHead(elementName);
 
 }) ();
+
+const footer = {
+    
+}
