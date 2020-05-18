@@ -58,6 +58,7 @@
     padding: 12px 40px;
     transition: .3s ease-in;
     border: 3px solid #fff;
+    font-size: 0.75em;
 }
 
 .event-thumbnail .content-wrapper .event-button:hover {
@@ -121,6 +122,7 @@
 
     .event-thumbnail .content-wrapper .event-button {
         padding: 12px 28px;
+        font-size: 0.6em;
     }
 }
 
