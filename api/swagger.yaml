@@ -29,6 +29,9 @@ tags:
 - name: "newsletter"
   description: "Newsletter signup operation"
 - name: "donate"
+  description: "Donate monney to charity"
+- name: "API login"
+  description: "Login to have access to the API"
 schemes:
 - "https"
 - "http"
@@ -52,8 +55,6 @@ paths:
               $ref: "#/definitions/Service-list"
         "404":
           description: "Services not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Service"
   /services/{id}:
     get:
@@ -80,8 +81,6 @@ paths:
             $ref: "#/definitions/Service"
         "404":
           description: "Service with this id not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Service"
   /events:
     get:
@@ -128,8 +127,6 @@ paths:
             $ref: "#/definitions/inline_response_200"
         "404":
           description: "Events not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Event"
   /events/{id}:
     get:
@@ -154,8 +151,6 @@ paths:
             $ref: "#/definitions/Event"
         "404":
           description: "Event with this id not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Event"
   /persons:
     get:
@@ -191,8 +186,6 @@ paths:
             $ref: "#/definitions/inline_response_200_1"
         "404":
           description: "Persons not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Person"
   /persons/{id}:
     get:
@@ -217,8 +210,6 @@ paths:
             $ref: "#/definitions/Person"
         "404":
           description: "Person with this id not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Person"
   /locations:
     get:
@@ -239,8 +230,6 @@ paths:
               $ref: "#/definitions/Location"
         "404":
           description: "Testimonials not found"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Location"
   /contact:
     post:
@@ -258,7 +247,6 @@ paths:
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
       - name: "name"
         in: "formData"
         required: true
@@ -272,8 +260,6 @@ paths:
           description: "Message sent successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Contact"
   /newsletter:
     get:
@@ -292,8 +278,6 @@ paths:
               $ref: "#/definitions/Newsletter"
         "404":
           description: "Newsletter signups not found"
-        "500":
-          description: "Internal Server Error"
       x-swagger-router-controller: "Newsletter"
     post:
       tags:
@@ -309,14 +293,12 @@ paths:
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
+        pattern: "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
       responses:
         "200":
-          description: "Signup to newseletter successfully"
+          description: "Signed-up to newseletter successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Newsletter"
   /donate:
     get:
@@ -335,15 +317,13 @@ paths:
               $ref: "#/definitions/Donation"
         "404":
           description: "Donations not found"
-        "500":
-          description: "Internal Server Error"
       x-swagger-router-controller: "Donate"
     post:
       tags:
       - "donate"
       summary: "Donation form"
       description: "A really simplified endpoint imitating donation service."
-      operationId: "donatePOST"
+      operationId: "donatePost"
       consumes:
       - "application/x-www-form-urlencoded"
       - "application/json"
@@ -362,9 +342,30 @@ paths:
           description: "Donated successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Donate"
+  /login:
+    post:
+      tags:
+      - "API login"
+      summary: "Login to the api"
+      description: "Endpoint for logging in to receive API token"
+      operationId: "login"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/body"
+      responses:
+        "200":
+          description: "Logged in successfully"
+          schema:
+            $ref: "#/definitions/inline_response_200_2"
+        "404":
+          description: "User not found"
+      x-swagger-router-controller: "APILogin"
 securityDefinitions:
   ApiKeyAuth:
     type: "apiKey"
@@ -880,6 +881,21 @@ definitions:
         id: 1
       meta:
         total_number: 0
+  body:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        pattern: "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+      password:
+        type: "string"
+  inline_response_200_2:
+    type: "object"
+    properties:
+      apiKey:
+        type: "string"
+    example:
+      apiKey: "apiKey"
   Event_statistics:
     type: "object"
     properties:

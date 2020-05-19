@@ -6,8 +6,12 @@ const { newsletterDbSetup } = require('./NewsletterService');
 const { personDbSetup } = require('./PersonService'); 
 const { locationDbSetup } = require('./LocationService');
 const { utilsDbSetup } = require('./Utils'); 
+const { initializeUserService } = require('./UserService');
+const { initializeLoginService } = require('./APILoginService');
+
 
 const sqlDbFactory = require('knex');
+const redis_path = process.env.REDIS_URL;
 
 let sqlDb = sqlDbFactory({
     debug: true,
@@ -27,7 +31,9 @@ function setupDataLayer() {
         eventDbSetup(sqlDb),
         contactDbSetup(sqlDb),
         donateDbSetup(sqlDb),
-        serviceDbSetup(sqlDb)
+        serviceDbSetup(sqlDb),
+        initializeUserService(redis_path),
+        initializeLoginService(redis_path)
     ]
 }
 

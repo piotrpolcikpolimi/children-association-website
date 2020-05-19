@@ -39,9 +39,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
     // Serve the Swagger documents and Swagger UI
     app.use(middleware.swaggerUi({swaggerUi: '/backend/swaggerui'}));
 
-    app.use((req, res) => {
-
-    })
+    
 
     // Setup Data Layer
     Promise.all(setupDataLayer()).then(() => {

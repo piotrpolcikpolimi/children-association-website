@@ -1,7 +1,9 @@
 'use strict';
 
-var utils = require('../utils/writer.js');
-var Service = require('../service/ServiceService');
+const utils = require('../utils/writer.js');
+const Service = require('../service/ServiceService');
+const User = require('./Users');
+const roles = require('../_helpers/roles');
 
 module.exports.getServiceById = function getServiceById (req, res, next) {
   var id = req.swagger.params['id'].value;
@@ -15,7 +17,7 @@ module.exports.getServiceById = function getServiceById (req, res, next) {
 };
 
 module.exports.getServices = function getServices (req, res, next) {
-  Service.getServices()
+    Service.getServices()
     .then(function (response) {
       utils.writeJson(res, response);
     })
