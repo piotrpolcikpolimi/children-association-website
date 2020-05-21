@@ -1,0 +1,64 @@
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 40px
+}
+
+.content-wrapper .single-info {
+    padding: 36px 15px;
+}
+
+.content-wrapper .single-info p {
+    font-family: SegoeUI;
+    margin-bottom: 10px;
+}
+
+
+.content-wrapper .single-info .address-text {
+   /* line-height: 20px;*/
+}
+
+.content-wrapper .single-info .info-header {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: Inter-Bold;
+}
+
+.content-wrapper .single-info .info-header i {
+    display: inline;
+    padding-right: 5px;
+    color: #FF7171;
+}
+
+.content-wrapper .single-info .info-header h4  {
+    display: inline;
+    font-size: 1.2rem;
+}
+
+.content-wrapper .single-info .vertical-align {
+    justify-content: center;
+}
+
+.content-wrapper .single-info .vertical-align i {
+    color: #E14040;
+    padding: 0 10px;
+    transition: .3s ease-in;
+}
+
+.content-wrapper .single-info .vertical-align i:hover {
+    color: #FF7171;
+}
+
+.donation-container {
+    margin-bottom: 50px;
+}
+
+.donation-container img {
+    margin-top: 20px;
+    width: 100vw;
+    height: auto;
+}
