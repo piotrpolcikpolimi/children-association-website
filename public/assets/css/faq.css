@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     flex-direction: column;
-    margin-bottom: 100px;
+    margin-bottom: 160px;
     margin-left: 40px;
     margin-right: 20px
 }
@@ -36,7 +36,7 @@
 
 .questions-wrapper .single-question .question-header h4  {
     display: inline;
-    /*font-size: 1.7rem;*/
+    font-size: 1.2rem;
 }
 
 .questions-wrapper .single-question .vertical-align {
@@ -51,25 +51,4 @@
 
 .questions-wrapper .single-question .vertical-align i:hover {
     color: #FF7171;
-}
-
-.map-wrapper {
-    margin: 0 auto;
-    width: 90vw;
-    height: 400px;
-}
-
-.map-wrapper {
-    cursor: pointer;
-    margin-bottom: 50px;
-}
-
-.map-wrapper div {
-    pointer-events: none;
-}
-
-#question-form-slot {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
 }
