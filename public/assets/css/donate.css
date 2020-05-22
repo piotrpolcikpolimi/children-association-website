@@ -16,7 +16,6 @@
     margin-bottom: 10px;
 }
 
-
 .content-wrapper .single-info .address-text {
    /* line-height: 20px;*/
 }
@@ -53,12 +52,79 @@
     color: #FF7171;
 }
 
-.donation-container {
-    margin-bottom: 50px;
+#donation-container {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url('/assets/images/family.jpg');
+    background-size: cover;
+    background-position: top right;
 }
 
-.donation-container img {
-    margin-top: 20px;
-    width: 100vw;
-    height: auto;
+#donation-container .wrapper {
+    display: flex;
+    margin-left: 60px;
+    min-height: 380px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: rgba(240, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px 40px 20px 20px;
 }
+
+#donation-container .wrapper .donation-container-header p {
+    margin: 0;
+    font-family: Inter-Bold;
+    max-width: 20vw;
+    text-align: center;
+}
+
+#donation-container .wrapper .donation-container-subheader p {
+    margin: 0;
+    font-family: Inter-SemiBold;
+}
+
+#donation-container .wrapper .donationAmount {
+    display: flex;
+}
+
+#donation-container .wrapper .donationAmount .dollarBill{
+    border: solid 1px gray;
+    padding: 0px 5px;
+}
+
+#donation-container .wrapper .donation-container-cta {
+    padding: 15px;
+    border: 2px solid #ffffff;
+    font-family: Inter-SemiBold;
+    transition: .3s ease-in;
+}
+
+#donation-container .wrapper .donations {
+    display: flex;
+    flex-direction: row;
+    font-family: Inter-Regular;
+    color:gray
+}
+
+#donation-container .wrapper .personal-info {
+    color: gray;
+    font-family: Inter-SemiBold;
+}
+
+#donation-container .wrapper .personal-info .header-underline{
+    width: 300px;
+    height: 2px;
+    background-color: darkgray;
+    margin: 0 auto 20px;
+}
+
+
+#donation-container .wrapper .donation-container-cta:hover {
+    color: #FF7171;
+    border-color: #FF7171;
+}
+
+
