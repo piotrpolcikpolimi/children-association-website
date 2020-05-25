@@ -1,7 +1,7 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Location = require('../service/LocationService');
+var Location = require('../service/LocationsService');
 
 module.exports.getLocations = function locationsGET (req, res, next) {
   Location.getLocations()

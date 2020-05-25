@@ -1,12 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Donate = require('../service/DonateService');
+var Newsletter = require('../service/NewslettersService');
 
-module.exports.donatePost = function donatePOST (req, res, next) {
-  var amount = req.swagger.params['amount'].value;
-  var message = req.swagger.params['message'].value;
-  Donate.donatePost(amount,message)
+module.exports.getNewsletterSignups = function getNewsletterSignups (req, res, next) {
+  Newsletter.getNewsletterSignups()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -15,8 +13,9 @@ module.exports.donatePost = function donatePOST (req, res, next) {
     });
 };
 
-module.exports.getDonations = function getDonations (req, res, next) {
-  Donate.getDonations()
+module.exports.newsletterSignup = function newsletterSignup (req, res, next) {
+  var email = req.swagger.params['email'].value;
+  Newsletter.newsletterSignup(email)
     .then(function (response) {
       utils.writeJson(res, response);
     })

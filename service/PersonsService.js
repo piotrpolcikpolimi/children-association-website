@@ -5,7 +5,7 @@ let { getThumbnailById,
         getTestimonialById,
         getEventThumbnailById,
         getServiceThumbnailById } = require('./Utils'),
-        { getLocationById } = require('./LocationService');
+        { getLocationById } = require('./LocationsService');
 
 
 exports.personDbSetup = function(s) {

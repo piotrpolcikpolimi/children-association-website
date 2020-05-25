@@ -1,7 +1,7 @@
 'use strict';
 
 let sqlDb;
-const { getLocationById } = require('./LocationService');
+const { getLocationById } = require('./LocationsService');
 
 exports.utilsDbSetup = function (s) {
     sqlDb = s;

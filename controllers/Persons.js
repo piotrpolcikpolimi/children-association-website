@@ -1,7 +1,7 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Person = require('../service/PersonService');
+var Person = require('../service/PersonsService');
 
 module.exports.getPersonById = function getPersonById (req, res, next) {
   var id = req.swagger.params['id'].value;

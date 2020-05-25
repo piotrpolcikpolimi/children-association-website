@@ -1,11 +1,12 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Service = require('../service/ServiceService');
+var Donate = require('../service/DonationsService');
 
-module.exports.getServiceById = function getServiceById (req, res, next) {
-  var id = req.swagger.params['id'].value;
-  Service.getServiceById(id)
+module.exports.donatePost = function donatePOST (req, res, next) {
+  var amount = req.swagger.params['amount'].value;
+  var message = req.swagger.params['message'].value;
+  Donate.donatePost(amount,message)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -14,8 +15,8 @@ module.exports.getServiceById = function getServiceById (req, res, next) {
     });
 };
 
-module.exports.getServices = function getServices (req, res, next) {
-  Service.getServices()
+module.exports.getDonations = function getDonations (req, res, next) {
+  Donate.getDonations()
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -11,24 +11,23 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "children.docker"
+host: "children-association.herokuapp.com"
 basePath: "/v1"
 tags:
-- name: "service"
+- name: "Services"
   description: "All supported services"
-- name: "event"
+- name: "Events"
   description: "All organized events"
-- name: "person"
+- name: "Persons"
   description: "All volounteers in the organization"
-- name: "testimonials"
-  description: "All available testimonials"
-- name: "location"
+- name: "Locations"
   description: "All locations we operate in"
-- name: "contact"
+- name: "Contact"
   description: "Contact operation"
-- name: "newsletter"
+- name: "Newsletters"
   description: "Newsletter signup operation"
-- name: "donate"
+- name: "Donations"
+  description: "Donate monney to charity"
 schemes:
 - "https"
 - "http"
@@ -36,7 +35,7 @@ paths:
   /services:
     get:
       tags:
-      - "service"
+      - "Services"
       summary: "All available services"
       description: "Returns list of all services"
       operationId: "getServices"
@@ -52,13 +51,11 @@ paths:
               $ref: "#/definitions/Service-list"
         "404":
           description: "Services not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Service"
+      x-swagger-router-controller: "Services"
   /services/{id}:
     get:
       tags:
-      - "service"
+      - "Services"
       summary: "Find a service by id"
       description: "Returns a service with a given id"
       operationId: "getServiceById"
@@ -80,13 +77,11 @@ paths:
             $ref: "#/definitions/Service"
         "404":
           description: "Service with this id not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Service"
+      x-swagger-router-controller: "Services"
   /events:
     get:
       tags:
-      - "event"
+      - "Events"
       summary: "All available events"
       description: "Returns list of all the events"
       operationId: "getEvents"
@@ -128,13 +123,11 @@ paths:
             $ref: "#/definitions/inline_response_200"
         "404":
           description: "Events not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Event"
+      x-swagger-router-controller: "Events"
   /events/{id}:
     get:
       tags:
-      - "event"
+      - "Events"
       summary: "Find an event by id"
       description: "Returns an event with a given id"
       operationId: "getEventById"
@@ -154,13 +147,11 @@ paths:
             $ref: "#/definitions/Event"
         "404":
           description: "Event with this id not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Event"
+      x-swagger-router-controller: "Events"
   /persons:
     get:
       tags:
-      - "person"
+      - "Persons"
       summary: "All available persons"
       description: "Returns list of all the persons"
       operationId: "getPersons"
@@ -191,13 +182,11 @@ paths:
             $ref: "#/definitions/inline_response_200_1"
         "404":
           description: "Persons not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Person"
+      x-swagger-router-controller: "Persons"
   /persons/{id}:
     get:
       tags:
-      - "person"
+      - "Persons"
       summary: "Find a person by id"
       description: "Returns a person with a given id"
       operationId: "getPersonById"
@@ -217,13 +206,11 @@ paths:
             $ref: "#/definitions/Person"
         "404":
           description: "Person with this id not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Person"
+      x-swagger-router-controller: "Persons"
   /locations:
     get:
       tags:
-      - "location"
+      - "Locations"
       summary: "All available locations"
       description: "Returns list of all the locations"
       operationId: "getLocations"
@@ -239,13 +226,11 @@ paths:
               $ref: "#/definitions/Location"
         "404":
           description: "Testimonials not found"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Location"
+      x-swagger-router-controller: "Locations"
   /contact:
     post:
       tags:
-      - "contact"
+      - "Contact"
       summary: "Send a contact form"
       description: "Receive data that are conversed into an e-mail sent to the website\
         \ contact e-mail address"
@@ -258,7 +243,6 @@ paths:
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
       - name: "name"
         in: "formData"
         required: true
@@ -272,13 +256,11 @@ paths:
           description: "Message sent successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
       x-swagger-router-controller: "Contact"
-  /newsletter:
+  /newsletters:
     get:
       tags:
-      - "newsletter"
+      - "Newsletters"
       summary: "Get all newsletter signups"
       description: "An endpoint that allows to see all newsletter signups."
       operationId: "getNewsletterSignups"
@@ -292,12 +274,10 @@ paths:
               $ref: "#/definitions/Newsletter"
         "404":
           description: "Newsletter signups not found"
-        "500":
-          description: "Internal Server Error"
-      x-swagger-router-controller: "Newsletter"
+      x-swagger-router-controller: "Newsletters"
     post:
       tags:
-      - "newsletter"
+      - "Newsletters"
       summary: "Newsletter signup"
       description: "An endpoint that allows a visitor to signup to the newsletter."
       operationId: "newsletterSignup"
@@ -309,19 +289,17 @@ paths:
         in: "formData"
         required: true
         type: "string"
-        pattern: '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$'
+        pattern: "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
       responses:
         "200":
-          description: "Signup to newseletter successfully"
+          description: "Signed-up to newseletter successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Newsletter"
-  /donate:
+      x-swagger-router-controller: "Newsletters"
+  /donations:
     get:
       tags:
-      - "donate"
+      - "Donations"
       summary: "Get all donations"
       description: "An endpoint that allows to see all donations."
       operationId: "getDonations"
@@ -335,15 +313,13 @@ paths:
               $ref: "#/definitions/Donation"
         "404":
           description: "Donations not found"
-        "500":
-          description: "Internal Server Error"
-      x-swagger-router-controller: "Donate"
+      x-swagger-router-controller: "Donations"
     post:
       tags:
-      - "donate"
+      - "Donations"
       summary: "Donation form"
       description: "A really simplified endpoint imitating donation service."
-      operationId: "donatePOST"
+      operationId: "donatePost"
       consumes:
       - "application/x-www-form-urlencoded"
       - "application/json"
@@ -362,9 +338,7 @@ paths:
           description: "Donated successfully"
         "400":
           description: "Bad request"
-        "500":
-          description: "Internal server error"
-      x-swagger-router-controller: "Donate"
+      x-swagger-router-controller: "Donations"
 securityDefinitions:
   ApiKeyAuth:
     type: "apiKey"

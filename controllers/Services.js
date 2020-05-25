@@ -1,10 +1,11 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Newsletter = require('../service/NewsletterService');
+var Service = require('../service/ServicesService');
 
-module.exports.getNewsletterSignups = function getNewsletterSignups (req, res, next) {
-  Newsletter.getNewsletterSignups()
+module.exports.getServiceById = function getServiceById (req, res, next) {
+  var id = req.swagger.params['id'].value;
+  Service.getServiceById(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,9 +14,8 @@ module.exports.getNewsletterSignups = function getNewsletterSignups (req, res, n
     });
 };
 
-module.exports.newsletterSignup = function newsletterSignup (req, res, next) {
-  var email = req.swagger.params['email'].value;
-  Newsletter.newsletterSignup(email)
+module.exports.getServices = function getServices (req, res, next) {
+  Service.getServices()
     .then(function (response) {
       utils.writeJson(res, response);
     })

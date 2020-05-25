@@ -1,7 +1,7 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Event = require('../service/EventService');
+var Event = require('../service/EventsService');
 
 module.exports.getEvents = function getEvents (req, res, next) {
   var offset = req.swagger.params['offset'].value;

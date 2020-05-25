@@ -40,7 +40,7 @@ paths:
       - "service"
       summary: "All available services"
       description: "Returns list of all services"
-      operationId: "getServices"
+      operationId: "servicesGET"
       produces:
       - "application/json"
       parameters: []
@@ -250,7 +250,7 @@ paths:
         \ contact e-mail address"
       operationId: "sendContactFormPOST"
       consumes:
-      - "application/x-www-form-urlencoded"
+      - "application/json"
       parameters:
       - name: "email"
         in: "formData"
@@ -280,7 +280,7 @@ paths:
       description: "An endpoint that allows a visitor to signup to the newsletter."
       operationId: "newsletterSignup"
       consumes:
-      - "application/x-www-form-urlencoded"
+      - "application/json"
       parameters:
       - name: "email"
         in: "formData"
@@ -302,7 +302,7 @@ paths:
       description: "A really simplified endpoint imitating donation service."
       operationId: "donatePOST"
       consumes:
-      - "application/x-www-form-urlencoded"
+      - "application/json"
       parameters:
       - name: "amount"
         in: "formData"
