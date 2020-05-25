@@ -69,6 +69,7 @@ paths:
         description: "id of service to return"
         required: true
         type: "integer"
+        default: 1
         format: "int64"
       responses:
         "200":
@@ -139,6 +140,7 @@ paths:
         description: "id of event to return"
         required: true
         type: "integer"
+        default: 1
         format: "int64"
       responses:
         "200":
@@ -198,6 +200,7 @@ paths:
         description: "id of person to return"
         required: true
         type: "integer"
+        default: 1
         format: "int64"
       responses:
         "200":
