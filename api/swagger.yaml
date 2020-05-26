@@ -228,7 +228,7 @@ paths:
             items:
               $ref: "#/definitions/Location"
         "404":
-          description: "Testimonials not found"
+          description: "Locations not found"
       x-swagger-router-controller: "Locations"
   /contact:
     post:

@@ -1,32 +1,71 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Break the cycle of poverty</title>
-        <meta name="Children Association">
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        <link rel="shortcut icon" href="/assets/images/logo.png">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="../assets/css/style.css">
-    </head>
-    <body>
-        <div id="loader"><div id="animated-div"></div></div>
-        <div id="navbar-slot"></div>
-        <div class="location-info">
-            <span class="active">Payments</span>
+
+<head>
+    <meta charset="utf-8">
+    <title>Break the cycle of poverty</title>
+    <meta name="Children Association">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    <script src="https://kit.fontawesome.com/ec96508329.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/payments.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div></div>
+    </div>
+    <div id="navbar-slot"></div>
+    <div id="payment-wrapper">
+        <div class="payment-header">
+            Payment Details
         </div>
-        Payments
-        <div id="footer-slot"></div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
-        integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/components/Navbar/navbar.js"></script>
-        <script src="../assets/components/Footer/footer.js"></script>
-        <script>
-            $(document).ready(setTimeout(() => {global.loaded()},300));
-        </script>
-    </body>
+    </div>
+    <div class="creditcard-details">
+        <div class="input-block">
+            <label for="lname">Name on Card</label>
+            <input type="text" id="lname" name="firstname" placeholder="">
+        </div>
+        <div class="second-row">
+            <label for="lname">Credit Card Number</label>
+            <div class="icons">
+                <i class="fab fa-cc-paypal fa-2x"></i>
+                <i class="fab fa-cc-visa fa-2x"></i>
+                <i class="fab fa-cc-mastercard fa-2x"></i>
+            </div>
+        </div>
+        <input type="text" id="lname" name="firstname" placeholder="">
+        <div class="terceraFila">
+            <div class="subMenu">
+                <label for="lname">Expiry Date</label>
+                <input type="text" id="lname" name="firstname" placeholder="">
+            </div>
+            /
+            <div class="subMenu2">
+                <input type="text" id="lname" name="firstname" placeholder="Year">
+            </div>
+        </div>
+        <label for="lname">CCV</label>
+        <input type="text" id="lname" name="firstname" placeholder="">
+    </div>
+    <div id="footer-slot"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/components/Navbar/navbar.js"></script>
+    <script src="../assets/components/Footer/footer.js"></script>
+    <script>
+        $(document).ready(setTimeout(() => { global.loaded() }, 300));
+    </script>
+</body>
+
 </html>
