@@ -4,7 +4,7 @@
 
 let sqlDb;
 
-exports.contactDbSetup = function(s) {
+exports.contactDbSetup = function (s) {
     sqlDb = s;
     return sqlDb.schema.hasTable('contact').then(exists => {
         if (!exists) {
@@ -24,7 +24,7 @@ exports.contactDbSetup = function(s) {
  * message String 
  * no response value expected for this operation
  **/
-exports.sendContactFormPOST = async function(email,name,message) {
+exports.sendContactFormPOST = async function (email, name, message) {
     console.log(email, name, message)
 }
 

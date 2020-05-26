@@ -8,7 +8,7 @@ module.exports.getLocations = function locationsGET(req, res, next) {
         .then(function (response) {
             if (response.length === 0) {
                 res.writeHead(404);
-                res.end(); 1
+                res.end();
             } else {
                 utils.writeJson(res, response);
             }

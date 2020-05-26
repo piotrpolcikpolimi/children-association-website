@@ -2,10 +2,10 @@ const { serviceDbSetup } = require('./ServicesService');
 const { donateDbSetup } = require('./DonationsService');
 const { contactDbSetup } = require('./ContactService');
 const { eventDbSetup } = require('./EventsService');
-const { newsletterDbSetup } = require('./NewslettersService'); 
-const { personDbSetup } = require('./PersonsService'); 
+const { newsletterDbSetup } = require('./NewslettersService');
+const { personDbSetup } = require('./PersonsService');
 const { locationDbSetup } = require('./LocationsService');
-const { utilsDbSetup } = require('./Utils'); 
+const { utilsDbSetup } = require('./Utils');
 
 const sqlDbFactory = require('knex');
 

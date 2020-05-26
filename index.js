@@ -37,7 +37,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
     app.use(middleware.swaggerRouter(options));
 
     // Serve the Swagger documents and Swagger UI
-    app.use(middleware.swaggerUi({swaggerUi: '/backend/swaggerui'}));
+    app.use(middleware.swaggerUi({ swaggerUi: '/backend/swaggerui' }));
 
     app.use((req, res) => {
 

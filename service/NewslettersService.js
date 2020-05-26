@@ -3,7 +3,7 @@
 
 let sqlDb;
 
-exports.newsletterDbSetup = function(s) {
+exports.newsletterDbSetup = function (s) {
     sqlDb = s;
     return sqlDb.schema.hasTable('donation').then(exists => {
         if (!exists) {
@@ -20,8 +20,8 @@ exports.newsletterDbSetup = function(s) {
  *
  * returns List
  **/
-exports.getNewsletterSignups = function() {
-  return sqlDb('newsletter_signups');
+exports.getNewsletterSignups = function () {
+    return sqlDb('newsletter_signups');
 }
 
 
@@ -32,8 +32,8 @@ exports.getNewsletterSignups = function() {
  * email String 
  * no response value expected for this operation
  **/
-exports.newsletterSignup = function(email) {
-    return sqlDb('newsletter_signups').insert({email: email}).then(rsp => {
+exports.newsletterSignup = function (email) {
+    return sqlDb('newsletter_signups').insert({ email: email }).then(rsp => {
         return {};
     });
 }

@@ -10,11 +10,15 @@ module.exports.getEvents = function getEvents(req, res, next) {
     var month = req.swagger.params['month'].value;
     Event.getEvents(offset, limit, country, month)
         .then(function (response) {
-            utils.writeJson(res, response);
+            if (response.events.length === 0) {
+                res.writeHead(404);
+                res.end();
+            } else {
+                utils.writeJson(res, response);
+            }
         })
         .catch(function (response) {
-            res.writeHead(404);
-            res.end();
+            utils.writeJson(res, response);
         });
 };
 

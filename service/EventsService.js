@@ -1,14 +1,14 @@
 'use strict';
 
 let sqlDb;
-let { getThumbnailById, 
-        getTestimonialById,
-        getServiceThumbnailById,
-        getPersonThumbnailById } = require('./Utils'),
-        { getLocationById } = require('./LocationsService');
+let { getThumbnailById,
+    getTestimonialById,
+    getServiceThumbnailById,
+    getPersonThumbnailById } = require('./Utils'),
+    { getLocationById } = require('./LocationsService');
 
 
-exports.eventDbSetup = function(s) {
+exports.eventDbSetup = function (s) {
     sqlDb = s;
     return sqlDb.schema.hasTable('event').then(exists => {
         if (!exists) {
@@ -27,7 +27,7 @@ exports.eventDbSetup = function(s) {
  * limit Long the number of services to return (optional)
  * returns List
  **/
-exports.getEvents = async function(offset, limit, country, month) {
+exports.getEvents = async function (offset, limit, country, month) {
     let events, total_number
     if (!offset) offset = 0;
     if (!limit) limit = 8;
@@ -57,7 +57,7 @@ exports.getEvents = async function(offset, limit, country, month) {
     }
 
     const eventsArray = await Promise.all(events.map(async event => {
-        const [ thumbnail, location ] = await Promise.all([
+        const [thumbnail, location] = await Promise.all([
             getThumbnailById(event.id_thumbnail),
             getLocationById(event.id_location)
         ]);
@@ -85,8 +85,8 @@ exports.getEvents = async function(offset, limit, country, month) {
  * month Long a month to filter the events on (optional)
  * returns Event
  **/
-exports.getEventById = async function(id) {
-    let event = (await sqlDb('event').where('id', id).select('id','name','description','price','date_time', 'id_thumbnail', 'id_location', 'id_person'))[0];
+exports.getEventById = async function (id) {
+    let event = (await sqlDb('event').where('id', id).select('id', 'name', 'description', 'price', 'date_time', 'id_thumbnail', 'id_location', 'id_person'))[0];
     let [thumbnail, location, manager, services, testimonials, statistics] = await Promise.all([
         getThumbnailById(event.id_thumbnail),
         getLocationById(event.id_location),
@@ -101,10 +101,10 @@ exports.getEventById = async function(id) {
     event.manager = manager;
     event.statistics = statistics[0];
 
-    [ event.services, event.testimonials ] = await Promise.all([
+    [event.services, event.testimonials] = await Promise.all([
         Promise.all(services.map(service => getServiceThumbnailById(service.id_service))),
         Promise.all(testimonials.map(testimonial => getTestimonialById(testimonial.id_testimonial)))
-        ]);
+    ]);
 
     delete event['id_location'];
     delete event['id_thumbnail'];

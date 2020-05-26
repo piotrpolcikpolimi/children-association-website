@@ -5,7 +5,7 @@
 let sqlDb;
 
 
-exports.locationDbSetup = function(s) {
+exports.locationDbSetup = function (s) {
     sqlDb = s;
     return sqlDb.schema.hasTable('location').then(exists => {
         if (!exists) {
@@ -16,7 +16,7 @@ exports.locationDbSetup = function(s) {
     })
 }
 
-exports.getLocations = function() {
+exports.getLocations = function () {
     return sqlDb('location');
 }
 
@@ -27,12 +27,12 @@ exports.getLocations = function() {
  * id Long id of location to return
  * returns Location
  **/
-exports.getLocationById = function(id) {
+exports.getLocationById = function (id) {
     return new Promise((resolve, reject) => {
         sqlDb('location').where('id', id)
-        .then(location => {
-            resolve(location[0]);
-        });
+            .then(location => {
+                resolve(location[0]);
+            });
     });
 }
 
