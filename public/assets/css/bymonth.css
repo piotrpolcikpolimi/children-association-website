@@ -33,4 +33,10 @@
     font-family: SegoeUI;
 }
 
+@media (max-width: 1019px) {
+    #month-selectors-slot {
+        justify-content: center;
+    }
+}
+
 

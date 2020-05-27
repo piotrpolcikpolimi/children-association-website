@@ -18,11 +18,15 @@ class Pagination {
 
     render() {
         $('#pagination-slot').append(this.template);
-        $('#pagination-previous').css({display: 'none'});
-        $('#pagination-current').css({'border-left-width': '4px'});
+        $('#pagination-previous').addClass('inactive');
         if (this.limit >= this.max) {
-            $('#pagination-next').css({display: 'none'});
-            $('#pagination-current').css({'border-right-width': '4px'});
+            $('#pagination-next').addClass('inactive');
+        }
+
+        if (window.innerWidth < 769) {
+            $('#pagination-current').css({'font-size': '20px'});
+            $('#pagination-previous').addClass('fa-2x');
+            $('#pagination-next').addClass('fa-2x');
         }
 
     }
@@ -39,36 +43,33 @@ class Pagination {
             elements = _.get(data, this.lodashMatch).map(el => new this.constructor(this.parseDataFunction(el), ...this.constructorArgs));
         }
 
-        this.targetSlot.css({height: this.targetSlot.outerHeight()});
+        if (this.targetSlot.children().length >= elements.length) {
+            this.targetSlot.css({height: this.targetSlot.outerHeight()});
+        }
+
         this.targetSlot.animate({opacity: 0}, 300, () => { 
             this.targetSlot.empty();
             global.appendChildrenToSlot(this.targetSlot, elements);
-            this.targetSlot.css({height: ''});
-            this.targetSlot.animate({opacity: 1}, 300); 
+            this.targetSlot.animate({opacity: 1}, 300, () => {
+                this.targetSlot.css({height: ''});
+            }); 
         });
 
         this.updatePagination();
     }
 
     updatePagination() {
-        $('#pagination-current').html(this.offset+1);
-        $('#pagination-previous').html(this.offset);
-        $('#pagination-next').html(this.offset+2);
-
-        if (this.offset * this.limit + 1 >= parseInt(this.max)) {
-            $('#pagination-current').css({'border-right-width': '4px'});
-            $('#pagination-next').css({display: 'none'});
+        if (this.offset * this.limit + this.limit >= parseInt(this.max)) {
+            $('#pagination-next').addClass('inactive');
         } else {
-            $('#pagination-current').css({'border-right-width': '2px'});
-            $('#pagination-next').css({display: ''});
+            $('#pagination-next').removeClass('inactive');
         }
 
         if (this.offset > 0) {
-            $('#pagination-current').css({'border-left-width': '2px'});
-            $('#pagination-previous').css({display: ''});
+            $('#pagination-previous').removeClass('inactive');
         } else {
-            $('#pagination-current').css({'border-left-width': '4px'});
-            $('#pagination-previous').css({display: 'none'});
+            $('#pagination-previous').addClass('inactive');
         }
+        $('#pagination-current').html(this.offset+1);
     }
 }

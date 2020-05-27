@@ -156,7 +156,23 @@
     #footer-template {
         padding: 20px 40px 15px;
     }
+    #footer-template .first-row .footer-menu .footer-submenu h5 {
+        font-size: 1.6em;
+    }
+    .footer-submenu li {
+        font-size: 1.57em;
+        padding: 8px 0;
+    }
+    #footer-template .last-row .social-media {
+        width: 200px;
+    }
+    #footer-template .last-row img {
+        width: 36px;
+        height: 36px;
+    }
 }
+
+
 
 
 @media (max-width: 400px) {

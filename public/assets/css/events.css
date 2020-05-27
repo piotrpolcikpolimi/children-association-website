@@ -4,23 +4,3 @@
     align-items: center;
     padding: 20px 0 40px;
 }
-
-#pagination-slot {
-    margin-bottom: 70px;
-}
-
-#pagination {
-    position: relative;
-    left: 75%;
-}
-
-@media (max-width: 700px) {
-    #pagination-slot {
-        display: flex;
-        justify-content: center;
-    }
-    #pagination {
-        position: initial;
-        justify-content: center;
-    }
-}
