@@ -22,7 +22,7 @@
     <div id="navbar-slot"></div>
     <div id="payment-wrapper">
         <div class="payment-header">
-            Payment Details
+            <h5>Payment Details</h5>
         </div>
     </div>
     <div class="creditcard-details">
@@ -41,15 +41,36 @@
         <input type="text" id="lname" name="firstname" placeholder="">
         <div class="terceraFila">
             <div class="subMenu">
-                <label for="lname">Expiry Date</label>
-                <input type="text" id="lname" name="firstname" placeholder="">
+                <div>Expiry Date</div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Month
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item" type="button">January</button>
+                        <button class="dropdown-item" type="button">February</button>
+                        <button class="dropdown-item" type="button">March</button>
+                        <button class="dropdown-item" type="button">April</button>
+                        <button class="dropdown-item" type="button">May</button>
+                        <button class="dropdown-item" type="button">June</button>
+                        <button class="dropdown-item" type="button">July</button>
+                        <button class="dropdown-item" type="button">August</button>
+                        <button class="dropdown-item" type="button">September</button>
+                        <button class="dropdown-item" type="button">October</button>
+                        <button class="dropdown-item" type="button">November</button>
+                        <button class="dropdown-item" type="button">December</button>
+                    </div>
+                </div>
             </div>
-            /
+            <div class="separatingBar">
+                /
+            </div>
             <div class="subMenu2">
                 <input type="text" id="lname" name="firstname" placeholder="Year">
             </div>
         </div>
-        <label for="lname">CCV</label>
+        <label for="lname">CVV</label>
         <input type="text" id="lname" name="firstname" placeholder="">
     </div>
     <div id="footer-slot"></div>
