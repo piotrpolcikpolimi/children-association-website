@@ -7,6 +7,7 @@
     background-image: url('/assets/images/hero.jpg');
     background-size: cover;
     background-position: top right;
+    margin-top: 61.2px;
 }
 
 #hero .wrapper {
@@ -42,6 +43,10 @@
 #hero .wrapper .hero-cta:hover {
     color: #FF7171;
     border-color: #FF7171;
+}
+
+#subnavbar-slot {
+    left: 100%;
 }
 
 #intro-section {

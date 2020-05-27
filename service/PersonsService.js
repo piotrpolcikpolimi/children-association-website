@@ -2,13 +2,13 @@
 
 let sqlDb;
 let { getThumbnailById,
-        getTestimonialById,
-        getEventThumbnailById,
-        getServiceThumbnailById } = require('./Utils'),
-        { getLocationById } = require('./LocationService');
+    getTestimonialById,
+    getEventThumbnailById,
+    getServiceThumbnailById } = require('./Utils'),
+    { getLocationById } = require('./LocationsService');
 
 
-exports.personDbSetup = function(s) {
+exports.personDbSetup = function (s) {
     sqlDb = s;
     return sqlDb.schema.hasTable('person').then(exists => {
         if (!exists) {
@@ -26,8 +26,8 @@ exports.personDbSetup = function(s) {
  * id Long id of person to return
  * returns Person
  **/
-exports.getPersonById =  async function(id) {
-    let [ person, event, testimonials, services, contact ] = await Promise.all([
+exports.getPersonById = async function (id) {
+    let [person, event, testimonials, services, contact] = await Promise.all([
         sqlDb('person').where('id', id),
         sqlDb('event').where('id_person', id).select('id'),
         sqlDb('person_testimonial').where('id_person', id).select('id_testimonial'),
@@ -38,9 +38,9 @@ exports.getPersonById =  async function(id) {
 
     person.location = await getLocationById(person.id_location);
     person.contact = contact[0];
-    
 
-    [ person.testimonials, person.services, person.thumbnail, person.event, ] = await Promise.all([
+
+    [person.testimonials, person.services, person.thumbnail, person.event,] = await Promise.all([
         Promise.all(testimonials.map(testimonial => getTestimonialById(testimonial.id_testimonial))),
         Promise.all(services.map(service => getServiceThumbnailById(service.id_service))),
         getThumbnailById(person.id_thumbnail),
@@ -67,15 +67,15 @@ exports.getPersonById =  async function(id) {
  * limit Long the number of persons to return (optional)
  * returns List
  **/
-exports.personsGET = async function(offset, limit) {
+exports.getPersons = async function (offset, limit) {
     const persons = await sqlDb('person').select('id', 'joining_date', 'role', 'id_thumbnail').offset(offset).limit(limit);
     const personsArray = await Promise.all(persons.map(async person => {
         const thumbnail = await getThumbnailById(person.id_thumbnail);
         return {
             id: person.id,
-            thumbnail: thumbnail,
+            role: person.role,
             joining_date: person.joining_date,
-            role: person.role
+            thumbnail: thumbnail
         }
     }));
 

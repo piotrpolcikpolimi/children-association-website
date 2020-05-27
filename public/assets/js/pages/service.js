@@ -62,6 +62,7 @@ const parseServices = (services) => {
     global.appendChildrenToSlot(global.getTemplateSlot('events'), events);
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services);
 
-    $(document).ready(setTimeout(() => {global.loaded()},300));
+
+    $(document).ready(setTimeout(() => {subnavbar.init(); global.loaded()},300));
 
 })();

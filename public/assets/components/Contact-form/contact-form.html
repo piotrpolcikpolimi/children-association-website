@@ -1,4 +1,4 @@
-<form name="contactForm" id="contact-form" onsubmit="contact.submitForm(event)">
+<form name="contactForm" id="contact-form" onsubmit="global.submitForm(event, 'contact-form-slot', [{'name':'contactForm.name'},{'email':'contactForm.email'},{'message':'contactForm.message'}], 'contact')">
     <span>
         <i class="far fa-user-circle fa-lg"></i>
         <input name="name" type="text" placeholder="Name" required>

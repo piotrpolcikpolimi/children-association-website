@@ -7,15 +7,3 @@
     templateSlot.append($.parseHTML(template));
     global.insertCSSToHead(elementName);
 }) ();
-
-const contact = {
-    submitForm: (e) => {
-        e.preventDefault();
-        const data = {
-            name: document.contactForm.name.value,
-            email: document.contactForm.email.value,
-            message: document.contactForm.message.value
-        }
-        console.log(data);
-    }
-}

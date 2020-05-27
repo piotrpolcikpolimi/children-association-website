@@ -93,7 +93,7 @@
 }
 
 
-#footer-template .first-row .newsletter-signup form submit {
+#footer-template .first-row .newsletter-signup form .submit {
     background-color: #EEE8E8;
     border-width: 2px;
     text-align: center;
@@ -103,7 +103,7 @@
     padding: 10px;
 }
 
-#footer-template .first-row .newsletter-signup form submit:hover {
+#footer-template .first-row .newsletter-signup form .submit:hover {
     cursor: pointer;
 }
 

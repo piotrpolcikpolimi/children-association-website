@@ -1,0 +1,34 @@
+#pagination {
+    display: inline-flex;
+}
+.pagination-control {
+    border: 4px solid #E14040;
+    margin: 0;
+    padding: 1px 8px;
+    transition: .3s ease-in-out;
+}
+
+#pagination-previous {
+    border-right-width: 2px;
+}
+
+#pagination-current {
+    background-color: #FF7171;
+    color: white;
+    border-left-width: 2px;
+    border-right-width: 2px;
+}
+
+#pagination-next {
+    border-left-width: 2px;
+}
+
+.pagination-control:hover {
+    background-color: #FF7171;
+    color: white;
+    cursor: pointer;
+}
+
+#pagination-current:hover {
+    cursor: default;
+}

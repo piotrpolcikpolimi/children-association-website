@@ -8,6 +8,10 @@
     padding: 0 40px;
 }
 
+.location-info {
+    margin-top: 95px;
+}
+
 #section-divider {
     margin: 20px 0;
     width: 100vw;
@@ -106,6 +110,7 @@
 #services {
     padding: 50px 15px;
     background-color: #F1EEEE;
+    min-height: 610px;
 }
 
 #services-slot {
@@ -114,10 +119,18 @@
     justify-content: space-evenly;
 }
 
-
+@media (max-width: 850px) {
+    .subnavbar-item {
+        font-size: 0.85em;
+    }
+}
 @media (max-width: 768px) {
     #section-divider p {
         max-width: 90%;
+    }
+
+    .location-info {
+        margin-top: 60px;
     }
 
     #cta p {

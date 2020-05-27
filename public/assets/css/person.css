@@ -162,6 +162,10 @@
     align-items: center;
 }
 
+.location-info {
+    margin-top: 95px;
+}
+
 @media (min-width: 1100px) {
     #bio-block .bio-photo-large {
         display: initial;
@@ -195,7 +199,9 @@
 }
 
 @media (max-width: 768px) {
-
+    .location-info {
+        margin-top: 60px;
+    }
     #bio-block .bio-info .bio-about {
         width: 95%;
     }

@@ -61,6 +61,25 @@ const parsePerson = (data) => {
     global.appendChildrenToSlot(global.getTemplateSlot('services'), services)
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
 
-    $(document).ready(setTimeout(() => {global.loaded()},300));
+    // initialize subnavbar
+
+
+    new Waypoint({
+        element: $('#hero')[0],
+        handler: (direction) => {
+            const subnavbar = $('#subnavbar-slot');
+            if (direction === 'down') {
+                subnavbar.animate({'left': '0'});
+                return;
+            }
+            subnavbar.animate({'left': '100%'});
+
+        },
+        offset: 60
+    })
+
+    
+
+    $(document).ready(setTimeout(() => {subnavbar.init(); global.loaded()},300));
 
 })();

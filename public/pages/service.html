@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>Break the cycle of poverty</title>
     <meta name="Children Association">
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
     <link rel="shortcut icon" href="/assets/images/logo.png">
     <script src="https://kit.fontawesome.com/ec96508329.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -15,9 +16,12 @@
 </head>
 
 <body>
-    <div id="loader"><div></div></div>
+    <div id="loader">
+        <div id="animated-div"></div>
+    </div>
     <div id="navbar-slot"></div>
-    <div class="location-info">
+    <div id="subnavbar-slot"></div>
+    <div class="location-info" id="top" data-scroll="Top">
         <a href="../pages/events.html"><span class="inactive">Services</span></a> /
         <span class="active" data-type="string" data-value="name"></span>
     </div>
@@ -25,29 +29,30 @@
         <h2 data-type="string" data-value="name"></h2>
         <div class="header-underline"></div>
         <p>fighting poverty by <span class="stand-out">improving <span data-value="name"
-                    data-type="string">health</span></span></p>
+                    data-type="string"></span></span></p>
         <img data-type="image" data-value="header_photo" src="">
     </div>
     <div id="description">
-        <h5>How does your support help</h4>
+        <h5 id="cennter-activites-header" data-scroll="Center activites">How does your support help</h4>
             <p data-type="string" data-value="center_activities"></p>
     </div>
     <div id="section-divider">
         <p data-type="string" data-value="description"></p>
     </div>
     <div id="practical-info">
-        <h5>And Here Are Ways Your Support Makes Health Services Available And Affordable:</h2>
+        <h5 id="how-to-help-header" data-scroll="How to help">And Here Are Ways Your Support Makes Health Services
+            Available And Affordable:</h2>
             <p data-type="string" data-value="practical_info"></p>
     </div>
     <div id="testimonials">
         <div class="section-header-3">
-            <h4>Testimonials</h4>
+            <h4 id="testimonials-header" data-scroll="Testimonials">Testimonials</h4>
             <p>What people are saying about us. </br> Meet other's who love Children Association</p>
         </div>
         <div id="testimonial-slot"></div>
     </div>
     <div id="cta">
-        <p data-type="string" data-value="cta"></p>
+        <p id="give-today" data-scroll="Give today" data-type="string" data-value="cta"></p>
         <a id="donate" href="donate.html">Donate!</a>
         <div class="sub-text">
             <i class="fas fa-hand-point-right"></i><span>Interested in a closer cooperation?</span>
@@ -58,13 +63,13 @@
     </div>
     <div id="events">
         <div class="section-header-3">
-            <h4>Related Events</h4>
+            <h4 id="events-header" data-scroll="Related Events">Related Events</h4>
         </div>
         <div id="events-slot"></div>
     </div>
     <div id="services">
         <div class="section-header-3">
-            <h4>Find More Services</h4>
+            <h4 id="services-header" data-scroll="More Services">Find More Services</h4>
         </div>
         <div id="services-slot"></div>
     </div>
@@ -78,9 +83,12 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
         integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+        integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/components/base-component.js"></script>
     <script src="../assets/components/Navbar/navbar.js"></script>
+    <script src="../assets/components/Subnavbar/subnavbar.js"></script>
     <script src="../assets/components/Testimonial/testimonial.js"></script>
     <script src="../assets/components/Event-small/event-small.js"></script>
     <script src="../assets/components/Service-overlay/service-overlay.js"></script>
