@@ -242,6 +242,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1400px) {}
 @media (max-width: 768px) {
+    .location-info {
+        margin-top: 74px;
+    }
     .section-header-2 p {
         max-width: 600px;
         padding: 0 20px;
@@ -267,8 +270,29 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     #subnavbar-slot {
         display: flex;
+    }
+}
+
+#pagination-slot {
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#pagination {
+    position: relative;
+    left: 75%;
+}
+
+@media (max-width: 700px) {
+    #pagination-slot {
+        display: flex;
+        justify-content: center;
+    }
+    #pagination {
+        position: initial;
+        justify-content: center;
     }
 }

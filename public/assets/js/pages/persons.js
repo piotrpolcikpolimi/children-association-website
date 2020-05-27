@@ -9,9 +9,19 @@ const parsePerson = (data) => {
     }
 }
 
+const getPersonsLimit = () => {
+    let limit = 9;
+    if (window.innerWidth > 400 && window.innerWidth < 769) limit = 6;
+    if (window.innerWidth < 401) limit = 3;
+
+    return limit;
+}
+
 (async () => {
+    const limit = getPersonsLimit();
+    console.log(limit);
     // Fetch data
-    let volounteersData = await global.fetchData('/persons','offset=0&limit=9');
+    let volounteersData = await global.fetchData('/persons',`offset=0&limit=${limit}`);
     let volounteersTemplate;
 
     // Get data JSON, fetch template
@@ -26,6 +36,11 @@ const parsePerson = (data) => {
 
     // insert elements into DOM
     global.appendChildrenToSlot(global.getTemplateSlot('volounteers'), volounteers);
+
+    pagination = new Pagination('/persons', 'persons', limit, volounteersData.meta.total_number, global.getTemplateSlot('volounteers'), VolounteerSmall.prototype.constructor, ['volounteer-small', ['id', 'thumbnail', 'name', 'role', 'date_joined', 'thumbnail_desc'], volounteersTemplate], parsePerson);
+    pagination.initialize().then(() => {
+        pagination.render();
+    });
 
     $(document).ready(setTimeout(() => {global.loaded()},300));
 

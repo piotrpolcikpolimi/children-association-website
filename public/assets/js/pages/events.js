@@ -38,8 +38,16 @@ const setLocationInfo = (locations) => {
     locationInfo.html(html);
 }
 
+const getEventsLimit = () => {
+    let limit = 4;
+    if (window.innerWidth > 400 && window.innerWidth < 769) limit = 3;
+    if (window.innerWidth < 401) limit = 2;
+
+    return limit;
+}
+
 (async () => {
-    const limit = 4;
+    const limit = getEventsLimit();
     const queryParams = new URLSearchParams(window.location.search);
     let eventsData, eventsTemplate;
 
@@ -53,7 +61,15 @@ const setLocationInfo = (locations) => {
     } else {
         eventsData = await global.fetchData('/events', `offset=0&limit=${limit}`);
     }
-
+    if (eventsData.status === 404 && queryParams.get('month')) {
+        global.getTemplateSlot('events').append(`
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <p>No events are organized in this month</p>
+            <a href="bymonth.html" style="padding: 7px; border: 2px solid #FF7171; color: #FF7171; margin-top: 10px;">Go back</a>
+        </div>`);
+        $(document).ready(setTimeout(() => {global.loaded()},300));
+        return;
+    }
     // Get data JSON, fetch template
     [ eventsData, eventsTemplate ] = await Promise.all([
         eventsData.json(), global.getTemplate('event-large')]);
