@@ -1,0 +1,67 @@
+#payment-wrapper {
+    padding-bottom: 30px;
+}
+
+#payment-wrapper .payment-header {
+    font-family: Inter-SemiBold;
+    border-left: 1px #FF7171 solid;
+    margin-top: 90px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+}
+#payment-wrapper .payment-header h5{
+    padding-top: 20px;
+}
+
+.creditcard-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 20px;
+    border: gray 1px solid;
+    margin-left: 20px;
+    padding-right: 35px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 80px;
+    font-family: Inter-Regular;
+    padding-top: 20px;
+    min-height: 434px;
+}
+
+.creditcard-details .input-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.creditcard-details .second-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.creditcard-details .terceraFila {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.creditcard-details .terceraFila .separatingBar {
+    padding-top: 32px;
+}
+
+.creditcard-details .terceraFila .subMenu {
+    display: flex;
+    flex-direction: column;
+    font-family: Inter-Regular;
+}
+
+.creditcard-details .terceraFila .subMenu .dropdown .btn-secondary{
+    background-color: transparent;
+    color: black
+}
+
+.creditcard-details .terceraFila .subMenu2 {
+    margin-top: 32px
+}
