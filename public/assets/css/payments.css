@@ -1,5 +1,6 @@
 #payment-wrapper {
     padding-bottom: 30px;
+    margin-left: 20px;
 }
 
 #payment-wrapper .payment-header {
@@ -20,7 +21,7 @@
     justify-content: space-evenly;
     padding-left: 20px;
     border: gray 1px solid;
-    margin-left: 20px;
+    margin-left: 40px;
     padding-right: 35px;
     margin-right: 50px;
     margin-bottom: 20px;
@@ -51,17 +52,96 @@
     padding-top: 32px;
 }
 
-.creditcard-details .terceraFila .subMenu {
+.creditcard-details .terceraFila .left-half {
     display: flex;
     flex-direction: column;
     font-family: Inter-Regular;
+    flex: 1;
 }
 
-.creditcard-details .terceraFila .subMenu .dropdown .btn-secondary{
+.creditcard-details .terceraFila .left-half .dropdown .btn-secondary{
     background-color: transparent;
     color: black
 }
 
-.creditcard-details .terceraFila .subMenu2 {
-    margin-top: 32px
+.creditcard-details .terceraFila .right-half .subMenu2 {
+    margin-top: 32px;
+}
+
+.creditcard-details .terceraFila .right-half {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+input {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    /*
+    #hero {
+        background-image: url('/assets/images/hero-mobile.jpg');
+    }
+
+    #intro-section img {
+        max-height: 300px;
+    }
+
+    #intro-section .content {
+        max-width: 300px;
+    }
+
+    .section-header {
+        padding-left: 40px;
+    }
+
+    .section-transition {
+        font-size: 18px;
+    }
+    */
+}
+
+
+@media (max-width: 400px) {
+
+    .icons {
+        display: flex;
+    }
+
+    /*
+    #hero .wrapper {
+        min-height: 280px;
+    }
+
+    #hero .wrapper .hero-header p {
+        font-size: 28px;
+    }
+
+    #hero .wrapper .hero-subheader p {
+        font-size: 20px;
+    }
+
+    #hero .wrapper .hero-cta {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #intro-section img {
+        display: none;
+    }
+
+    #intro-section .content {
+        text-align: center;
+    }
+
+    #intro-section .content h2 {
+        margin-bottom: 40px;
+    }
+
+    .section-header {
+        padding: 0;
+        text-align: center;
+    }
+    */
 }
