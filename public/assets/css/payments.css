@@ -79,27 +79,7 @@ input {
 }
 
 @media (max-width: 768px) {
-    /*
-    #hero {
-        background-image: url('/assets/images/hero-mobile.jpg');
-    }
-
-    #intro-section img {
-        max-height: 300px;
-    }
-
-    #intro-section .content {
-        max-width: 300px;
-    }
-
-    .section-header {
-        padding-left: 40px;
-    }
-
-    .section-transition {
-        font-size: 18px;
-    }
-    */
+    
 }
 
 
@@ -109,39 +89,4 @@ input {
         display: flex;
     }
 
-    /*
-    #hero .wrapper {
-        min-height: 280px;
-    }
-
-    #hero .wrapper .hero-header p {
-        font-size: 28px;
-    }
-
-    #hero .wrapper .hero-subheader p {
-        font-size: 20px;
-    }
-
-    #hero .wrapper .hero-cta {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    #intro-section img {
-        display: none;
-    }
-
-    #intro-section .content {
-        text-align: center;
-    }
-
-    #intro-section .content h2 {
-        margin-bottom: 40px;
-    }
-
-    .section-header {
-        padding: 0;
-        text-align: center;
-    }
-    */
 }

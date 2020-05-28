@@ -109,6 +109,10 @@
     justify-content: space-between;
 }
 
+.dollarBill {
+    cursor: pointer;
+}
+
 #donation-container .wrapper .personal-info {
     color: gray;
     font-family: Inter-SemiBold;

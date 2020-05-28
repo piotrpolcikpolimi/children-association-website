@@ -55,22 +55,22 @@
                 <div class="dollarBill">
                     $
                 </div>
-                <input type="text" id="lname" name="lname">
+                <input type="text" id="donationField" name="lname">
             </div>
             <div class="donations">
-                <div class="dollarBill">
+                <div class="dollarBill" onclick="myFunction(20)">
                     $20
                 </div>
-                <div class="dollarBill">
+                <div class="dollarBill" onclick="myFunction(50)">
                     $50
                 </div>
-                <div class="dollarBill">
+                <div class="dollarBill" onclick="myFunction(100)">
                     $100
                 </div>
-                <div class="dollarBill">
+                <div class="dollarBill" onclick="myFunction(500)">
                     $500
                 </div>
-                <div class="dollarBill">
+                <div class="dollarBill" onclick="myFunction(1000)">
                     CUSTOM AMOUNT
                 </div>
             </div>
@@ -119,6 +119,12 @@
     <script src="../assets/components/Navbar/navbar.js"></script>
     <script src="../assets/components/Footer/footer.js"></script>
     <script src="../assets/js/pages/donate.js"></script>
+
+    <script>
+        function myFunction(value) {
+            document.getElementById("donationField").value = value;
+        }
+    </script>
 
 </body>
 
