@@ -109,8 +109,18 @@
     justify-content: space-between;
 }
 
-.dollarBill {
+.donationButton {
     cursor: pointer;
+    color: gray;
+    border: solid 1px gray;
+    padding: 0px 5px;
+    font-family: Inter-SemiBold;
+}
+
+.donationButton:hover {
+    color: black;
+    transition: .3s ease-in;
+    border: solid 1px black;
 }
 
 #donation-container .wrapper .personal-info {
