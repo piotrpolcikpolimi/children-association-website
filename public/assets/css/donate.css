@@ -156,6 +156,21 @@
     flex-direction: column;
 }
 
+#donation-container .wrapper .input-lastName-block {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+}
+
+#donation-container .wrapper .input-lastName-block input{
+   width: 100%;
+}
+
+#donation-container .wrapper .input-email-block {
+    display: flex;
+    flex-direction: column;
+}
+
 #donation-container .wrapper .details {
     display: flex;
     flex-direction: column;
@@ -163,7 +178,11 @@
 }
 
 #donation-container .wrapper .details .input-block input{
-    width: 60%
+    width: 100%;
+}
+
+#donation-container .wrapper .details .input-email-block input{
+    width: 43%;
 }
 
 #donation-container .wrapper .dollarBill {
@@ -182,6 +201,7 @@
 #donation-container .wrapper .donation-total .sub-donation-total {
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
 }
 
 #donation-container .wrapper .donation-total .sub-donation-total input{
@@ -202,6 +222,7 @@
     box-shadow: 15px 15px 42px -16px rgba(0,0,0,0.75);
     transition: .3s ease-in;
     border: 1px solid transparent;
+    margin: 5px;
 }
 
 @media (max-width: 768px) {
@@ -214,6 +235,41 @@
 
     #donation-container .wrapper {
         max-width: 414px;
+    }
+
+    #donation-container .wrapper .donation-total #donate {       
+        margin-top: 10px;
+    }
+
+    #donation-container .wrapper {
+        padding: 20px;
+    }
+
+    #donation-container .wrapper .donation-container-header p {
+        max-width: 30vw;
+    }
+
+    #donation-container .wrapper .donation-total .sub-donation-total {
+        padding-bottom: 5px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    #donation-container .wrapper {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 9px;
+    }
+    
+    #donation-container .wrapper .donation-container-header p {
+        margin-left: 50px;
+        max-width: 60vw;
+    }
+
+    #donation-container .wrapper .dollarBill {
+        font-size: 15px;
     }
 
 }
