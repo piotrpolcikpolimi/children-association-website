@@ -65,7 +65,7 @@ const getEventsLimit = () => {
         global.getTemplateSlot('events').append(`
         <div style="display: flex; flex-direction: column; align-items: center;">
             <p>No events are organized in this month</p>
-            <a href="bymonth.html" style="padding: 7px; border: 2px solid #FF7171; color: #FF7171; margin-top: 10px;">Go back</a>
+            <a href="bymonth.html" style="padding: 7px; border: 2px solid #CD4A47; color: #CD4A47; margin-top: 10px;">Go back</a>
         </div>`);
         $(document).ready(setTimeout(() => {global.loaded()},300));
         return;

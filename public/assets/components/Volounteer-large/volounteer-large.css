@@ -48,6 +48,11 @@
     margin-left: 15px;
 }
 
+.person-thumbnail .button {
+    color: #1A375C;
+    border-color: #1A375C;
+}
+
 @media (max-width: 1200px) {
     .person-thumbnail {
         justify-content: center;

@@ -34,7 +34,7 @@
             <form name="newsletterForm" id="newsletter-form" onsubmit="global.submitForm(event, 'newsletter-form-slot', [{'email':'newsletterForm.email'}], 'newsletters', 'Thank you for subscribing!')">
                 <div class="email-wrapper">
                     <i class="far fa-envelope fa-lg"></i>
-                    <input name="email" type="email" placeholder="Email" />
+                    <input aria-label="email input" name="email" type="email" placeholder="Email" />
                 </div>
                 <input class="submit" type="submit" id="submit" value="Subscribe"></input>
             </form>

@@ -152,10 +152,6 @@
     padding: 30px 0;
 }
 
-#event #events-slot .event-thumbnail .content-wrapper {
-    background-color: #436C93;
-}
-
 #events-slot {
     display: flex;
     flex-direction: column;
@@ -166,6 +162,14 @@
     margin-top: 95px;
 }
 
+.service-thumbnail h4 {
+    color: #1A375C !important;
+}
+
+.service-thumbnail .inner-wrapper .description .read-more {
+    color: #1A375C !important;
+    border-color: #1A375C !important;
+}
 @media (min-width: 1100px) {
     #bio-block .bio-photo-large {
         display: initial;

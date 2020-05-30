@@ -13,7 +13,7 @@
     width: 100vw;
     min-height: 200px;
     text-align: center;
-    background-color: #00B0D9;
+    background-color: #1A375C;
     color: #fff;
     display: flex;
     align-items: center;
@@ -48,20 +48,21 @@
 #cta {
     text-align: center;
     padding: 30px 0;
-    background-color: #00B0D9;
+    background-color: #1A375C;
     color: #fff;
 }
 
 #cta p {
     margin: 0 auto;
     max-width: 60vw;
+    background-color: #1A375C;
 }
 
 #donate {
     margin-top: 30px;;
     padding: 15px 60px;
     background-color: #E6C41E;
-    color: #127E97;
+    color: #1A375C;
     display: inline-block;
     -webkit-box-shadow: 15px 15px 42px -16px rgba(0,0,0,0.75);
     
