@@ -1,12 +1,12 @@
 <form name="contactForm" id="contact-form" onsubmit="global.submitForm(event, 'contact-form-slot', [{'name':'contactForm.name'},{'email':'contactForm.email'},{'message':'contactForm.message'}], 'contact')">
     <span>
         <i class="far fa-user-circle fa-lg"></i>
-        <input name="name" type="text" placeholder="Name" required>
+        <input aria-label="Name input" name="name" type="text" placeholder="Name" required>
     </span>
     <span>
         <i class="far fa-envelope fa-lg"></i>
-        <input name="email" type="email" placeholder="Email" required>
+        <input aria-label="Email input" name="email" type="email" placeholder="Email" required>
     </span>
-    <textarea name="message" rows="7" placeholder="Message..." required></textarea>
+    <textarea aria-label="Message input" name="message" rows="7" placeholder="Message..." required></textarea>
     <input class="submit" type="submit" value="Send"></input>
 </form>

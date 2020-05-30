@@ -53,7 +53,8 @@ a:hover {
 }
 
 .section-header-2 .stand-out {
-    color: #FF7171;
+    color: #CD4A47;
+    font-size: 20
 }
 
 .section-header-3 {
@@ -76,14 +77,14 @@ a:hover {
 .location-info {
     margin-top: 60px;
     margin-left: 60px;
-    color: #858585;
+    color: #313131;
     font-family: Inter-Regular;
     padding: 5px 20px;
     transition: .3s ease-in;
 }
 
 .location-info .active {
-    color: #3D3D3D
+    color: rgb(88, 88, 88)
 }
 
 .location-info .inactive:hover{
@@ -95,8 +96,8 @@ a:hover {
 }
 
 .button {
-    border: 2px solid #FF7171;
-    color: #FF7171;
+    border: 2px solid #CD4A47;
+    color: #CD4A47;
     transition: .3s ease-in;
 }
 
@@ -136,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     padding: 5px;
     background-color: #F1EEEE;
-    color: #E14040;
+    color: #363636;
     justify-content: center;
     width: 100vw;
     z-index: 800;

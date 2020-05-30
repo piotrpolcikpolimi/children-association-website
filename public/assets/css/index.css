@@ -18,18 +18,26 @@
     align-items: flex-start;
     justify-content: space-between;
     color: #ffffff;
+    background-color: transparent;
+}
+
+#hero .wrapper .hero-header  {
+    background-color: rgba(46, 46, 46, 0.01);
 }
 
 #hero .wrapper .hero-header p {
     margin: 0;
     font-size: 42px;
     font-family: Inter-Bold;
+    background-color: transparent;
+    background-color: rgba(46, 46, 46, 0.01);
 }
 
 #hero .wrapper .hero-subheader p {
     margin: 0;
     font-size: 24px;
     font-family: Inter-SemiBold;
+    background-color: rgba(46, 46, 46, 0.01);
 }
 
 #hero .wrapper .hero-cta {
@@ -38,6 +46,7 @@
     font-size: 20px;
     font-family: Inter-SemiBold;
     transition: .3s ease-in;
+    background-color: rgba(46, 46, 46, 0.01);
 }
 
 #hero .wrapper .hero-cta:hover {
@@ -111,7 +120,7 @@
     text-align: center;
     font-family: Inter-Regular;
     font-size: 25px;
-    color: #FF7171;
+    color: #CD4A47;
     text-decoration: underline;
     transition: .3s ease-in;
 }
