@@ -71,7 +71,7 @@
     justify-content: space-between;
     background: rgba(252, 250, 245, 0.9);
     border-radius: 20px;
-    padding: 20px 40px 20px 20px;
+    padding: 20px 25px 20px 20px;
 }
 
 #donation-container .wrapper .donation-container-header p {
@@ -202,6 +202,7 @@
     display: flex;
     flex-direction: row;
     padding-top: 10px;
+    margin-bottom: 3px;
 }
 
 #donation-container .wrapper .donation-total .sub-donation-total input{
@@ -222,11 +223,16 @@
     box-shadow: 15px 15px 42px -16px rgba(0,0,0,0.75);
     transition: .3s ease-in;
     border: 1px solid transparent;
-    margin: 5px;
+    margin: 10px 5px 5px 5px;
+    padding: 4px;
 }
 
 @media (max-width: 768px) {
     
+    #donation-container {
+        width: 138vw;
+    }
+
     #donation-container .wrapper .donation-total .sub-donation-total {
         display: flex;
         flex-direction: row;
@@ -239,6 +245,7 @@
 
     #donation-container .wrapper .donation-total #donate {       
         margin-top: 10px;
+        padding: 2px;
     }
 
     #donation-container .wrapper {
@@ -269,7 +276,11 @@
     }
 
     #donation-container .wrapper .dollarBill {
-        font-size: 15px;
+        font-size: 14px;
+    }
+
+    #donation-container .wrapper .donation-total #donate {
+        padding: 4px;
     }
 
 }
