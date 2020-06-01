@@ -25,10 +25,10 @@
             <h5>Payment Details</h5>
         </div>
     </div>
-    <div id="billingId" class="creditcard-details"> 
+    <div id="billingId" class="creditcard-details">
         <div class="input-block">
             <label id="nameId" for="nameid">Name on Card</label>
-            <input id="nameid" type="text" placeholder="" aria-labelledby="billingId nameId"/>
+            <input id="nameid" type="text" placeholder="" aria-labelledby="billingId nameId" />
         </div>
         <div class="second-row">
             <label id="ccn" for="lname">Credit Card Number</label>
@@ -67,14 +67,21 @@
                 <div class="separatingBar">
                     /
                 </div>
-                <div class="subMenu2">
-                    <label id="year">CVV</label>
+                <div id="year" class="subMenu2">
                     <input type="text" placeholder="Year" aria-labelledby="billingId year">
                 </div>
             </div>
         </div>
         <label id="cvv" for="cvv_input">CVV</label>
         <input id="cvv_input" type="text" placeholder="" aria-labelledby="billingId cvv">
+        <div class="twoButtons">
+            <button class="accept">
+                Accept
+            </button>
+            <button class="back">
+                Back
+            </button>
+        </div>
     </div>
     <div id="footer-slot"></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

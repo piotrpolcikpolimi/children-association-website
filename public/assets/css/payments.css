@@ -25,7 +25,7 @@
     padding-right: 35px;
     margin-right: 200px;
     margin-bottom: 20px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
     font-family: Inter-Regular;
     padding-top: 20px;
     min-height: 434px;
@@ -79,6 +79,31 @@
 
 input {
     width: 100%;
+}
+
+.creditcard-details .twoButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    font-family: Inter-Regular;
+    text-align: center;
+}
+
+.creditcard-details .twoButtons button{
+    border-radius: 10px;
+    width: 40%;
+}
+
+.creditcard-details .twoButtons .accept {
+    background-color: #005AEE;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.creditcard-details .twoButtons .back {
+    color: #005AEE;
+    background-color: white;
 }
 
 @media (max-width: 768px) {
