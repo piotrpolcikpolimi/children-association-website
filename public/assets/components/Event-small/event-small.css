@@ -11,14 +11,14 @@
 }
 
 .event-thumbnail img:hover {
-    border-color: #FF7171;
+    border-color: #CD4A47;
 }
 
 .content-wrapper {
     margin: 0;
     padding-left: 40px;
     max-width: 420px;
-    color: #FF7171;
+    color: #CD4A47;
 }
 
 .content-wrapper span {

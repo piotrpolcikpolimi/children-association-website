@@ -43,7 +43,22 @@ const global = {
                 window.open(`https://maps.google.com/?q=${coordinates[0].lat},${coordinates[0].lng}`, '_blank')
             })
         }
-        
+        global.addAltsToGoogleMapsImages(map);
+    },
+
+    addAltsToGoogleMapsImages: (map)  => {
+        google.maps.event.addListener(map, 'tilesloaded', function() {
+            const images = $('#map img');
+           
+            images.each((i, img) => {
+                img.alt = "Google maps image element";
+            });
+
+            const mapAreas = $('map area');
+            mapAreas.each((i, area) => {
+                area.alt = "Google maps map area";
+            });
+        })
     },
 
     fetchData: (endpoint, queryString = '') => {
@@ -177,5 +192,5 @@ const global = {
         }, 1000, function() {
             $('#loader').css('display', 'none');
         })
-    }
+    },
 }
