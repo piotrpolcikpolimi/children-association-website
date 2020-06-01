@@ -19,7 +19,7 @@ tags:
 - name: "Events"
   description: "All organized events"
 - name: "Persons"
-  description: "All volounteers in the organization"
+  description: "All volunteers in the organization"
 - name: "Locations"
   description: "All locations we operate in"
 - name: "Contact"
@@ -27,10 +27,9 @@ tags:
 - name: "Newsletters"
   description: "Newsletter signup operation"
 - name: "Donations"
-  description: "Donate monney to charity"
+  description: "Donate money to charity"
 schemes:
 - "https"
-- "http"
 paths:
   /services:
     get:
@@ -246,14 +245,17 @@ paths:
         in: "formData"
         required: true
         type: "string"
+        default: "example@email.com"
       - name: "name"
         in: "formData"
         required: true
         type: "string"
+        default: "John Doe"
       - name: "message"
         in: "formData"
         required: true
         type: "string"
+        default: "Hello, nice website!"
       responses:
         "200":
           description: "Message sent successfully"
@@ -292,6 +294,7 @@ paths:
         in: "formData"
         required: true
         type: "string"
+        default: "example@email.com"
         pattern: "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
       responses:
         "200":
@@ -331,22 +334,19 @@ paths:
         in: "formData"
         required: true
         type: "number"
+        default: 300.0
         format: "double"
       - name: "message"
         in: "formData"
         required: true
         type: "string"
+        default: "Hope this helps the kids!"
       responses:
         "200":
           description: "Donated successfully"
         "400":
           description: "Bad request"
       x-swagger-router-controller: "Donations"
-securityDefinitions:
-  ApiKeyAuth:
-    type: "apiKey"
-    name: "ApiKey"
-    in: "header"
 definitions:
   Service-list:
     type: "object"
