@@ -1,6 +1,6 @@
 #payment-wrapper {
     padding-bottom: 30px;
-    margin-left: 20px;
+    margin-left: 160px;
 }
 
 #payment-wrapper .payment-header {
@@ -21,9 +21,9 @@
     justify-content: space-evenly;
     padding-left: 20px;
     border: gray 1px solid;
-    margin-left: 40px;
+    margin-left: 180px;
     padding-right: 35px;
-    margin-right: 50px;
+    margin-right: 200px;
     margin-bottom: 20px;
     padding-bottom: 80px;
     font-family: Inter-Regular;
@@ -45,23 +45,27 @@
 .creditcard-details .terceraFila {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 .creditcard-details .terceraFila .separatingBar {
     padding-top: 32px;
+    padding-right: 10px;
 }
 
 .creditcard-details .terceraFila .left-half {
     display: flex;
     flex-direction: column;
     font-family: Inter-Regular;
-    flex: 1;
+    padding-right: 10px;
 }
 
 .creditcard-details .terceraFila .left-half .dropdown .btn-secondary{
     background-color: transparent;
-    color: black
+    color: black;
+    margin-top: 6px;
+    padding-bottom: 3px;
+    padding-top: 1px;
 }
 
 .creditcard-details .terceraFila .right-half .subMenu2 {
@@ -71,7 +75,6 @@
 .creditcard-details .terceraFila .right-half {
     display: flex;
     flex-direction: row;
-    flex: 1;
 }
 
 input {
