@@ -82,11 +82,27 @@ input {
 }
 
 @media (max-width: 768px) {
-    
+    #payment-wrapper {
+        margin-left: 80px;
+    }
+
+    .creditcard-details{
+        margin-left: 100px;
+        margin-right: 120px;
+    }
 }
 
 
 @media (max-width: 400px) {
+
+    #payment-wrapper {
+        margin-left: 20px;
+    }
+
+    .creditcard-details {
+        margin-left: 40px;
+        margin-right: 37px;
+    }
 
     .icons {
         display: flex;
