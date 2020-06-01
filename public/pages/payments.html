@@ -25,20 +25,20 @@
             <h5>Payment Details</h5>
         </div>
     </div>
-    <div class="creditcard-details">
+    <div id="billingId" class="creditcard-details"> 
         <div class="input-block">
-            <label for="lname">Name on Card</label>
-            <input type="text" id="lname" name="firstname" placeholder="">
+            <label id="nameId" for="nameid">Name on Card</label>
+            <input id="nameid" type="text" placeholder="" aria-labelledby="billingId nameId"/>
         </div>
         <div class="second-row">
-            <label for="lname">Credit Card Number</label>
+            <label id="ccn" for="lname">Credit Card Number</label>
             <div class="icons">
                 <i class="fab fa-cc-paypal fa-2x"></i>
                 <i class="fab fa-cc-visa fa-2x"></i>
                 <i class="fab fa-cc-mastercard fa-2x"></i>
             </div>
         </div>
-        <input type="text" id="lname" name="firstname" placeholder="">
+        <input type="text" placeholder="" aria-labelledby="billingId ccn">
         <div class="terceraFila">
             <div class="left-half">
                 <div>Expiry Date</div>
@@ -68,12 +68,13 @@
                     /
                 </div>
                 <div class="subMenu2">
-                    <input type="text" id="lname" name="firstname" placeholder="Year">
+                    <label id="year">CVV</label>
+                    <input type="text" placeholder="Year" aria-labelledby="billingId year">
                 </div>
             </div>
         </div>
-        <label for="lname">CVV</label>
-        <input type="text" id="lname" name="firstname" placeholder="">
+        <label id="cvv" for="cvv_input">CVV</label>
+        <input id="cvv_input" type="text" placeholder="" aria-labelledby="billingId cvv">
     </div>
     <div id="footer-slot"></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
