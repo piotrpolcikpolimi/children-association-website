@@ -161,7 +161,6 @@ const global = {
             const key = Object.keys(el)[0];
             data.append(key, _.get(document, `${el[key]}.value`));
         });
-        //data.append('email', document.newsletterForm.email.value);
 
         global.postData(endpoint, data, 'application/x-www-form-urlencoded')
         .then(resp => {
