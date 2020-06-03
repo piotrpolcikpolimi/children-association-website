@@ -71,14 +71,23 @@
     justify-content: space-between;
     background: rgba(252, 250, 245, 0.9);
     border-radius: 20px;
-    padding: 20px 25px 20px 20px;
+    padding: 20px 0 20px;
+}
+
+#donation-form {
+    display: flex;
+    max-width: 500px;
+    min-height: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 #donation-container .wrapper .donation-container-header p {
-    margin-left: 80px;
+    margin: 0 auto;
     font-family: Inter-Bold;
-    max-width: 20vw;
     text-align: center;
+    max-width: 300px;
 }
 
 #donation-container .wrapper .donation-container-subheader p {
@@ -87,6 +96,7 @@
 }
 
 #donation-container .wrapper .donationAmount {
+    margin: 20px 10px;
     display: flex;
 }
 
@@ -106,16 +116,19 @@
     display: flex;
     flex-direction: row;
     font-family: Inter-Regular;
+    flex-wrap: wrap;
     color:gray;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
 .donationButton {
     cursor: pointer;
     color: gray;
     border: solid 1px gray;
-    padding: 0px 5px;
+    padding: 0 5px;
     font-family: Inter-SemiBold;
+    text-align: center;
 }
 
 .donationButton:hover {
@@ -133,6 +146,10 @@
     height: 2px;
     background-color: darkgray;
     margin: 0 auto 20px;
+}
+
+#donation-container .wrapper .personal-info .subheader {
+    font-size: 14px;
 }
 
 #donation-container .wrapper .donation-container-cta:hover {
@@ -155,6 +172,12 @@
     display: flex;
     flex-direction: column;
 }
+
+#donation-container .wrapper .details label {
+    margin-bottom: 2px;
+    margin-top: 8px;
+}
+
 
 #donation-container .wrapper .input-lastName-block {
     display: flex;
@@ -224,15 +247,10 @@
     transition: .3s ease-in;
     border: 1px solid transparent;
     margin: 10px 5px 5px 5px;
-    padding: 4px;
+    padding: 12px;
 }
 
 @media (max-width: 768px) {
-    
-    #donation-container {
-        width: 138vw;
-    }
-
     #donation-container .wrapper .donation-total .sub-donation-total {
         display: flex;
         flex-direction: row;
@@ -244,25 +262,37 @@
     }
 
     #donation-container .wrapper .donation-total #donate {       
-        margin-top: 10px;
-        padding: 2px;
+        margin: 25px auto 0;
     }
 
     #donation-container .wrapper {
         padding: 20px;
     }
 
-    #donation-container .wrapper .donation-container-header p {
-        max-width: 30vw;
-    }
-
     #donation-container .wrapper .donation-total .sub-donation-total {
         padding-bottom: 5px;
     }
 
+    .donationButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .donationAmount {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #donation-container .wrapper .donationAmount {
+        margin-bottom: 10px;
+    }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
     #donation-container .wrapper {
         margin-left: 15px;
@@ -270,17 +300,15 @@
         padding: 9px;
     }
     
-    #donation-container .wrapper .donation-container-header p {
-        margin-left: 50px;
-        max-width: 60vw;
-    }
 
     #donation-container .wrapper .dollarBill {
         font-size: 14px;
     }
 
-    #donation-container .wrapper .donation-total #donate {
-        padding: 4px;
-    }
+}
 
+@media (max-width:400px) {
+    .donationButton {
+        margin-bottom: 10px;
+    }
 }
