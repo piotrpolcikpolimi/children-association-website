@@ -48,7 +48,8 @@
         <li>Deliverable D5: the address of the online source control repository
             is available at <a href="https://github.com/piotrpolcikpolimi/hypermedia-app">this address</a>. We hereby
             declare that this is a private repository and, upon request, we will
-            give access to the instructors.</li>
+            give access to the instructors. In commit history of the repo, 5 authors can be found. Three of them (Wiking, Piotrpolcikpolimi and WhereIsMyRum) belong to Piotr, as he was using different machines, with different GitHub API keys associated with them, WolfyPolo belongs to Samuel, while Nocturnehub belongs to Zahra.
+        </li>
     </ul>
     <h2>Specification</h2>
     <h3>Web architecture</h3>
@@ -66,7 +67,7 @@
             The JavaScript files are executed client-site upon loading and are responsible for fetching JSON data from the API, which is then used for rendering of the dynamic content. 
             So only part of the necessary HTML is being loaded from the static files, while the rest of pages is being fetched and rendered by the JavaScript.
             This saves the trouble of creating every single page as a static page, but client-side rendering has quite a few drawbacks, such as being more computationally heavy on the client side (since it's the browser who's doing all the heavy-lifting associated with content fetching and rendering),
-            and worse Search Enginge Optimization (SEO) performance. In general in our opinion next step should be to actually render the page dynamically, but server-side.</p>
+            and worse Search Engine Optimization (SEO) performance. In general in our opinion next step should be to actually render the page dynamically, but server-side.</p>
     </div>
     <h3>API</h3>
     <h4>REST compliance</h4>
@@ -115,7 +116,7 @@
             <li><b>Donation</b></li>
                 <p>Donation is a model used for representing a single donation</p>
             <li><b>Meta</b></li>
-                <p>Meta model is a non-stand-alone model, it must be associated with another model, and presents some meta information about a given model. In our case this information is the total number of events or persons, depeding on which model (events or persons) it is associated with</p>
+                <p>Meta model is a non-stand-alone model, it must be associated with another model, and presents some meta information about a given model. In our case this information is the total number of events or persons, depending on which model (events or persons) it is associated with</p>
         </ul>
     </div>
     <h3>Data model</h3>
@@ -217,6 +218,8 @@
     <div class="section">
         <ul>
             <li>Piotr - biggest learning outcome for me was with respect to the OpenAPI specification and creating swagger documentation, which was something I've never done before. Other than that it was the first time I implemented backend of an app without relying on any major framework, as well as a dynamic frontend using only Vanilla JS and jQuery. As for unanswered questions - most of the introduced concepts were already known to me, so that's not new, but I think that the OpenAPI specification and swagger will definitely come in handy later on.</li>
+            <li>Samuel - The most important learning outcome for me with respect to this part of the project was how to create the entire backend and connect it all to the frontend from scratch since in the past I was always relying on frameworks for it. Apart from that, this was my first time at designing responsive and Web accessibility applications (with the tool taught in class) for the front-end which I find very important since I think we should always design software for everybody, no matter the means. For unanswered questions, I knew the majority of concepts explained in the class but there's also room for improvement and research so, I see myself using a lot of what I have learned for my future projects and for testing how well other projects are.</li>
+            <li>Zahra – Designing a website with respect to usability aspects was a new experience to me it helped me to pay more attention to the components of the websites. Despite that my main task was designing, I learned from my teammates the process of REST-based web applications which fetching the data from the API and then displaying data in HTML.</li>
         </ul>
     </div>
 </body>
