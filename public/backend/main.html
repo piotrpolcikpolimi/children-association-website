@@ -48,7 +48,7 @@
         <li>Deliverable D5: the address of the online source control repository
             is available at <a href="https://github.com/piotrpolcikpolimi/hypermedia-app">this address</a>. We hereby
             declare that this is a private repository and, upon request, we will
-            give access to the instructors. In commit history of the repo, 5 authors can be found. Three of them (Wiking, Piotrpolcikpolimi and WhereIsMyRum) belong to Piotr, as he was using different machines, with different GitHub API keys associated with them, WolfyPolo belongs to Samuel, while Nocturnehub belongs to Zahra.
+            give access to the instructors. In commit history of the repo, 5 authors can be found. Three of them (Wiking, Piotrpolcikpolimi and WhereIsMyRum) belong to Piotr, as he was using different machines, with different GitHub API keys associated with them, WolflyPolo belongs to Samuel, while Nocturnehub belongs to Zahra.
         </li>
     </ul>
     <h2>Specification</h2>
@@ -66,7 +66,7 @@
         <p>Static assets contain only base HTML and CSS (and other assets irrelevant in this context) for all the pages, as well as the JavaScript files. 
             The JavaScript files are executed client-site upon loading and are responsible for fetching JSON data from the API, which is then used for rendering of the dynamic content. 
             So only part of the necessary HTML is being loaded from the static files, while the rest of pages is being fetched and rendered by the JavaScript.
-            This saves the trouble of creating every single page as a static page, but client-side rendering has quite a few drawbacks, such as being more computationally heavy on the client side (since it's the browser who's doing all the heavy-lifting associated with content fetching and rendering),
+            This saves the trouble of creating every single page as a static page, but client-side rendering has quite a few drawbacks, such as being more computationally heavy on the client side (since it is the browser who's doing all the heavy-lifting associated with content fetching and rendering),
             and worse Search Engine Optimization (SEO) performance. In general in our opinion next step should be to actually render the page dynamically, but server-side.</p>
     </div>
     <h3>API</h3>
@@ -78,8 +78,8 @@
     <div class="section">
         <p>According to the Richardson Maturity Model, our API is <b>Level 1</b> compliant.</p>
         <ul>
-            <li>Our API has multiple enpoints (so it's not Level 0)</li>
-            <li>Each resourse has a separate endpoint (Fig.1.), but requests are eighter GET or POST (so it's Level 1)</li>
+            <li>Our API has multiple endpoints (so it is not Level 0)</li>
+            <li>Each resource has a separate endpoint (Fig.1.), but requests are either GET or POST (so it is Level 1)</li>
         </ul>
         <p>We could've easily advanced our API to Level 2 of Richardson's Model, but for the purpose of this prototype it was not necessary.
             The content of the website will not be modified, nor we implement any sort of user interaction.
@@ -106,17 +106,17 @@
             <li><b>Person</b></li>
                 <p>Person model contains all the data associated with a given person, necessary to present it on the single person page.</p>
             <li><b>Location</b></li>
-                <p>Location is a mnodel containg all the relevant data for a specific location, where the association operates (country, city, country flag, coordinates)</p>
+                <p>Location is a model containg all the relevant data for a specific location, where the association operates (country, city, country flag, coordinates).</p>
             <li><b>Thumbnail</b></li>
-                <p>Thumbnail is a model shared across all the main models (Person, Service, Event) that contains some, but not necessarily all, data used to create a Person / Event / Service thumbnail</p>
+                <p>Thumbnail is a model shared across all the main models (Person, Service, Event) that contains some, but not necessarily all, data used to create a Person / Event / Service thumbnail.</p>
             <li><b>Testimonial</b></li>
-                <p>Testimonial is a model containt all the data associated with someone's testimonial regardin an event, service or a person</p>
+                <p>Testimonial is a model that contains all the data associated with someone's testimonial regarding an event, service or a person.</p>
             <li><b>Newsletter</b></li>
-                <p>Newsletter is a model used for repreesnting a single newsletter signup</p>
+                <p>Newsletter is a model used for representing a single newsletter sign up.</p>
             <li><b>Donation</b></li>
-                <p>Donation is a model used for representing a single donation</p>
+                <p>Donation is a model used for representing a single donation.</p>
             <li><b>Meta</b></li>
-                <p>Meta model is a non-stand-alone model, it must be associated with another model, and presents some meta information about a given model. In our case this information is the total number of events or persons, depending on which model (events or persons) it is associated with</p>
+                <p>Meta model is a non-stand-alone model, it must be associated with another model, and presents some meta information about a given model. In our case this information is the total number of events or persons, depending on which model (events or persons) it is associated with.</p>
         </ul>
     </div>
     <h3>Data model</h3>
@@ -132,7 +132,7 @@
             <li>Previous years statistics / Contact entities</li>
                 <p>As these are weak entities, they are included in the Event / Person models directly</p>
             <li>Meta OpenAPI model</li>
-                <p>This is an additional model that presents meta data regarding the whole table population (in this case, the number of rows). As such, it has no direct representation in the ER diagram</p>
+                <p>This is an additional model that presents metadata regarding the whole table population (in this case, the number of rows). As such, it has no direct representation in the ER diagram</p>
             <li>Service-list/Event-list/Person-list OpenAPI models</li>
                 <p>These models are a mix between the Thumbnail model and the Service, Event and Person models respectively. As the thumbnails (in the frontend) in some cases contain data that could not be included in the Thumbnail Entity itself, for the sake of the Entity robustness (so it could be used in all three models), we decided to create the OpenAPI models which provide all the necessary data using both the thumbnail and the respective entity data.</p>
         </ul>
@@ -143,14 +143,14 @@
         backend of the application.</p>
         <div class="section">
             <ul>
-                <li><a href="https://www.npmjs.com/package/connect">connect</a> - a simple framework that adds the <i>middleware</i> funcionality to Node.js</i></li>
+                <li><a href="https://www.npmjs.com/package/connect">connect</a> - a simple framework that adds the <i>middleware</i> functionality to Node.js</i></li>
                 <li><a href="https://www.npmjs.com/package/js-yaml">js-yaml</a> - an implementation of YAML parser</i></li>
                 <li><a href="https://www.npmjs.com/package/swagger-tools">swagger-tools</a> - various tools that can be used to integrate and interact with Swagger, to use OpenAPI documentation for creating the API</i></li>
                 <li><a href="https://www.npmjs.com/package/knex">knex</a> - a multi-dialect query builder that in our case was used to communicate with the PostgreSQL database</i></li>
                 <li><a href="https://www.npmjs.com/package/pg">pg</a> - a PostgreSQL client for node.js</i></li>
                 <li><a href="https://www.npmjs.com/package/serve-static">serve-static</a> - a node.js module that provides a middleware that can be used to serve static files fomr a given root directory. Used for serving the static files from our server</i></li>
-                <li><a href="https://www.nginx.com/">NGINX</a> - a WWW server and proxy used to simplify developement process</li>
-                <li><a href="https://www.docker.com/">A containerization environment, used fo simplifying the developement process</a></li>
+                <li><a href="https://www.nginx.com/">NGINX</a> - a WWW server and proxy used to simplify development process</li>
+                <li><a href="https://www.docker.com/">A containerization environment, used fo simplifying the development process</a></li>
 
             </ul>
         </div>
@@ -162,8 +162,8 @@
             endpoints against the expected response?</li>
             <div class="section">
                 <p>To make sure the web app follows the OpenAPI specification, a specification-first approach was taken.
-                    First the OpenAPI documentation / specification was generated using swagger. The a node.js server was generated using the provided tools. The application was then implemented using the auto-generated stubs, and all the necessary extra-functionality (like serving static files) was added later.
-                    This way the application must be compliant with the specification, as the specification itself applies it's constraints on the API. </br>
+                    First the OpenAPI documentation / specification was generated using swagger. The node.js server was generated using the provided tools. The application was then implemented using the auto-generated stubs, and all the necessary extra-functionality (like serving static files) was added later.
+                    This way the application must be compliant with the specification, as the specification itself applies its constraints on the API. </br>
                     To test if the API endpoints provide expected response, the <i>Postman</i> as well as the <i>swaggerui</i> was used to query all the api endpoints, to later match them against expected result and compare manually.
                 </p>
             </div>
@@ -171,7 +171,7 @@
             partition a REST-based web application (static assets vs.
             application data)</li>
             <div class="section">
-                <p>Static HTML pages contain only the elements that are the same accross all instances of a given page, such as navigation bar, footer, section headers, etc.
+                <p>Static HTML pages contain only the elements that are the same across all instances of a given page, such as navigation bar, footer, section headers, etc.
                     All the other data that is dynamic and depends on a given element that is being loaded, is rendered dynamically, by first fetching the data from the API and then embedding it into the HTML using JavaScript.
                 </p>
             </div>
@@ -179,7 +179,7 @@
             what are the state change triggering actions (e.g., POST to login
             etc.).</li>
         <div class="section">
-            <p>The content of the website in no way depends on user input, and no login funcionality was implemented, meaning that it was not necessary to implement session state management. Therefore it was omitted.</p>
+            <p>The content of the website in no way depends on user input, and no login functionality was implemented, meaning that it was not necessary to implement session state management. Therefore, it was omitted.</p>
         </div>
         <li>Which technology did you use (relational or a no-SQL database) for
             managing the data model?</li>
@@ -206,8 +206,8 @@
         shown during lectures are not a valid response.
     </p>
     <div class="section">
-        <p>The simplicity of the implemented API made it rather hard to use any of the existing APIs as an inspiration. However, one of our favourite API examples it the <a href="https://developer.github.com/v3/">GitHub API</a>.
-            As GitHub is one of the most widely used service for the Git version control. As it's used by hundreds of companies from all over the word, their API is very robust in order to provide countless integration possibilities,
+        <p>The simplicity of the implemented API made it rather hard to use any of the existing APIs as an inspiration. However, one of our favorite API examples it the <a href="https://developer.github.com/v3/">GitHub API</a>.
+            As GitHub is one of the most widely used service for the Git version control. As it is used by hundreds of companies from all over the world, their API is very robust in order to provide countless integration possibilities,
             that make every day developer's work easier. What's extraordinary about GitHub API , in our opinion, is how well it is documented. All the endpoints have extensive descriptions, regarding both the data returned as well as the numerous input parameters that can be used.
             All that makes the GitHub API extremely useful, and in our opinion, worth taking as a model example of a proper API design and documentation.
         </p>
@@ -219,7 +219,7 @@
     </p>
     <div class="section">
         <ul>
-            <li>Piotr - biggest learning outcome for me was with respect to the OpenAPI specification and creating swagger documentation, which was something I've never done before. Other than that it was the first time I implemented backend of an app without relying on any major framework, as well as a dynamic frontend using only Vanilla JS and jQuery. As for unanswered questions - most of the introduced concepts were already known to me, so that's not new, but I think that the OpenAPI specification and swagger will definitely come in handy later on.</li>
+            <li>Piotr - The biggest learning outcome for me was with respect to the OpenAPI specification and creating swagger documentation, which was something I've never done before. Other than that it was the first time I implemented backend of an app without relying on any major framework, as well as a dynamic frontend using only Vanilla JS and jQuery. As for unanswered questions - most of the introduced concepts were already known to me, so that's not new, but I think that the OpenAPI specification and swagger will definitely come in handy later on.</li>
             <li>Samuel - The most important learning outcome for me with respect to this part of the project was how to create the entire backend and connect it all to the frontend from scratch since in the past I was always relying on frameworks for it. Apart from that, this was my first time at designing responsive and Web accessibility applications (with the tool taught in class) for the front-end which I find very important since I think we should always design software for everybody, no matter the means. For unanswered questions, I knew the majority of concepts explained in the class but there's also room for improvement and research so, I see myself using a lot of what I have learned for my future projects and for testing how well other projects are.</li>
             <li>Zahra – Designing a website with respect to usability aspects was a new experience to me it helped me to pay more attention to the components of the websites. Despite that my main task was designing, I learned from my teammates the process of REST-based web applications which fetching the data from the API and then displaying data in HTML.</li>
         </ul>

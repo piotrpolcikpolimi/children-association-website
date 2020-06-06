@@ -118,7 +118,15 @@
     justify-content: space-evenly;
 }
 
+.location-info {
+    margin-top: 95px
+}
 
+@media (max-width: 800px) {
+    #subnavbar-slot {
+        font-size: 14px;
+    }
+}
 @media (max-width: 768px) {
     #section-divider p {
         max-width: 90%;
@@ -126,5 +134,9 @@
 
     #cta p {
         max-width: 90vw;
+    }
+
+    .location-info {
+        margin-top: 60px;
     }
 }
