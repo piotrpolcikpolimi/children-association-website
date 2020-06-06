@@ -190,11 +190,14 @@ INSERT INTO previous_years_statistics (id, n_children, n_contributors, amount) V
 INSERT INTO testimonial (person_desc, testimonial, photo) VALUES
 ('Joel Lambert, CA World-changer <br> (Also a former navy seal and actor)','“Being a sponsor humbles me. It takes my eyes off of myself for a moment and allows me to do what I can to facilitate another’s journey. Even in such a small way ... It’s a chance to be a bit bigger than myself.”','/assets/images/testimonials/1/thumb.jpg'),
 ('Amer V., CA World-changer since 2004 </br> (Also world-renowned opera singer)', '“Kids just want to be kids no matter where in the world you are. CI makes a tremendous difference in their lives offering them education, health care, opportunities and a chance to just have fun.”', '/assets/images/testimonials/2/thumb.jpg'),
-('Lou L., CA World-changer</br>Contributed in 2019 Trek event', '“I think CI opens the child’s eyes to the possibilities and their true potential, participating in event managed by Jack Mccanna was a nice experience and unforgettable ”', '/assets/images/testimonials/3/thumb.jpg'),
-('Patricia D., CA World-changer</br>Contributed in 2019 Trek event', '“CA always makes me feel part of something special. The trek event organized by John was extremely professional, and I''d love to do it again.”', '/assets/images/testimonials/4/thumb.jpg'),
-('Shannon D., CA World-changer</br>Contributed in 2019 Trek event', '“Knowing that I have the ability to make life better for somebody else is a powerful thing. I participated in this event beside having fun and finding friends, I think ‘I helped children and I actually made a difference.’ It’s an amazing feeling.”', '/assets/images/testimonials/5/thumb.jpg'),
-('Frank N., CA World-changer </br>Contributed in 2019 Trek event', '“I love supporting your cause. I have been where these children are, and I feel everyone on this earth should have a heart to serve and give to each other. I enjoyed this event, amazing experience .”', '/assets/images/testimonials/6/thumb.jpg'),
-('Shazara K., CA World-changer</br>Contributed in 2019 Trek event', '“I became a sponsor to reach out to give back. I am not wealthy, but if I can take a little from what I have each month to help a child in need no matter how small to me, it’s worth it.”', '/assets/images/testimonials/7/thumb.jpg');
+('Lou L., CA World-changer</br>Contributed in 2018 Trek event', '“I think CI opens the child’s eyes to the possibilities and their true potential, participating in event managed by Jack Mccanna was a nice experience and unforgettable ”', '/assets/images/testimonials/3/thumb.jpg'),
+('Patricia D., CA World-changer</br>Contributed in 2017 Cycling Event', '“CA always makes me feel part of something special. The cycling event organized by Laura was extremely professional, and I''d love to do it again.”', '/assets/images/testimonials/4/thumb.jpg'),
+('Shannon D., CA World-changer</br>', '“Knowing that I have the ability to make life better for somebody else is a powerful thing. I participated in this event beside having fun and finding friends, I think ‘I helped children and I actually made a difference.’ It’s an amazing feeling.”', '/assets/images/testimonials/5/thumb.jpg'),
+('Frank N., CA World-changer </br>Child sponsor', '“I love supporting your cause. I have been where these children are, and I feel everyone on this earth should have a heart to serve and give to each other. I enjoyed this event, amazing experience .”', '/assets/images/testimonials/6/thumb.jpg'),
+('Shazara K., CA World-changer</br>Contributed in 2019 Trek event', '“I became a sponsor to reach out to give back. I am not wealthy, but if I can take a little from what I have each month to help a child in need no matter how small to me, it’s worth it.”', '/assets/images/testimonials/7/thumb.jpg'),
+('Tim Nichols., CA World-changer</br>CEO of America for Children', '“I love the work that CA is doing. They are making all the difference, and we at America of Children are glad we can cooperate with them!”', '/assets/images/testimonials/8/thumb.jpg'),
+('Mark Colgan., CA World-changer</br>Long supporter', '“I started my volounteer work with CA< and although I never got strongly tied to the organization, I love showing my support every once in a while, as the organization does great and noble things.”', '/assets/images/testimonials/9/thumb.jpg');
+
 
 
 INSERT INTO person_service (id_person, id_service) VALUES
@@ -207,7 +210,7 @@ INSERT INTO event_testimonial (id_testimonial, id_event) VALUES
 (2,2),(3,1),(4,3),(5,4),(6,4);
 
 INSERT INTO person_testimonial (id_testimonial, id_person) VALUES 
-(1,1),(2,3),(3,4),(4,4),(5,6),(6,8);
+(1,1),(2,2),(4,3),(3,4),(5,5),(6,6),(7,7),(8,8),(9,9);
 
 INSERT INTO service_testimonial (id_testimonial, id_service) VALUES
 (1,1),(2,1),(3,2),(4,3),(5,4),(6,3);
